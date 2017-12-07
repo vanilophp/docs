@@ -1,0 +1,26 @@
+- Prologue
+    - [Release Notes](/docs/{{version}}/releases)
+    - [Roadmap](/docs/{{version}}/roadmap)
+    - [Contribution Guide](/docs/{{version}}/contributions)
+- Getting Started
+    - [Installation](/docs/{{version}}/installation)
+    - [Configuration](/docs/{{version}}/configuration)
+- Architecture Concepts
+    - [Concord](/docs/{{version}}/concord)
+    - [Models](/docs/{{version}}/models)
+    - [Enums](/docs/{{version}}/enums)
+    - [Requests](/docs/{{version}}/requests)
+    - [Contracts](/docs/{{version}}/contracts)
+- Components
+    - [Customers](/docs/{{version}}/customers)
+    - [Addresses](/docs/{{version}}/addresses)
+    - [Products](/docs/{{version}}/products)
+    - [Cart](/docs/{{version}}/cart)
+    - [Checkout](/docs/{{version}}/checkout)
+    - [Orders](/docs/{{version}}/orders)
+- Admin
+    - [Basics](/docs/{{version}}/admin-basics)
+    - [Users](/docs/{{version}}/users)
+    - [Acl](/docs/{{version}}/acl)
+    - [Extending](/docs/{{version}}/admin-extending)
+
