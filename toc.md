@@ -1,4 +1,5 @@
 - Prologue
+    - [What Is Vanilo?](/docs/{{version}}/what-is-vanilo)
     - [Release Notes](/docs/{{version}}/releases)
     - [Roadmap](/docs/{{version}}/roadmap)
     - [Contribution Guide](/docs/{{version}}/contributions)
