@@ -1,2 +1,220 @@
 # Cart
 
+## Using The Cart
+
+The Cart is available via the `Cart` facade.
+
+The facade actually returns a `CartManager` object which exposes the
+cart API to be used by applications. It encapsulates the `Cart`
+eloquent model, that also has `CartItem` children.
+
+The `CartManager` was introduced in order to take care of:
+
+- Relation of carts and the session and/or the user
+- Only create carts in the db if it's necessary (aka. don't pollute DB with a cart for every single visitor/hit)
+- Provide a straightforward API
+
+### Checking Whether A Cart Exists
+
+As written above, the cart manager only creates a cart entry (db) if
+it's needed. Thus you can check whether a cart exists or not.
+
+A non-existing cart means that the current session has no cart model/db record
+associated.
+
+`Cart::exists()` returns whether a cart exists for the current session.
+
+`Cart::doesNotExist()` is the opposite of `exists()` 🤯
+
+**Example:**
+
+```php
+var_dump(Cart::exists());
+// false
+
+Cart::addItem($product);
+
+var_dump(Cart::exists());
+// true
+```
+
+### Item Count
+
+`Cart::itemCount()` returns the number of items in the cart.
+
+It also returns 0 for non-existing carts.
+
+### Is Empty Or Not?
+
+To have a cleaner code, there are two methods to check if cart is empty:
+
+- `Cart::isEmpty()`
+- `Cart::isNotEmpty()`
+
+Their result is based on the `itemCount()` method.
+
+### Adding An Item
+
+You can add product to the cart with the `Cart::addItem()` method.
+
+The item is a [Vanilo product](products.md) by default, which can be
+extended.
+
+You aren't limited to using Vanilo products, you can add any Eloquent
+model to the cart as "product" that implements the `Buyable` interface.
+
+**Example:**
+
+```php
+$product = Product::findBySku('B01J4919TI'); //Salmon Fish Sushi Pillow -- check out on amazon :D
+
+Cart::addItem($product); //Adds one product to the cart
+echo Cart::itemCount();
+// 1
+
+// The second parameter is the quantity
+Cart::addItem($product, 2);
+echo Cart::itemCount();
+// 3
+```
+
+### Retrieving The Item's Associated Product
+
+The `CartItem` defines a [polymorphic relationship](https://laravel.com/docs/5.5/eloquent-relationships#polymorphic-relations)
+to the Buyable object named `product`.
+
+So you have a reference to the item's product:
+
+```php
+$product = \App\Product::find(203);
+$cartItem = Cart::addItem($product);
+
+echo $cartItem->product->id;
+// 203
+echo get_class($cartItem->product);
+// "App\Product"
+
+$course = \App\Course::findBySku('REACT-001');
+$cartItem = Cart::addItem($course);
+
+echo $cartItem->product->sku;
+// "REACT-001"
+echo get_class($cartItem->product);
+// "App\Course"
+```
+
+### Buyables (products)
+
+> The `Buyable` interface is located in the
+> [Vanilo Contracts](https://github.com/vanilophp/contracts) package.
+
+You can add any Eloquent model to the cart that implements the `Buyable` interface.
+
+Buyable classes must implement these methods:
+
+```
+function getId(); // the id of the entry
+function name(); // the name to display in the cart
+function getPrice(); // the price
+function morphTypeName(); // the type name to store in the db
+```
+#### Buyable Morph Maps
+
+In order to decouple the database from the application's internal
+structure, it is possible to not save the Buyable's full class name
+in the DB.
+When the cart associates a product (Buyable) with a cart item, it fetches
+the type name from the `Buyable::morphTypeName()` method.
+
+The `morphTypeName()` method, can either return the full class name
+(Eloquent's default behavior), or some shorter version like:
+
+| Full Class Name               | Short Version (Saved In DB) |
+|:------------------------------|:----------------------------|
+| Vanilo\Product\Models\Product | product                     |
+| App\Course                    | course                      |
+
+If you're not using the FQCN, then you have to add the mapping during
+boot time:
+
+```php
+use Illuminate\Database\Eloquent\Relations\Relation;
+
+Relation::morphMap([
+    'product' => 'Vanilo\Product\Models\Product',
+    'course'  => 'App\Course',
+]);
+```
+
+For more information refer to the [Polymorphic Relation](https://laravel.com/docs/5.5/eloquent-relationships#polymorphic-relations)
+section in the Laravel Documentation.
+
+### Removing Items
+
+There are two methods for removing specific items:
+
+1. `Cart::removeProduct($product)`
+2. `Cart::removeItem($cartItem)`
+
+**`removeProduct()` example:**
+```php
+$product = Product::find(12345);
+
+Cart::removeProduct($product); // Finds the item based on the product, and removes it
+```
+
+**`removeItem()` example:**
+```php
+
+//Remove the first item from the cart
+$item = Cart::model()->items->first();
+
+Cart::removeItem($item);
+```
+
+### Totals
+
+The item total can be accessed with the `total()` method or the `total`
+property.
+
+The cart total can be accessed with the `Cart::total()` method:
+
+```php
+use Vanilo\Cart\Facades\Cart;
+use App\Product;
+
+$productX = Product::create(['name' => 'X', 'price' => 100]);
+$productY = Product::create(['name' => 'Y', 'price' => 70]);
+
+$item1 = Cart::addItem($productX, 3);
+
+echo $item1->total();
+// 300
+echo $item1->total;
+// 300
+
+$item2 = Cart::addItem($productY, 2);
+echo $item2->total();
+// 140
+
+echo Cart::total();
+// 440
+```
+
+### Clearing The Cart
+
+The `Cart::clear()` method removes everything from the cart, but it
+doesn't destroy it, unless the `vanilo.cart.auto_destroy` config option is true.
+
+So the entry in the `cart` table will remain, and it will be assigned to
+the current session later on.
+
+### Destroying The Cart
+
+In case you want to get rid of the cart use the `Cart::destroy()` method.
+
+It clears the cart, removes the record from the `carts` table, and unsets
+the association with the current session.
+
+Thus using destroy, you'll have a non-existent cart.
+
