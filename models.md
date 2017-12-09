@@ -37,8 +37,8 @@ $> php artisan concord:models
 
 ## Using Custom Models
 
-To use another model in your application, register it in
-`AppServiceProvide`'s `boot()` method:
+To use a customized model in your application instead of the default one,
+register it in `AppServiceProvide`'s `boot()` method:
 
 ```php
 // app/Providers/AppServiceProvider.php
