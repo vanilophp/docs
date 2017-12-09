@@ -10,8 +10,7 @@
     - [Concord](/docs/{{version}}/concord)
     - [Models](/docs/{{version}}/models)
     - [Enums](/docs/{{version}}/enums)
-    - [Requests](/docs/{{version}}/requests)
-    - [Contracts](/docs/{{version}}/contracts)
+    - [Form Requests](/docs/{{version}}/form-requests)
 - Components
     - [Customers](/docs/{{version}}/customers)
     - [Addresses](/docs/{{version}}/addresses)

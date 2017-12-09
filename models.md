@@ -63,6 +63,9 @@ If the product model is used in another model's relation, (eg.
 `CartItem`) then event those related objects will return `App\Product`
 from now on.
 
+> Depending on the nature of the changes, it might be necessary to
+> customize the model's related [form requests](form-requests.md) as well.
+
 Concord also re-wires the interface with Laravel's Container:
 
 ```php
