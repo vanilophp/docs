@@ -114,31 +114,5 @@ concord()->registerModel(\Module\Contracts\Model::class, \App\ExtendedModel::cla
 This results that if the model is used in a relation, the extended model
 class will be used even there.
 
-To get a list of models available for customization use the command:
-
-```bash
-$> php artisan concord:models
-
-+--------------+---------------------------------------+------------------------------------+
-| Entity       | Contract                              | Model                              |
-+--------------+---------------------------------------+------------------------------------+
-| Address      | Konekt\Address\Contracts\Address      | Vanilo\Address\Models\Address      |
-| Cart         | Vanilo\Cart\Contracts\Cart            | Vanilo\Cart\Models\Cart            |
-| CartItem     | Vanilo\Cart\Contracts\CartItem        | Vanilo\Cart\Models\CartItem        |
-| Country      | Konekt\Address\Contracts\Country      | Konekt\Address\Models\Country      |
-| Customer     | Konekt\Customer\Contracts\Customer    | Vanilo\Framework\Models\Customer   |
-| Order        | Vanilo\Order\Contracts\Order          | Vanilo\Order\Models\Order          |
-| OrderItem    | Vanilo\Order\Contracts\OrderItem      | Vanilo\Order\Models\OrderItem      |
-| Organization | Konekt\Address\Contracts\Organization | Konekt\Address\Models\Organization |
-| Permission   | Konekt\Acl\Contracts\Permission       | Konekt\Acl\Models\Permission       |
-| Person       | Konekt\Address\Contracts\Person       | Konekt\Address\Models\Person       |
-| Product      | Vanilo\Product\Contracts\Product      | Vanilo\Framework\Models\Product    |
-| Profile      | Konekt\User\Contracts\Profile         | Konekt\User\Models\Profile         |
-| Province     | Konekt\Address\Contracts\Province     | Konekt\Address\Models\Province     |
-| Role         | Konekt\Acl\Contracts\Role             | Konekt\Acl\Models\Role             |
-| User         | Konekt\User\Contracts\User            | Konekt\AppShell\Models\User        |
-+--------------+---------------------------------------+------------------------------------+
-```
-
 For more details refer to the Concord
 [Models Documentation](https://artkonekt.github.io/concord/#/models).
