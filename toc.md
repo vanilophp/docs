@@ -7,6 +7,7 @@
     - [Installation](/docs/{{version}}/installation)
     - [Configuration](/docs/{{version}}/configuration)
 - Architecture Concepts
+    - [Modules vs. Framework](/docs/{{version}}/modules-vs-framework)
     - [Concord](/docs/{{version}}/concord)
     - [Models](/docs/{{version}}/models)
     - [Enums](/docs/{{version}}/enums)
