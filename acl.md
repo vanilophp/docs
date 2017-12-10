@@ -78,6 +78,8 @@ Test for all roles:
 @endhasallroles
 ```
 
+> For a detailed description of Acl features, refer to the [acl readme](https://github.com/artkonekt/acl).
+
 ## Resource Permissions
 
 Vanilo Framework complements the [Laravel Resource](https://laravel.com/docs/5.5/controllers#resource-controllers)
