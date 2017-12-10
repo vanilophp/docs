@@ -13,10 +13,10 @@ separately installed via composer.
 ### List Of Modules
 
 - [AppShell](https://github.com/artkonekt/appshell): App + Admin basics:
-    - [User Module](https://github.com/artkonekt/user)
-    - [Acl Module](https://github.com/artkonekt/acl)
+    - [User Module](users.md)
+    - [Acl Module](acl.md)
     - [Menu Module](https://github.com/artkonekt/menu)
-    - [Address Module](address.md)
+    - [Address Module](addresses.md)
 - [Product Module](products.md)
 - [Cart Module](cart.md)
 - [Checkout Module](checkout.md)

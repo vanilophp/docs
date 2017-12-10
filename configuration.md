@@ -77,7 +77,7 @@ return [
             // If false the module's listeners won't be bound to events
             'event_listeners' => true, 
             'routes' => [
-                // Admin path (url) prefix (if changing, also change for AppShell)
+                // Admin path (url) prefix (if changing, also change for Vanilo Framework)
                 'prefix'     => 'admin', 
                 // middlewares for the route group
                 'middleware' => ['web', 'auth', 'acl'],

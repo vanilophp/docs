@@ -42,8 +42,7 @@ This will change as of v0.2.
 
 ### Coding Style
 
-Vanilo follows the PSR-2 coding standard and the PSR-4 autoloading  
-standard.
+Vanilo follows the PSR-2 coding standard and the PSR-4 autoloading standard.
 
 ### Tests
 
