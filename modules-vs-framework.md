@@ -25,12 +25,13 @@ separately installed via composer.
 ### Vanilo Contracts Package
 
 The contracts package defines interfaces shared across various Vanilo
-modules. It also aims to support separately using modules, so that you
+modules. It also aims to support the separate use of modules, so that you
 can choose for example to use the checkout component without the cart.
 
 This package contains solely interfaces, no actual code.
 
 ## Vanilo Framework
 
-The Vanilo framework contains all the modules and the admin panel. Using
-the framework is the recommended way.
+The Vanilo framework contains all the modules and adds the bindings
+between them + the admin panel. Using the framework is the
+recommended way.

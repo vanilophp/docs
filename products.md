@@ -3,7 +3,8 @@
 Vanilo's product module is really minimalistic at this point of time.
 
 > See the [roadmap](roadmap.md) to see what and when will be implemented
-> in this module in the future (0.4 and 0.6 particularly)
+> in this module in the future (refer to versions `0.4` and `0.6`
+> particularly)
 
 ## Creating Products
 

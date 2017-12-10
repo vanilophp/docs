@@ -3,7 +3,7 @@
 Vanilo uses enums for quite several occasions using the
 [Konekt Enum](https://github.com/artkonekt/enum) library and it's
 [Eloquent Binding](https://github.com/artkonekt/enum-eloquent). Enums
-are first class citizens in Concord as well in order to enable
+are first class citizens in Concord in order to enable
 applications to customize them.
 
 ## What's An Enum?

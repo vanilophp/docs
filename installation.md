@@ -146,10 +146,10 @@ const app = new Vue({
 });
 ```
 
-and the compile the assets with mix: `yarn run dev`
+Now compile the assets with mix: `yarn run dev`
 
-> **TIP:** You may need to [install yarn](https://yarnpkg.com/en/docs/install)
-> and run:
+> **TIP:** You may need to
+> [install yarn](https://yarnpkg.com/en/docs/install) and run:
 ```bash
 yarn install
 ```

@@ -74,7 +74,7 @@ class CreateProduct extends BaseCreateProduct
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use Vanilo\Framework\Http\Requests\CreateProduct as BaseCreateProduct;
+use Vanilo\Framework\Contracts\Requests\CreateProduct as CreateProductContract;
 use App\Http\Requests\CreateProduct;
 
 class AppServiceProvider extends ServiceProvider
@@ -83,7 +83,7 @@ class AppServiceProvider extends ServiceProvider
     {
         // Replace the CreateProduct type with the app's one:
         $this->app->concord->registerRequest(
-            BaseCreateProduct::class,
+            CreateProductContract::class,
             CreateProduct::class
         );
     }

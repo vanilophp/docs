@@ -38,7 +38,7 @@ $> php artisan concord:models
 ## Using Custom Models
 
 To use a customized model in your application instead of the default one,
-register it in `AppServiceProvide`'s `boot()` method:
+register it in `AppServiceProvider::boot()` method:
 
 ```php
 // app/Providers/AppServiceProvider.php
@@ -60,7 +60,7 @@ class AppServiceProvider extends ServiceProvider
 ```
 
 If the product model is used in another model's relation, (eg.
-`CartItem`) then event those related objects will return `App\Product`
+`CartItem`) then even those related objects will return `App\Product`
 from now on.
 
 > Depending on the nature of the changes, it might be necessary to
@@ -76,7 +76,10 @@ echo get_class($product);
 // App\Product
 ```
 
-> Note that `App\Product` should extend the original model class ie. `Vanilo\Products\Models\Product`.
+> Note that `App\Product` should extend the original model class ie.
+> `Vanilo\Products\Models\Product`. It's not a requirement however, the
+> only requirement is that the new class must also implement the Product
+> interface (`Vanilo\Product\Contracts\Product`).
 
 There is a
 [detailed example](https://artkonekt.github.io/concord/#/models?id=detailed-example)
