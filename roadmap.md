@@ -20,6 +20,7 @@
 ##### 2018-02-11
 
 - 0.1 Concepts settled, fixed
+- Laravel 5.6 Support
 - REST API
 - Order Processing
 - Settings in Admin
@@ -49,6 +50,7 @@
 ##### 2018-09-11
 
 - Promotions
+- Laravel 5.7 Support
 - Product Relations (upsell, x-sell)
 - Customer Accounts
 - Customer Groups

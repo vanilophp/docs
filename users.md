@@ -11,7 +11,7 @@ Vanilo adds some extensions, namely:
 - Login data;
 - Model related events;
 - SoftDelete;
-- Profile (broken).
+- Profile (broken as of v0.1).
 
 ## Laravel Auth Support
 
@@ -33,8 +33,9 @@ And add this to you AppServiceProviders's boot method:
 `$this->app->concord->registerModel(\Konekt\User\Contracts\User::class,
 \App\User::class);`
 
-Alternatively you can also delete App\User and tell Laravel auth to use
-Vanilo's class.
+**Alternatively,**
+
+you can also delete App\User and tell Laravel auth to use Vanilo's class.
 
 Modify your app's `config/auth.php` file:
 

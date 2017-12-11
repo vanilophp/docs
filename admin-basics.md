@@ -19,12 +19,12 @@ add new menu items to it, or to alter existing ones.
 
 ## Changing Base URL Prefix
 
-Admin URLs start with '/admin/` by default. This can be changed in the
-configuration (`config/concord.php`):
+Admin URLs start with _'/admin/'_ by default. This can be changed in the
+configuration:
 
 ```php
 // config/concord.php
-// Change both occurences
+// Change both 'prefix' occurences
 return [
     'modules' => [
         Konekt\AppShell\Providers\ModuleServiceProvider::class => [
@@ -42,8 +42,8 @@ return [
 ```
 ## Change Branding
 
-This very minimal right now, but you can change the App's name displayed
-on admin, the admin start URL and the icon in top left.
+You can change the App's name displayed on admin, the admin start URL
+and the icon in top left.
 
 ```php
 // config/concord.php

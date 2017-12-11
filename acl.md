@@ -2,7 +2,7 @@
 
 Vanilo incorporates ACL functionality from the
 [konekt/acl](https://github.com/artkonekt/acl) library, which is
-actually a "Concordified" version of the
+actually a "concordified" fork of the
 [spatie/laravel-permission](https://github.com/spatie/laravel-permission)
 package.
 

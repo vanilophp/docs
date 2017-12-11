@@ -3,9 +3,10 @@
 ## Modules
 
 Vanilo consists of standalone modules like product, cart, checkout,
-order, etc. They can be used independently from each other, even by
-arbitrarily picking one or more of them. The single "glue" between them
-is the `vanilo\contracts` package. And Laravel + Concord of course.
+order, etc. They can be used independently from each other, without the
+Vanilo Framework, even by arbitrarily picking one or more of them. The
+single "glue" between them is the `vanilo\contracts` package. And
+Laravel + Concord of course.
 
 All these modules have their standalone github repositories and can be
 separately installed via composer.
