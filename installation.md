@@ -7,10 +7,6 @@
 composer create-project --prefer-dist laravel/laravel vaniloapp
 cd vaniloapp
 
-# Tell composer unstable version is OK:
-composer config minimum-stability dev
-composer config prefer-stable true
-
 # Install the vanilo package:
 composer require vanilo/framework
 
@@ -116,9 +112,8 @@ mix.js('resources/assets/js/app.js', 'public/js')
 
 Remove the omnipresent Vue instance from Laravel's default app.js file:
 
-`resources/assets/js/app.js`:
-
 ```javascript
+//resources/assets/js/app.js:
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -146,13 +141,14 @@ const app = new Vue({
 });
 ```
 
-Now compile the assets with mix: `yarn run dev`
+Now compile the assets with mix:
 
-> **TIP:** You may need to
-> [install yarn](https://yarnpkg.com/en/docs/install) and run:
 ```bash
 yarn install
+yarn run dev
 ```
+
+> **TIP:** If you have no yarn on your system refer to the [Install yarn page](https://yarnpkg.com/en/docs/install).
 
 ## Go To Admin
 
