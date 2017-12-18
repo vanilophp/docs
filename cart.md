@@ -2,16 +2,16 @@
 
 ## Using The Cart
 
-The Cart is available via the `Cart` facade.
+The Cart is available via the `Cart` facade - or the `app('vanilo.cart')` service.
 
-The facade actually returns a `CartManager` object which exposes the
-cart API to be used by applications. It encapsulates the `Cart`
-eloquent model, that also has `CartItem` children.
+The facade (service) actually returns a `CartManager` object which exposes the
+cart API to be used by applications. It encapsulates the `Cart` eloquent model,
+that also has `CartItem` children.
 
 The `CartManager` was introduced in order to take care of:
 
 - Relation of carts and the session and/or the user
-- Only create carts in the db if it's necessary (aka. don't pollute DB with a cart for every single visitor/hit)
+- Only create carts in the db if it's necessary (ie. don't pollute DB with a cart for every single visitor/hit)
 - Provide a straightforward API
 
 ### Checking Whether A Cart Exists
