@@ -17,7 +17,7 @@
     - Extendable
 
 ## 0.2 - Foundations
-##### 2018-02-11
+##### 2018-02-18
 
 - 0.1 Concepts settled, fixed
 - Laravel 5.6 Support
