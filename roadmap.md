@@ -17,14 +17,22 @@
     - Extendable
 
 ## 0.2 - Foundations
+
+### 0.2.0
 ##### 2018-02-18
 
-- 0.1 Concepts settled, fixed
 - Laravel 5.6 Support
-- REST API
-- Order Processing
+- 0.1 Concepts settled, fixed
+- Cart user assignment
 - Settings in Admin
 - Upgradable to 0.3 (..0.4, ..1.0)
+
+### 0.2.1
+##### 2018-03-11
+
+- REST API
+- Order Processing
+
 
 ## 0.3 - Orderable
 ##### 2018-04-11
