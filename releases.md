@@ -1,5 +1,9 @@
 # Release Notes
 
+## Vanilo 0.2
+
+Vanilo v0.2 is the upcoming release in Feb 2018.
+
 ## Vanilo 0.1
 
 Vanilo v0.1 which is the very first Vanilo release ever (Dec 2017), and
