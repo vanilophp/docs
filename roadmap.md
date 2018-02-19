@@ -17,44 +17,41 @@
     - Extendable
 
 ## 0.2 - Foundations
+##### 2018-02-19
 
-### 0.2.0
-##### 2018-02-18
-
-- Laravel 5.6 Support
-- 0.1 Concepts settled, fixed
-- Cart user assignment
-- Settings in Admin
 - Upgradable to 0.3 (..0.4, ..1.0)
+- 0.1 Concepts settled, fixed
+- Laravel 5.6 Support
+- Improved Cart
 
-### 0.2.1
+## 0.3 - API
 ##### 2018-03-11
 
 - REST API
+- Settings in Admin
 - Order Processing
 
-
-## 0.3 - Orderable
+## 0.4 - Orderable
 ##### 2018-04-11
 
 - Payment handling
 - Shipments handling
 
-## 0.4 - Proper Catalog
+## 0.5 - Proper Catalog
 ##### 2018-05-11
 
 - Product Categories
 - Stock handling
 - Product Options & Variants
 
-## 0.5 - Diversity
-##### 2018-07-11
+## 0.6 - Diversity
+##### 2018-06-11
 
 - Multi-language support
 - Multi-currency support
 - Tax Calculations (incl. EU VAT)
 
-## 0.6 - Marketing
+## 0.7 - Marketing
 ##### 2018-09-11
 
 - Promotions
@@ -68,7 +65,7 @@
 ## 1.0 - Stable
 ##### 2018-10-21
 
-- 0.6 features
+- 0.7 features
 - Stable
 
 ## 1.1 - Muscles

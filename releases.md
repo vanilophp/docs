@@ -2,12 +2,18 @@
 
 ## Vanilo 0.2
 
-Vanilo v0.2 is the upcoming release in Feb 2018.
+Vanilo v0.2 has been released on Feb 19, 2018.
+
+From now on there will be an upgrade path to the upcoming versions (0.3, etc).
+This version adds support for Laravel 5.6, fixes bugs and adds improvements to the cart.
+
+The roadmap has been slightly modified, as some parts planned for v0.2 have been moved to v0.3,
+which has been forwarded to March 2018.
 
 ## Vanilo 0.1
 
-Vanilo v0.1 which is the very first Vanilo release ever (Dec 2017), and
-we consider it as a **TECHNOLOGY PREVIEW**.
+Vanilo v0.1 was the very first Vanilo release ever (Dec 11, 2017).
+Consider it as a **TECHNOLOGY PREVIEW**.
 
 This version is not yet ready to create applications with. Feel free to
 discover it, play with it, and
