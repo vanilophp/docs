@@ -41,7 +41,9 @@ return [
                     // middlewares for the route group
                     'middleware' => ['web', 'auth', 'acl'],
                     // Route files to load 
-                    'files'      => ['admin']
+                    'files'      => ['admin'],
+                    // Route name prefix
+                    'as'         => 'vanilo.'
                 ],
             // Currency settings (Multi currency support in v0.5)
             'currency'    => [
@@ -82,7 +84,9 @@ return [
                 // middlewares for the route group
                 'middleware' => ['web', 'auth', 'acl'],
                 // Route files to load 
-                'files'      => ['web']
+                'files'      => ['web'],
+                // Route name prefix
+                'as'         => 'appshell.'
             ],
             'breadcrumbs' => true, // to disable breadcrumbs
             'components' => [
