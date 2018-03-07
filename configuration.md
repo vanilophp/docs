@@ -63,11 +63,13 @@ return [
 ];
 ```
 
-> **OVERRIDING DEFAULTS**: It's important, that you need to include all the default value in overridden
+> **OVERRIDING VALUES**: It's important, that you need to include all the default values in overridden
 > configuration arrays. Laravel only merges the first level of the configuration array. If you
 > partially define a multi-dimensional configuration array, the missing options will not be merged.
+>
 > Eg. if you want to use a custom route prefix, you need to add all the values for the route config
 > (middleware, files, route) as well.
+>
 > See: [Laravel Package Development](https://laravel.com/docs/5.6/packages#configuration)
 
 ## Configuring The Admin Shell
