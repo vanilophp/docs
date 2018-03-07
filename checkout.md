@@ -11,7 +11,7 @@ major checkout types:
 Other than these, it optionally allows saving incomplete checkouts to db,
 session, cache (redis, memcache), etc.
 
-As of v0.1 only the One-page type / without saving has been implemented yet.
+As of v0.2 only the One-page type / without saving has been implemented yet.
 
 ## Checkout Data
 
@@ -26,7 +26,7 @@ Checkout has the following data associated:
 
 ## Checkout Forms
 
-> For a complete checkout form example refer to the [Vanilo Demo repository](https://github.com/vanilophp/demo/tree/0.1/resources/views/checkout)
+> For a complete checkout form example refer to the [Vanilo Demo repository](https://github.com/vanilophp/demo/tree/0.2/resources/views/checkout)
 
 ## Obtain Checkout Instance
 
@@ -119,5 +119,5 @@ class CheckoutController extends Controller
 ```
 
 > See
-> [Vanilo Demo's CheckoutController](https://github.com/vanilophp/demo/blob/0.1/app/Http/Controllers/CheckoutController.php)
+> [Vanilo Demo's CheckoutController](https://github.com/vanilophp/demo/blob/0.2/app/Http/Controllers/CheckoutController.php)
 > for a working example.

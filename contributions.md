@@ -36,9 +36,8 @@ the code that would be needed to complete the feature.
 
 ## Pull Requests
 
-As of v0.1, please submit all PRs to the `master` branch only.
+As of v0.2, please submit all PRs to the `master` branch only.
 
-This will change as of v0.2.
 
 ### Coding Style
 

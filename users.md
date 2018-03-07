@@ -11,7 +11,7 @@ Vanilo adds some extensions, namely:
 - Login data;
 - Model related events;
 - SoftDelete;
-- Profile (broken as of v0.1).
+- Profile (broken as of v0.2).
 
 ## Laravel Auth Support
 
