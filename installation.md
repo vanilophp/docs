@@ -113,28 +113,6 @@ mix.js('resources/assets/js/app.js', 'public/js')
 Remove the omnipresent Vue instance from Laravel's default app.js file:
 
 ```javascript
-//resources/assets/js/app.js:
-/**
- * First we will load all of this project's JavaScript dependencies which
- * includes Vue and other libraries. It is a great starting point when
- * building robust, powerful web applications using Vue and Laravel.
- */
-
-// REMOVE/COMMENT THIS LINE:
-require('./bootstrap');
-// ADD THIS LINE (jquery is needed):
-window.$ = window.jQuery = require('jquery');
-
-window.Vue = require('vue');
-
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
-
-Vue.component('example-component', require('./components/ExampleComponent.vue'));
-
 // REMOVE/COMMENT THESE 3 LINES:
 const app = new Vue({
     el: '#app'

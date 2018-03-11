@@ -1,31 +1,9 @@
 # Roadmap
 
-> It's not carved in stone, but this is what Vanilo wants to achieve.
-
-## 0.1 - Technology Preview
-##### 2017-12-11
-
-- Concord (foundation for customizing E-commerce components)
-- Customers
-- Products
-- Cart
-- Checkout
-- Orders
-- Admin
-    - Users
-    - Acl (permissions, roles)
-    - Extendable
-
-## 0.2 - Foundations
-##### 2018-02-19
-
-- Upgradable to 0.3 (..0.4, ..1.0)
-- 0.1 Concepts settled, fixed
-- Laravel 5.6 Support
-- Improved Cart
+> Refer to [Releases](releases.md) for details about published versions.
 
 ## 0.3 - API
-##### 2018-03-11
+##### 2018-03-18
 
 - REST API
 - Settings in Admin
