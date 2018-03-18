@@ -3,27 +3,28 @@
 > Refer to [Releases](releases.md) for details about published versions.
 
 ## 0.3 - API
-##### 2018-03-18
+##### 2018-03-25
 
 - REST API
 - Settings in Admin
-- Order Processing
 
-## 0.4 - Orderable
-##### 2018-04-11
-
-- Payment handling
-- Shipments handling
-
-## 0.5 - Proper Catalog
-##### 2018-05-11
+## 0.4 - Proper Catalog
+##### 2018-04-15
 
 - Product Categories
+- Product Images
 - Stock handling
 - Product Options & Variants
 
+## 0.5 - Orderable
+##### 2018-05-13
+
+- Order Processing
+- Payment handling
+- Shipments handling
+
 ## 0.6 - Diversity
-##### 2018-06-11
+##### 2018-06-10
 
 - Multi-language support
 - Multi-currency support
