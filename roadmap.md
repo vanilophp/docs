@@ -3,13 +3,13 @@
 > Refer to [Releases](releases.md) for details about published versions.
 
 ## 0.3 - API
-##### 2018-03-25
+##### 2018-05-16
 
 - REST API
 - Settings in Admin
 
 ## 0.4 - Proper Catalog
-##### 2018-04-15
+##### 2018-06-10
 
 - Product Categories
 - Product Images
@@ -17,14 +17,15 @@
 - Product Options & Variants
 
 ## 0.5 - Orderable
-##### 2018-05-13
+##### 2018-07-21
 
 - Order Processing
 - Payment handling
 - Shipments handling
+- Customer Accounts
 
 ## 0.6 - Diversity
-##### 2018-06-10
+##### 2018-08-21
 
 - Multi-language support
 - Multi-currency support
@@ -36,7 +37,6 @@
 - Promotions
 - Laravel 5.7 Support
 - Product Relations (upsell, x-sell)
-- Customer Accounts
 - Customer Groups
 - Favourites
 - Reviews
