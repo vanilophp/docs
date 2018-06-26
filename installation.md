@@ -49,7 +49,7 @@ The following [Concord](concord.md) modules should be installed now:
 | 7.  | Vanilo Product Module  | Module | 0.2.0   | vanilo.product   | Vanilo\Product   |
 | 8.  | Vanilo Cart Module     | Module | 0.2.0   | vanilo.cart      | Vanilo\Cart      |
 | 9.  | Vanilo Checkout Module | Module | 0.2.0   | vanilo.checkout  | Vanilo\Checkout  |
-| 10. | Vanilo Order Module    | Module | 0.2.1   | vanilo.order     | Vanilo\Order     |
+| 10. | Vanilo Order Module    | Module | 0.2.2   | vanilo.order     | Vanilo\Order     |
 | 11. | Vanilo Framework       | Box    | 0.2.1   | vanilo.framework | Vanilo\Framework |
 +-----+------------------------+--------+---------+------------------+------------------+
 ```
