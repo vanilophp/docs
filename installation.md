@@ -94,6 +94,8 @@ Run command `php artisan appshell:super`.
 
 This will ask several questions and create a proper superuser that you can start working with.
 
+> **NOTE**: Accept `admin` as role for the very first user, because that's the only existing role after installation.
+
 ### Add Admin's CSS To Laravel Mix
 
 In `webpack.mix.js` change:
