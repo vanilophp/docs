@@ -2,17 +2,10 @@
 
 > Refer to [Releases](releases.md) for details about published versions.
 
-## 0.3 - API
-##### 2018-05-16
-
-- REST API
-- Settings in Admin
-
 ## 0.4 - Proper Catalog
-##### 2018-06-10
+##### 2018-08-27
 
 - Product Categories
-- Product Images
 - Stock handling
 - Product Options & Variants
 
