@@ -1,11 +1,5 @@
 # Products
 
-Vanilo's product module is really minimalistic at this point of time.
-
-> See the [roadmap](roadmap.md) to see what and when will be implemented
-> in this module in the future (refer to versions `0.4` and `0.6`
-> particularly)
-
 ## Creating Products
 
 One of the very few abilities of the admin panel is to create products.
@@ -123,3 +117,6 @@ echo $product->isActive();
 
 For extending the product model and the product state enum, refer to the
 [models](models.md) and [enums](enums.md) sections, respectively.
+
+## Product Images
+

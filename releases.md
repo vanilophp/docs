@@ -5,7 +5,7 @@
 ## 0.3
 ##### 2018-08-19
 
-- Product images (via Spatie Media Library)
+- Product images
 - Custom Product attributes in cart
 - Settings/Preferences in admin (arbitrary settings can be added)
 - Minimum Laravel is 5.5 if using the Framework, due to Spatie Media Library v7 being incompatible with it
