@@ -5,6 +5,7 @@
     - [Contribution Guide](/docs/{{version}}/contributions)
 - Getting Started
     - [Installation](/docs/{{version}}/installation)
+    - [Upgrade](/docs/{{version}}/upgrade)
     - [Configuration](/docs/{{version}}/configuration)
 - Architecture Concepts
     - [Modules vs. Framework](/docs/{{version}}/modules-vs-framework)
@@ -23,5 +24,6 @@
     - [Basics](/docs/{{version}}/admin-basics)
     - [Users](/docs/{{version}}/users)
     - [Acl](/docs/{{version}}/acl)
+    - [Settings](/docs/{{version}}/settings)
     - [Extending](/docs/{{version}}/admin-extending)
 

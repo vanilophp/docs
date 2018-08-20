@@ -19,9 +19,6 @@
 - Bugfixes,
 - Cart improvements.
 
-The roadmap has been slightly modified, as some parts planned for v0.2 have been moved to v0.3,
-which has been forwarded to March 2018.
-
 ## 0.1
 ##### 2017-12-11
 
@@ -52,6 +49,7 @@ Please note that Vanilo as of v0.1:
 - even basic concepts are subject to change,
 - 0.1 is not intended to be upgradable to v0.2.
 
-Beginning with version 0.2 Vanilo will provide a documented upgrade path
-up to the 1.0 stable release. For more details refer to the
-[Roadmap](roadmap.md).
+Beginning with version 0.2 Vanilo provides a documented [upgrade path](upgrade.md) up to the 1.0
+stable release.
+
+For more details on future releases refer to the [Roadmap](roadmap.md).

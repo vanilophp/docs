@@ -44,13 +44,13 @@ The following [Concord](concord.md) modules should be installed now:
 | 2.  | Konekt Customer Module | Module | 0.9.5   | konekt.customer  | Konekt\Customer  |
 | 3.  | Konekt User Module     | Module | 0.9.0   | konekt.user      | Konekt\User      |
 | 4.  | Konekt Acl Module      | Module | 1.0.0   | konekt.acl       | Konekt\Acl       |
-| 5.  | Konekt AppShell Box    | Box    | 0.9.6   | konekt.app_shell | Konekt\AppShell  |
-| 6.  | Vanilo Address Module  | Module | 0.2.0   | vanilo.address   | Vanilo\Address   |
-| 7.  | Vanilo Product Module  | Module | 0.2.0   | vanilo.product   | Vanilo\Product   |
-| 8.  | Vanilo Cart Module     | Module | 0.2.0   | vanilo.cart      | Vanilo\Cart      |
-| 9.  | Vanilo Checkout Module | Module | 0.2.0   | vanilo.checkout  | Vanilo\Checkout  |
-| 10. | Vanilo Order Module    | Module | 0.2.1   | vanilo.order     | Vanilo\Order     |
-| 11. | Vanilo Framework       | Box    | 0.2.0   | vanilo.framework | Vanilo\Framework |
+| 5.  | Konekt AppShell Box    | Box    | 0.9.9   | konekt.app_shell | Konekt\AppShell  |
+| 6.  | Vanilo Address Module  | Module | 0.3.0   | vanilo.address   | Vanilo\Address   |
+| 7.  | Vanilo Product Module  | Module | 0.3.0   | vanilo.product   | Vanilo\Product   |
+| 8.  | Vanilo Cart Module     | Module | 0.3.0   | vanilo.cart      | Vanilo\Cart      |
+| 9.  | Vanilo Checkout Module | Module | 0.3.0   | vanilo.checkout  | Vanilo\Checkout  |
+| 10. | Vanilo Order Module    | Module | 0.3.0   | vanilo.order     | Vanilo\Order     |
+| 11. | Vanilo Framework       | Box    | 0.3.0   | vanilo.framework | Vanilo\Framework |
 +-----+------------------------+--------+---------+------------------+------------------+
 ```
 
