@@ -177,6 +177,9 @@ function getId(); // the id of the entry
 function name(); // the name to display in the cart
 function getPrice(); // the price
 function morphTypeName(); // the type name to store in the db
+function hasImage(); // whether or not the entry has an image
+function getThumbnailUrl(); // the url of the thumbnail image (or null)
+function getImageUrl(); // the url of the image (or null)
 ```
 #### Buyable Morph Maps
 
