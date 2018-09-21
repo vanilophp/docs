@@ -1,5 +1,9 @@
 # Upgrade Between Versions
 
+## 0.3 -> 0.4
+
+Nothing to consider so far.
+
 ## 0.2 -> 0.3
 
 ### Minimum Versions

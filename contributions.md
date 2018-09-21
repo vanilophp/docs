@@ -23,6 +23,7 @@ for each of the separate components:
 - [Address](https://github.com/vanilophp/address)
 - [Product](https://github.com/vanilophp/product)
 - [Cart](https://github.com/vanilophp/cart)
+- [Category](https://github.com/vanilophp/category)
 - [Checkout](https://github.com/vanilophp/checkout)
 - [Order](https://github.com/vanilophp/checkout)
 - [Documentation](https://github.com/vanilophp/docs)
@@ -36,7 +37,7 @@ the code that would be needed to complete the feature.
 
 ## Pull Requests
 
-As of v0.3, please submit all PRs to the `master` branch only.
+As of v0.4, please submit all PRs to the `master` branch only.
 
 
 ### Coding Style

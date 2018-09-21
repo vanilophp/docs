@@ -7,9 +7,9 @@ Vanilo is an E-commerce Framework for Laravel. It's like Magento or Sylius.
 It depends. The current feature set is not yet enough to run a "usual" Webshop in 2018. But what
 Vanilo already provides that is stable, tested and extensible.
 
-Starting from v0.2 there is a well defined [upgrade path](upgrade.md) up to v1.0.
+Starting from v0.2 there has been a well defined [upgrade path](upgrade.md) up to v1.0.
 
-Thus it is possible to build a Webshop on Vanilo 0.3 - even if it doesn't have a stable version
+Thus it is possible to build a Webshop on Vanilo 0.4 - even if it doesn't have a stable version
 number yet.
 
 Refer to [Release Notes](releases.md) for more details.
