@@ -8,7 +8,7 @@ composer create-project --prefer-dist laravel/laravel vaniloapp
 cd vaniloapp
 
 # Install the vanilo package:
-composer require vanilo/framework
+composer require vanilo/framework 0.3
 
 # Publish module loader config:
 php artisan vendor:publish --provider="Konekt\Concord\ConcordServiceProvider" --tag=config
