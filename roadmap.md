@@ -28,7 +28,7 @@
 - Shipments handling
 
 ## 1.2 - Diversity
-##### 2018-01-27
+##### 2019-01-27
 
 - Product Options & Variants
 - Multi-language support
@@ -36,7 +36,7 @@
 - Tax Calculations (incl. EU VAT)
 
 ## 1.3 - Marketing
-##### 2018-02-23
+##### 2019-02-23
 
 - Promotions
 - Product Relations (upsell, x-sell)
@@ -45,7 +45,7 @@
 - Reviews
 
 ## 1.4 - Muscles
-##### 2018-03-18
+##### 2019-03-18
 
 - Distributed, multi-server mode
 - Varnish Support
@@ -71,7 +71,7 @@
 - CMS integrations
 
 ## 1.8 - Automation
-##### 2019-06-21
+##### 2019-07-21
 
 - Editable Workflows (follow ups, abandoned cart recovery,
   recommendations, recurring billing, etc)
