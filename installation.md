@@ -1,5 +1,13 @@
 # Installation
 
+## Requirements
+
+- PHP 7.1 or higher
+- json extension
+- Database engine: **MySQL 5.7** or higher or **PostgreSQL** is required<sup>*</sup>.
+
+> <sup>*</sup> JSON field types are used, therefore **MariaDB is NOT supported**.
+
 ### With Composer
 
 ```bash
