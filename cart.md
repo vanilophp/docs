@@ -235,6 +235,21 @@ $item = Cart::model()->items->first();
 Cart::removeItem($item);
 ```
 
+### Cart States
+
+Cart has a state field (added in v0.4) which can be by default one of these values:
+
+- active: the cart is active;
+- checkout: the cart is being checked out;
+- completed: the cart has been checked out (order was created);
+- abandoned: the cart hasn't been touched for a while;
+
+If you want to modify the possible states of the cart, follow the instructions for
+[Customizing Enums](enums.md#customizing-enums);
+
+> The state field is not auto-managed, thus you explicitly have to update it's value.
+
+
 ### Associating With Users
 
 The cart can be assigned to user automatically and/or manually.
@@ -287,6 +302,19 @@ return [
 ];
 ```
 
+#### Preserve The Cart For Users Across Logins
+
+It is possible to keep the cart for users after logout and restore it after successful login.
+
+> This feature is disabled by default. To achive this behavior, set the
+> `vanilo.cart.preserve_for_user` config value to true
+
+| Event                     | State                                                             | Action                               |
+|:--------------------------|:------------------------------------------------------------------|:-------------------------------------|
+| User login/authentication | Cart for this session doesn't exist, user has a saved active cart | Restore the cart                     |
+| User login/authentication | Cart for this session exists                                      | The current cart will be kept        |
+| User logout & lockout     | Cart for this session exists                                      | Cart will be kept for the user in db |
+
 ### Totals
 
 The item total can be accessed with the `total()` method or the `total`
@@ -333,3 +361,7 @@ the association with the current session.
 
 Thus using destroy, you'll have a non-existent cart.
 
+### Forgetting The Cart
+
+The `Cart::forget()` method disconnects the current user/session from the current cart, but the cart
+will be kept intact in the database.
