@@ -109,6 +109,16 @@ echo $category2->slug;
 // category-1
 ```
 
+## Finding Taxonomies
+
+There's a dedicated finder method to retrieve a single taxonomy by name:
+
+```php
+Taxonomy::create(['name' => 'Brands']);
+
+$brands = Taxonomy::findOneByName('Brands');
+```
+
 ## Creating Taxons
 
 Taxons are the actual category entries like "Smartphones" or "Riesling",
@@ -311,6 +321,161 @@ echo $speakers->level;
 // 1
 ```
 
+### Neighbours
+
+Neighbours are the taxons which are under a common parent (within the same taxonomy).
+
+It is defined as a [HasMany Eloquent relationship](https://laravel.com/docs/5.7/eloquent-relationships#one-to-many)
+thus available as a property (`$taxon->neighbours`) which gives a collection.
+
+> Due to the internals of relationships, the relationship doesn't work for root level taxons (`parent_id == NULL`)
+
+```php
+$books = Taxon::create(['name' => 'Books']);
+
+Taxon::create(['name' => 'Sci-fi', 'parent_id' => $books->id]);
+Taxon::create(['name' => 'Thriller', 'parent_id' => $books->id]);
+$fantasy = Taxon::create(['name' => 'Fantasy', 'parent_id' => $books->id]);
+
+$fantasy->neighbours;
+// Sci-fi
+// Thriller
+// Fantasy
+
+// Yes, it returns the caller itself as well (read below how to filter it)
+```
+
+It is also possible to invoke `$taxon->neighbours()` as a method and further use it as query builder:
+
+```php
+$taxon->neighbours()->get();
+
+// To exclude the caller from the result use the `except` scope:
+$taxon->neighbours()->except($taxon)->get();
+
+// To get them in a reverse order
+$taxon->neighbours()->sortReverse()->get();
+```
+
+#### Get First And Last Neighbours
+
+> Unlike the `neighbours` relationship, this works properly on root level taxons as well
+
+There are two dedicated methods to retrieve the first or the last neighbour:
+
+- `$taxon->lastNeighbour()` and
+- `$taxon->firstNeighbour()`
+
+The order of the taxons is based on the `priority` field.
+
+```php
+$gadgets = Taxon::create(['Gadgets']);
+
+$laptops = Taxon::create(['name' => 'Laptops', 'priority' => 1, 'parent_id' => $gadgets->id]);
+$watches = Taxon::create(['name' => 'Watches', 'priority' => 2, 'parent_id' => $gadgets->id]);
+$phones  = Taxon::create(['name' => 'Phones', 'priority' => 3, 'parent_id' => $gadgets->id]);
+$tablets = Taxon::create(['name' => 'Tablets', 'priority' => 4, 'parent_id' => $gadgets->id]);
+
+echo $phones->firstNeighbour()->name;
+// Laptops
+echo $phones->lastNeighbour()->name;
+// Tablets
+
+// It may return itself if that happens to be the case:
+echo $laptops->firstNeighbour()->name;
+// Laptops
+echo $tablets->lastNeighbour()->name;
+// Tablets
+
+// To exclude itself from the result, set the `$excludeSelf` parameter of the method to true:
+echo $laptops->firstNeighbour(true)->name;
+// Watches
+echo $tablets->lastNeighbour(true)->name;
+// Phones
+```
+
+### Retrieving Taxons (Scopes)
+
+The default Taxon model that ships with this package defines a several [Query Scopes](https://laravel.com/docs/5.7/eloquent#local-scopes).
+
+Due to the nature of Eloquent query scopes, these are chainable so it is possible to combine them arbitrarily.
+
+#### Retrieve By Taxonomy
+
+To retrieve all taxons belonging to a taxonomy, use the `byTaxonomy` scope:
+
+```php
+$category = Taxonomy::findOneByName('Category');
+
+// Returns a collection of taxons
+$taxons = Taxon::byTaxonomy($category)->get();
+
+// The method also works by passing the taxonomy id:
+$id = $category->id;
+$taxons = Taxon::byTaxonomy($id)->get();
+```
+
+#### Retrieve Root Level Taxons
+
+An alternative to `$taxonomy->rootLevelTaxons()` is to retrieve all the root level taxons:
+
+```php
+// It returns all the taxons without parent, from all taxonomies:
+$allRootLevelTaxons = Taxon::roots()->get();
+
+// It is possible of course to combine with byTaxonomy scope:
+$taxonomy = Taxonomy::findOneByName('Brands');
+$rootTaxonsForBrands = Taxon::roots()->byTaxonomy($taxonomy)->get();
+```
+
+#### Sorting Taxons
+
+Taxons have a field called `priority` which is designed to make taxons sortable.
+
+The `sort()` and `sortReverse()` query scopes sort results by priority:
+
+```php
+$spirits = Taxonomy::create(['name' => 'Spirits']);
+Taxon::create(['name' => 'Gin', 'priority' => 3, 'taxonomy_id' => $spirits->id]);
+Taxon::create(['name' => 'Whisky', 'priority' => 1, 'taxonomy_id' => $spirits->id]);
+Taxon::create(['name' => 'Armagnac', 'priority' => 2, 'taxonomy_id' => $spirits->id]);
+
+foreach(Taxon::sort()->get() as $taxon) {
+    echo $taxon->name . "\n";
+}
+// Output:
+// Whisky
+// Armagnac
+// Gin
+
+// To get taxons in reverse order: 
+foreach(Taxon::sortReverse()->get() as $taxon) {
+    echo $taxon->name . "\n";
+}
+// Output:
+// Gin
+// Armagnac
+// Whisky
+```
+
+#### Exclude One Taxon From The List
+
+There are cases when you want to exclude a taxon from the list of taxons.
+For that purpose you can utilize the `except(Taxon $taxon)` scope:
+
+```php
+$me = Taxon::create(['name' => 'Me']);
+
+Taxon::create(['name' => 'You']);
+Taxon::create(['name' => 'She']);
+Taxon::create(['name' => 'We']);
+
+Taxon::except($me)->get();
+// You
+// She
+// We
+```
+
 ## Known Issues
 
 ### Duplicate Taxon Slugs On Root Level
@@ -321,4 +486,7 @@ guaranteed by unique DB keys. Most
 
 Therefore root level taxons can have duplicate slugs.
 
+### Neighbours Relationship On Root Level
 
+The `neighbours()` relationship does not work on root level taxons.
+It returns an empty result set.
