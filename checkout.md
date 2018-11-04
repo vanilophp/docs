@@ -60,7 +60,7 @@ $checkout->setCart($cart);
 **3. Let Laravel Container to inject**
 
 > Refer to
-> [Container Automatic Injection](https://laravel.com/docs/5.5/container#automatic-injection)
+> [Container Automatic Injection](https://laravel.com/docs/5.7/container#automatic-injection)
 > an for more details
 
 ```php

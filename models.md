@@ -1,7 +1,7 @@
 # Models
 
 Vanilo models are usual
-[Eloquent Models](https://laravel.com/docs/5.5/eloquent) prevalent in
+[Eloquent Models](https://laravel.com/docs/5.7/eloquent) prevalent in
 Laravel apps.
 
 Vanilo's explicit aim is to refrain from deviations from Laravel's
@@ -11,7 +11,7 @@ modules (components) has a default interface (contract) defined.
 
 To see a list of models and their contracts use this command:
 
-```bash
+```
 $> php artisan concord:models
 
 +--------------+---------------------------------------+------------------------------------+

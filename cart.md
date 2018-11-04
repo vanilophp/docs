@@ -140,7 +140,7 @@ echo $item->weight;
 
 ### Retrieving The Item's Associated Product
 
-The `CartItem` defines a [polymorphic relationship](https://laravel.com/docs/5.5/eloquent-relationships#polymorphic-relations)
+The `CartItem` defines a [polymorphic relationship](https://laravel.com/docs/5.7/eloquent-relationships#polymorphic-relations)
 to the Buyable object named `product`.
 
 So you have a reference to the item's product:
@@ -209,7 +209,7 @@ Relation::morphMap([
 ]);
 ```
 
-For more information refer to the [Polymorphic Relation](https://laravel.com/docs/5.5/eloquent-relationships#polymorphic-relations)
+For more information refer to the [Polymorphic Relation](https://laravel.com/docs/5.7/eloquent-relationships#polymorphic-relations)
 section in the Laravel Documentation.
 
 ### Removing Items
