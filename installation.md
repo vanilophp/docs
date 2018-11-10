@@ -108,7 +108,9 @@ This will ask several questions and create a proper superuser that you can start
 
 In `webpack.mix.js` change:
 ```js
-mix.js('resources/assets/js/app.js', 'public/js')
+mix.js('resources/js/app.js', 'public/js')
+// Use this for Laravel < 5.7
+//mix.js('resources/assets/js/app.js', 'public/js')
    // Add this line:
    .scripts([
            'public/js/app.js',
