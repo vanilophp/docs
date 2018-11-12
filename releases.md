@@ -2,6 +2,16 @@
 
 > For upcoming releases refer to the [Roadmap](roadmap.md).
 
+## 0.4
+##### 2018-11-12
+
+- Product Categories
+- Cart can be preserved for a user across devices and logins
+- Product sales figures (units sold, last sale date)
+- Laravel 5.7 Support
+- PHP 7.3 Support (tested against RC)
+- Lots of UI improvements
+
 ## 0.3
 ##### 2018-08-19
 
