@@ -2,7 +2,8 @@
 
 ## 0.3 -> 0.4
 
-Nothing to consider so far.
+- Run migrations
+- Change frontend assets compilation (will be written in the next hours), see [Installation](installation.md)
 
 ## 0.2 -> 0.3
 
