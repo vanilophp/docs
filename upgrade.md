@@ -3,7 +3,7 @@
 ## 0.3 -> 0.4
 
 - Run migrations
-- Change frontend assets compilation (will be written in the next hours), see [Installation](installation.md)
+- Change frontend assets compilation (guide will be written in the next hours), see [Installation](installation.md)
 
 ## 0.2 -> 0.3
 

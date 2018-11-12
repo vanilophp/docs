@@ -48,17 +48,17 @@ The following [Concord](concord.md) modules should be installed now:
 +-----+------------------------+--------+---------+------------------+------------------+
 | #   | Name                   | Kind   | Version | Id               | Namespace        |
 +-----+------------------------+--------+---------+------------------+------------------+
-| 1.  | Konekt Address Module  | Module | 0.9.6   | konekt.address   | Konekt\Address   |
-| 2.  | Konekt Customer Module | Module | 0.9.5   | konekt.customer  | Konekt\Customer  |
+| 1.  | Konekt Address Module  | Module | 0.9.7   | konekt.address   | Konekt\Address   |
+| 2.  | Konekt Customer Module | Module | 0.9.6   | konekt.customer  | Konekt\Customer  |
 | 3.  | Konekt User Module     | Module | 0.9.0   | konekt.user      | Konekt\User      |
-| 4.  | Konekt Acl Module      | Module | 1.0.0   | konekt.acl       | Konekt\Acl       |
-| 5.  | Konekt AppShell Box    | Box    | 0.9.10  | konekt.app_shell | Konekt\AppShell  |
-| 6.  | Vanilo Address Module  | Module | 0.4-dev | vanilo.address   | Vanilo\Address   |
-| 7.  | Vanilo Product Module  | Module | 0.4-dev | vanilo.product   | Vanilo\Product   |
-| 8.  | Vanilo Cart Module     | Module | 0.4-dev | vanilo.cart      | Vanilo\Cart      |
-| 9.  | Vanilo Checkout Module | Module | 0.4-dev | vanilo.checkout  | Vanilo\Checkout  |
-| 10. | Vanilo Order Module    | Module | 0.4-dev | vanilo.order     | Vanilo\Order     |
-| 11. | Vanilo Framework       | Box    | 0.4-dev | vanilo.framework | Vanilo\Framework |
+| 4.  | Konekt Acl Module      | Module | 1.1.0   | konekt.acl       | Konekt\Acl       |
+| 5.  | Konekt AppShell Box    | Box    | 1.2.0   | konekt.app_shell | Konekt\AppShell  |
+| 6.  | Vanilo Category Module | Module | 0.4.0   | vanilo.category  | Vanilo\Category  |
+| 7.  | Vanilo Product Module  | Module | 0.4.0   | vanilo.product   | Vanilo\Product   |
+| 8.  | Vanilo Cart Module     | Module | 0.4.0   | vanilo.cart      | Vanilo\Cart      |
+| 9.  | Vanilo Checkout Module | Module | 0.4.0   | vanilo.checkout  | Vanilo\Checkout  |
+| 10. | Vanilo Order Module    | Module | 0.4.0   | vanilo.order     | Vanilo\Order     |
+| 11. | Vanilo Framework       | Box    | 0.4.0   | vanilo.framework | Vanilo\Framework |
 +-----+------------------------+--------+---------+------------------+------------------+
 ```
 
@@ -71,6 +71,12 @@ php artisan migrate
 ```
 
 Vanilo contains ~20 migrations out of the box
+
+It's not mandatory but recommended to seed the countries table:
+
+```bash
+php artisan db:seed --class 'Konekt\Address\Seeds\Countries'
+```
 
 ## Laravel Auth Support
 
@@ -109,26 +115,11 @@ This will ask several questions and create a proper superuser that you can start
 In `webpack.mix.js` change:
 ```js
 mix.js('resources/js/app.js', 'public/js')
-// Use this for Laravel < 5.7
-//mix.js('resources/assets/js/app.js', 'public/js')
-   // Add this line:
-   .scripts([
-           'public/js/app.js',
-           'vendor/konekt/appshell/src/resources/assets/js/appshell.js'
-       ], 'public/js/app.js')
-   // And replace this line:
-   //.sass('resources/assets/sass/app.scss', 'public/css');
-   // With this one:
-    .sass('vendor/konekt/appshell/src/resources/assets/sass/appshell.sass', 'public/css');
-```
-
-Remove the omnipresent Vue instance from Laravel's default app.js file:
-
-```javascript
-// REMOVE/COMMENT THESE 3 LINES:
-const app = new Vue({
-    el: '#app'
-});
+    // Add these 2 lines:   
+   .js('vendor/konekt/appshell/src/resources/assets/js/appshell.standalone.js', 'public/js/appshell.js')
+   .sass('vendor/konekt/appshell/src/resources/assets/sass/appshell.sass', 'public/css')
+    // Keep this for the "rest" (usually public frontend)
+   .sass('resources/sass/app.scss', 'public/css');
 ```
 
 Now compile the assets with mix:
@@ -148,3 +139,7 @@ After this you can start serving the site with
 
 Now navigate to http://127.0.0.1:8000/admin/customer. You'll be able to
 log in with the user just created on the console.
+
+> You may expect to have a store frontend here, but there's none out of the box, and this is
+> intentional, so that you can build one exactly your way. To see an example storefront
+> implementation for Vanilo go to [the demo project](https://github.com/vanilophp/demo)

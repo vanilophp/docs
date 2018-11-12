@@ -20,7 +20,6 @@ The Vanilo source code is managed on GitHub, and there are repositories
 for each of the separate components:
 
 - [Framework](https://github.com/vanilophp/framework) (glue between components) ⟵ report here if unsure
-- [Address](https://github.com/vanilophp/address)
 - [Product](https://github.com/vanilophp/product)
 - [Cart](https://github.com/vanilophp/cart)
 - [Category](https://github.com/vanilophp/category)

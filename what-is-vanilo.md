@@ -16,20 +16,20 @@ Refer to [Release Notes](releases.md) for more details.
 
 ## Why Another E-commerce Package?
 
-Shortly, because in 2017 there was no decent one **especially for Laravel**. There's a slightly
+Shortly, because back in 2017 there was no decent one **especially for Laravel**. There's a slightly
 longer
 [article on medium](https://medium.com/@attilafulop/e-commerce-platform-for-laravel-c09a2bcfe8c6)
 about why it came to life.
 
 ## Alternatives
 
-| Name                                         | Based on           | Version (Aug 2018) |
-|:---------------------------------------------|:-------------------|:-------------------|
-| [GetCandy](https://getcandy.io/)             | Laravel 5          | Unreleased         |
-| [Aimeos](https://aimeos.org/)                | Laravel 5          | 2018.07            |
-| [Sylius](http://sylius.org/)                 | Symfony 3.4 or 4.1 | 1.2                |
-| [ORO Commerce](https://www.orocommerce.com/) | Symfony 3.4        | 1.6                |
-| [Magento](https://magento.com/)              | Zend 2.7           | 2.2                |
+| Name                                         | Based on              | Version (Nov 2018) |
+|:---------------------------------------------|:----------------------|:-------------------|
+| [GetCandy](https://getcandy.io/)             | Laravel 5             | Unreleased         |
+| [Aimeos](https://aimeos.org/)                | Laravel 5             | 2018.10.2          |
+| [Sylius](http://sylius.org/)                 | Symfony 3.4 or 4.1    | 1.3.3              |
+| [ORO Commerce](https://www.orocommerce.com/) | Symfony 3.4 (<3.4.15) | 1.6                |
+| [Magento](https://magento.com/)              | Zend 2.7              | 2.2                |
 
 For even more alternatives read the
 [E-commerce Status Quo 2016](https://blog.fortrabbit.com/ecommerce-status-quo-2016).
