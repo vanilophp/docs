@@ -79,19 +79,20 @@ To see a list of registered enums and their contracts use this command:
 ```
 $> php artisan concord:enums
 
-+----------------+-----------------------------------------+--------------------------------------+
-| Shorthand      | Contract                                | Concrete                             |
-+----------------+-----------------------------------------+--------------------------------------+
-| address_type   | Konekt\Address\Contracts\AddressType    | Konekt\Address\Models\AddressType    |
-| checkout_state | Vanilo\Checkout\Contracts\CheckoutState | Vanilo\Checkout\Models\CheckoutState |
-| customer_type  | Konekt\Customer\Contracts\CustomerType  | Konekt\Customer\Models\CustomerType  |
-| gender         | Konekt\Address\Contracts\Gender         | Konekt\Address\Models\Gender         |
-| name_order     | Konekt\Address\Contracts\NameOrder      | Konekt\Address\Models\NameOrder      |
-| order_status   | Vanilo\Order\Contracts\OrderStatus      | Vanilo\Order\Models\OrderStatus      |
-| product_state  | Vanilo\Product\Contracts\ProductState   | Vanilo\Product\Models\ProductState   |
-| province_type  | Konekt\Address\Contracts\ProvinceType   | Konekt\Address\Models\ProvinceType   |
-| user_type      | Konekt\User\Contracts\UserType          | Konekt\User\Models\UserType          |
-+----------------+-----------------------------------------+--------------------------------------+
++------------------+-------------------------------------------+----------------------------------------+
+| Shorthand        | Contract                                  | Concrete                               |
++------------------+-------------------------------------------+----------------------------------------+
+| address_type     | Konekt\Address\Contracts\AddressType      | Konekt\Address\Models\AddressType      |
+| cart_state       | Vanilo\Cart\Contracts\CartState           | Vanilo\Cart\Models\CartState           |
+| checkout_state   | Vanilo\Checkout\Contracts\CheckoutState   | Vanilo\Checkout\Models\CheckoutState   |
+| customer_type    | Konekt\Customer\Contracts\CustomerType    | Konekt\Customer\Models\CustomerType    |
+| gender           | Konekt\Address\Contracts\Gender           | Konekt\Address\Models\Gender           |
+| name_order       | Konekt\Address\Contracts\NameOrder        | Konekt\Address\Models\NameOrder        |
+| order_status     | Vanilo\Order\Contracts\OrderStatus        | Vanilo\Order\Models\OrderStatus        |
+| product_state    | Vanilo\Product\Contracts\ProductState     | Vanilo\Product\Models\ProductState     |
+| province_type    | Konekt\Address\Contracts\ProvinceType     | Konekt\Address\Models\ProvinceType     |
+| user_type        | Konekt\User\Contracts\UserType            | Konekt\User\Models\UserType            |
++------------------+-------------------------------------------+----------------------------------------+
 ```
 
 As you see, similarly to [models](models.md), enums also have a "root"

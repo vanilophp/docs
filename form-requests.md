@@ -24,18 +24,30 @@ can be used for overriding them.
 ```
 $> php artisan concord:requests
 
-+-----------------+---------------------------------------------------+----------------------------------------------+
-| Name            | Contract                                          | Concrete                                     |
-+-----------------+---------------------------------------------------+----------------------------------------------+
-| create_customer | Konekt\AppShell\Contracts\Requests\CreateCustomer | Konekt\AppShell\Http\Requests\CreateCustomer |
-| create_product  | Vanilo\Framework\Contracts\Requests\CreateProduct | Vanilo\Framework\Http\Requests\CreateProduct |
-| create_role     | Konekt\AppShell\Contracts\Requests\CreateRole     | Konekt\AppShell\Http\Requests\CreateRole     |
-| create_user     | Konekt\AppShell\Contracts\Requests\CreateUser     | Konekt\AppShell\Http\Requests\CreateUser     |
-| update_customer | Konekt\AppShell\Contracts\Requests\UpdateCustomer | Konekt\AppShell\Http\Requests\UpdateCustomer |
-| update_product  | Vanilo\Framework\Contracts\Requests\UpdateProduct | Vanilo\Framework\Http\Requests\UpdateProduct |
-| update_role     | Konekt\AppShell\Contracts\Requests\UpdateRole     | Konekt\AppShell\Http\Requests\UpdateRole     |
-| update_user     | Konekt\AppShell\Contracts\Requests\UpdateUser     | Konekt\AppShell\Http\Requests\UpdateUser     |
-+-----------------+---------------------------------------------------+----------------------------------------------+
++---------------------+------------------------------------------------------+-------------------------------------------------+
+| Name                | Contract                                             | Concrete                                        |
++---------------------+------------------------------------------------------+-------------------------------------------------+
+| create_address      | Konekt\AppShell\Contracts\Requests\CreateAddress     | Konekt\AppShell\Http\Requests\CreateAddress     |
+| create_address_form | Konekt\AppShell\Contracts\Requests\CreateAddressForm | Konekt\AppShell\Http\Requests\CreateAddressForm |
+| create_customer     | Konekt\AppShell\Contracts\Requests\CreateCustomer    | Konekt\AppShell\Http\Requests\CreateCustomer    |
+| create_product      | Vanilo\Framework\Contracts\Requests\CreateProduct    | Vanilo\Framework\Http\Requests\CreateProduct    |
+| create_role         | Konekt\AppShell\Contracts\Requests\CreateRole        | Konekt\AppShell\Http\Requests\CreateRole        |
+| create_taxon        | Vanilo\Framework\Contracts\Requests\CreateTaxon      | Vanilo\Framework\Http\Requests\CreateTaxon      |
+| create_taxon_form   | Vanilo\Framework\Contracts\Requests\CreateTaxonForm  | Vanilo\Framework\Http\Requests\CreateTaxonForm  |
+| create_taxonomy     | Vanilo\Framework\Contracts\Requests\CreateTaxonomy   | Vanilo\Framework\Http\Requests\CreateTaxonomy   |
+| create_user         | Konekt\AppShell\Contracts\Requests\CreateUser        | Konekt\AppShell\Http\Requests\CreateUser        |
+| edit_address_form   | Konekt\AppShell\Contracts\Requests\EditAddressForm   | Konekt\AppShell\Http\Requests\EditAddressForm   |
+| save_account        | Konekt\AppShell\Contracts\Requests\SaveAccount       | Konekt\AppShell\Http\Requests\SaveAccount       |
+| sync_model_taxons   | Vanilo\Framework\Contracts\Requests\SyncModelTaxons  | Vanilo\Framework\Http\Requests\SyncModelTaxons  |
+| update_address      | Konekt\AppShell\Contracts\Requests\UpdateAddress     | Konekt\AppShell\Http\Requests\UpdateAddress     |
+| update_customer     | Konekt\AppShell\Contracts\Requests\UpdateCustomer    | Konekt\AppShell\Http\Requests\UpdateCustomer    |
+| update_order        | Vanilo\Framework\Contracts\Requests\UpdateOrder      | Vanilo\Framework\Http\Requests\UpdateOrder      |
+| update_product      | Vanilo\Framework\Contracts\Requests\UpdateProduct    | Vanilo\Framework\Http\Requests\UpdateProduct    |
+| update_role         | Konekt\AppShell\Contracts\Requests\UpdateRole        | Konekt\AppShell\Http\Requests\UpdateRole        |
+| update_taxon        | Vanilo\Framework\Contracts\Requests\UpdateTaxon      | Vanilo\Framework\Http\Requests\UpdateTaxon      |
+| update_taxonomy     | Vanilo\Framework\Contracts\Requests\UpdateTaxonomy   | Vanilo\Framework\Http\Requests\UpdateTaxonomy   |
+| update_user         | Konekt\AppShell\Contracts\Requests\UpdateUser        | Konekt\AppShell\Http\Requests\UpdateUser        |
++---------------------+------------------------------------------------------+-------------------------------------------------+
 ```
 
 ## Customizing Form Requests
@@ -56,14 +68,14 @@ use Vanilo\Framework\Http\Requests\CreateProduct as BaseCreateProduct;
 class CreateProduct extends BaseCreateProduct
 {
     public function rules()
-        {
-            $rules = parent::rules();
-            
-            // Extend the rules with a new mandatory field:
-            $rules['field_added_by_app'] = 'required|min:2|max:255';
-            
-            return $rules;
-        }
+    {
+        $rules = parent::rules();
+        
+        // Extend the rules with a new mandatory field:
+        $rules['field_added_by_app'] = 'required|min:2|max:255';
+        
+        return $rules;
+    }
 }
 ```
 

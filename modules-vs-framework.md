@@ -16,9 +16,11 @@ separately installed via composer.
 - [AppShell](https://github.com/artkonekt/appshell): App + Admin basics:
     - [User Module](users.md)
     - [Acl Module](acl.md)
-    - [Menu Module](https://github.com/artkonekt/menu)
+    - [Customers Module](customers.md)
     - [Address Module](addresses.md)
+    - [Menu Module](https://github.com/artkonekt/menu)
 - [Product Module](products.md)
+- [Categorization Module](categorization.md)
 - [Cart Module](cart.md)
 - [Checkout Module](checkout.md)
 - [Order Module](orders.md)
@@ -34,5 +36,5 @@ This package contains solely interfaces, no actual code.
 ## Vanilo Framework
 
 The Vanilo framework contains all the modules and adds the bindings
-between them + the admin panel. Using the framework is the
+between them + adds the admin panel. Using the framework is the
 recommended way.

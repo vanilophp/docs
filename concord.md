@@ -93,6 +93,7 @@ This can be achieved by:
 
 - overriding/extending eloquent models,
 - extending enums and/or changing their defaults,
+- modifying form requests (thus validation) being used by existing forms/controllers,
 - ignoring migrations if necessary,
 - altering views,
 - modifying/disabling routes,

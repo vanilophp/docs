@@ -7,7 +7,7 @@ Laravel apps.
 Vanilo's explicit aim is to refrain from deviations from Laravel's
 common sense. But there are some, admittedly. One of them is
 [Concord](concord.md) and the fact that every model defined in Vanilo
-modules (components) has a default interface (contract) defined.
+modules has a default interface (contract) defined.
 
 To see a list of models and their contracts use this command:
 
@@ -17,7 +17,8 @@ $> php artisan concord:models
 +--------------+---------------------------------------+------------------------------------+
 | Entity       | Contract                              | Model                              |
 +--------------+---------------------------------------+------------------------------------+
-| Address      | Konekt\Address\Contracts\Address      | Vanilo\Address\Models\Address      |
+| Address      | Konekt\Address\Contracts\Address      | Vanilo\Framework\Models\Address    |
+| Billpayer    | Vanilo\Order\Contracts\Billpayer      | Vanilo\Order\Models\Billpayer      |
 | Cart         | Vanilo\Cart\Contracts\Cart            | Vanilo\Cart\Models\Cart            |
 | CartItem     | Vanilo\Cart\Contracts\CartItem        | Vanilo\Cart\Models\CartItem        |
 | Country      | Konekt\Address\Contracts\Country      | Konekt\Address\Models\Country      |
@@ -31,7 +32,9 @@ $> php artisan concord:models
 | Profile      | Konekt\User\Contracts\Profile         | Konekt\User\Models\Profile         |
 | Province     | Konekt\Address\Contracts\Province     | Konekt\Address\Models\Province     |
 | Role         | Konekt\Acl\Contracts\Role             | Konekt\Acl\Models\Role             |
-| User         | Konekt\User\Contracts\User            | Konekt\AppShell\Models\User        |
+| Taxon        | Vanilo\Category\Contracts\Taxon       | Vanilo\Framework\Models\Taxon      |
+| Taxonomy     | Vanilo\Category\Contracts\Taxonomy    | Vanilo\Category\Models\Taxonomy    |
+| User         | Konekt\User\Contracts\User            | App\User                           |
 +--------------+---------------------------------------+------------------------------------+
 ```
 
