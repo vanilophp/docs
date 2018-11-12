@@ -255,3 +255,8 @@ an order with the models. Make sure you fire the event in such cases:
 ```php
 event(new OrderWasCreated($order));
 ```
+
+Further events (added with v0.4):
+
+- `OrderWasCompleted`
+- `OrderWasCancelled`
