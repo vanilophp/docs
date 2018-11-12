@@ -476,6 +476,68 @@ Taxon::except($me)->get();
 // We
 ```
 
+## Assign Taxons To Products
+
+The goal of categorization is to define "things" to be categorized.
+
+The most common use case is to arrange **products** in categories, and this is already configured
+in the Framework (but not in standalone modules!).
+
+The assignment is done with
+[Eloquent Many To Many Polymorphic Relations](https://laravel.com/docs/5.7/eloquent-relationships#many-to-many-polymorphic-relations).
+
+This category module has prepared the `model_taxons` table for this purpose and is ready to be used without
+any further database change.
+
+#### Assigning Taxons To A Product:
+
+```php
+$product = Product::find(1);
+$taxon1 = Taxon::find(1);
+$taxon2 = Taxon::find(2);
+
+// To assign a single taxon:
+$product->addTaxon($taxon1);
+
+//To assign multiple taxons:
+$product->addTaxons([$taxon1, $taxon2]);
+```
+#### Removing Taxons From A Subscriber:
+
+```php
+$product = Product::find(1);
+$taxon = Taxon::find(1);
+
+// To assign a single taxon:
+$product->removeTaxon($taxon);
+```
+
+## The Inverse: Add Products To Taxons
+
+Another common use case is to retrieve all the products within a category (Taxon).
+This is also preconfigured in the Framework (but not in the standalone modules!).
+
+To manipulate the products within a taxon:
+
+```php
+$taxon = \App\Taxon::find(1);
+$product = Product::find(1);
+
+// Add the product to the taxon
+$taxon->addProduct($product);
+// Note that it has exactly the same effect as this:
+$product->addTaxon($taxon);
+
+// To retrieve all the products within the taxon:
+$taxon->products;
+// Collection of Product objects
+```
+
+## Assign Taxons To Models (Other Than Products)
+
+The Category module's [README has a detailed description](https://github.com/vanilophp/category#assign-taxons-to-models-eg-products)
+about assigning Taxons with any model in your system.
+
 ## Known Issues
 
 ### Duplicate Taxon Slugs On Root Level
