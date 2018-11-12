@@ -2,8 +2,52 @@
 
 ## 0.3 -> 0.4
 
-- Run migrations
-- Change frontend assets compilation (guide will be written in the next hours), see [Installation](installation.md)
+To upgrade the libraries to v0.4 run:
+
+```bash
+composer require --update-with-dependencies vanilo/framework 0.4
+```
+
+### New Migrations
+
+There are some new migrations, run them:
+
+```bash
+php artisan migrate
+```
+
+### Frontend Assets
+
+The Admin of the new version is built on top of [AppShell v1.2](https://artkonekt.github.io/appshell/#/upgrade?id=_09-gt-10).
+
+The Laravel mix (webpack) compilation has slightly changed.
+
+Update `webpack.mix.js` so that it look something like this:
+```js
+mix.js('resources/js/app.js', 'public/js') // <- default js, comes with Laravel. /!\ `resources/assets/js` with Laravel < 5.7
+    // These 2 lines are for Vanilo Admin (AppShell):   
+   .js('vendor/konekt/appshell/src/resources/assets/js/appshell.standalone.js', 'public/js/appshell.js')
+   .sass('vendor/konekt/appshell/src/resources/assets/sass/appshell.sass', 'public/css')
+    // default css, comes with Laravel:  /!\ `resources/assets/js` with Laravel < 5.7
+   .sass('resources/sass/app.scss', 'public/css');
+```
+
+It's recommended to use Laravel Mix v2:
+
+In `package.json`:
+
+```json
+{
+   "laravel-mix": "^2.0"
+}
+```
+
+Run these commands to install new dependencies and compile the assets:
+
+```bash
+yarn install
+yarn run dev
+```
 
 ## 0.2 -> 0.3
 
