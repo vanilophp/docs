@@ -1,5 +1,8 @@
 # Extending Vanilo's Admin Panel
 
+> This section is incomplete, for more details refer to the
+[AppShell Documentation](https://artkonekt.github.io/appshell/#/customize-admin-ui)
+
 ## Views
 
 If you want to define new views for the admin panel you need to use this layout:
@@ -11,7 +14,7 @@ If you want to define new views for the admin panel you need to use this layout:
 - title: `<title>`
 - content: the body of the page
 - footer: additional footer content
-- scripts: scripts to add below `<script src="/js/app.js">`
+- scripts: scripts to add below `<script src="/js/appshell.js">`
 
 ## Menu
 

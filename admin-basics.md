@@ -6,10 +6,11 @@ The Admin Panel was built on top of the
 AppShell is being composed of the following parts:
 - [User Module](users.md)
 - [Acl Module](acl.md)
+- [Customer Module](customers.md)
 - [Menu Module](https://github.com/artkonekt/menu)
 - [Address Module](addresses.md)
 
-Vanilo adds the handling of products and orders.
+Vanilo adds the handling of products, categories and orders.
 
 The Admin Panel has a Bootstrap 4 based UI. Probably it'll be themable
 in the future if there'll be such demand.
