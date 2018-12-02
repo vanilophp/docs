@@ -4,9 +4,9 @@
 
 - PHP 7.1 or higher
 - json extension
-- Database engine: **MySQL 5.7** or higher or **PostgreSQL** is required<sup>*</sup>.
+- Database engine: **MySQL 5.7** or higher, **MariaDB 10.2.7** or higher or **PostgreSQL** is required<sup>*</sup>.
 
-> <sup>*</sup> JSON field types are used, therefore **MariaDB is NOT supported**.
+> <sup>*</sup> JSON field types are used, therefore make sure to use the right version of your DB engine.
 
 ### With Composer
 
