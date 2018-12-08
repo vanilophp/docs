@@ -17,6 +17,7 @@
     - [Customers](/docs/{{version}}/customers)
     - [Addresses](/docs/{{version}}/addresses)
     - [Products](/docs/{{version}}/products)
+    - [Attributes](/docs/{{version}}/attributes)
     - [Categorization](/docs/{{version}}/categorization)
     - [Cart](/docs/{{version}}/cart)
     - [Checkout](/docs/{{version}}/checkout)
