@@ -2,12 +2,12 @@
 
 > Refer to [Releases](releases.md) for details about published versions.
 
-## 0.5 - Product Attributes
+## 0.5 - Product Properties
 ##### 2018-12-11
 
-- Product Attributes
-- Product Options & Variants
-- Product stock
+- Product Properties (Attributes)
+- Product Variants
+- Product Stock
 
 ## 1.0 - Stable
 ##### 2019-01-27
