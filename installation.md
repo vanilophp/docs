@@ -2,11 +2,15 @@
 
 ## Requirements
 
-- PHP 7.1 or higher
-- json extension
-- Database engine: **MySQL 5.7** or higher, **MariaDB 10.2.7** or higher or **PostgreSQL** is required<sup>*</sup>.
+- PHP 7.1.3 or higher
+- json, openssl, PDO, mbstring, tokenizer, xml, ctype PHP extensions
+- Supported database engines<sup>*</sup>:
+    - **MySQL 5.7** or higher,
+    - **MariaDB 10.2.7** or higher,
+    - **PostgreSQL 9.2** or higher.
 
-> <sup>*</sup> JSON field types are used, therefore make sure to use the right version of your DB engine.
+> <sup>*</sup> JSON field types are used, therefore make sure to use at least the required minimum
+> version of your preferred DB engine.
 
 ### With Composer
 

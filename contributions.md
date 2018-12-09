@@ -21,6 +21,7 @@ for each of the separate components:
 
 - [Framework](https://github.com/vanilophp/framework) (glue between components) ⟵ report here if unsure
 - [Product](https://github.com/vanilophp/product)
+- [Product Properties](https://github.com/vanilophp/properties)
 - [Cart](https://github.com/vanilophp/cart)
 - [Category](https://github.com/vanilophp/category)
 - [Checkout](https://github.com/vanilophp/checkout)
