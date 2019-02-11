@@ -24,30 +24,37 @@ can be used for overriding them.
 ```
 $> php artisan concord:requests
 
-+---------------------+------------------------------------------------------+-------------------------------------------------+
-| Name                | Contract                                             | Concrete                                        |
-+---------------------+------------------------------------------------------+-------------------------------------------------+
-| create_address      | Konekt\AppShell\Contracts\Requests\CreateAddress     | Konekt\AppShell\Http\Requests\CreateAddress     |
-| create_address_form | Konekt\AppShell\Contracts\Requests\CreateAddressForm | Konekt\AppShell\Http\Requests\CreateAddressForm |
-| create_customer     | Konekt\AppShell\Contracts\Requests\CreateCustomer    | Konekt\AppShell\Http\Requests\CreateCustomer    |
-| create_product      | Vanilo\Framework\Contracts\Requests\CreateProduct    | Vanilo\Framework\Http\Requests\CreateProduct    |
-| create_role         | Konekt\AppShell\Contracts\Requests\CreateRole        | Konekt\AppShell\Http\Requests\CreateRole        |
-| create_taxon        | Vanilo\Framework\Contracts\Requests\CreateTaxon      | Vanilo\Framework\Http\Requests\CreateTaxon      |
-| create_taxon_form   | Vanilo\Framework\Contracts\Requests\CreateTaxonForm  | Vanilo\Framework\Http\Requests\CreateTaxonForm  |
-| create_taxonomy     | Vanilo\Framework\Contracts\Requests\CreateTaxonomy   | Vanilo\Framework\Http\Requests\CreateTaxonomy   |
-| create_user         | Konekt\AppShell\Contracts\Requests\CreateUser        | Konekt\AppShell\Http\Requests\CreateUser        |
-| edit_address_form   | Konekt\AppShell\Contracts\Requests\EditAddressForm   | Konekt\AppShell\Http\Requests\EditAddressForm   |
-| save_account        | Konekt\AppShell\Contracts\Requests\SaveAccount       | Konekt\AppShell\Http\Requests\SaveAccount       |
-| sync_model_taxons   | Vanilo\Framework\Contracts\Requests\SyncModelTaxons  | Vanilo\Framework\Http\Requests\SyncModelTaxons  |
-| update_address      | Konekt\AppShell\Contracts\Requests\UpdateAddress     | Konekt\AppShell\Http\Requests\UpdateAddress     |
-| update_customer     | Konekt\AppShell\Contracts\Requests\UpdateCustomer    | Konekt\AppShell\Http\Requests\UpdateCustomer    |
-| update_order        | Vanilo\Framework\Contracts\Requests\UpdateOrder      | Vanilo\Framework\Http\Requests\UpdateOrder      |
-| update_product      | Vanilo\Framework\Contracts\Requests\UpdateProduct    | Vanilo\Framework\Http\Requests\UpdateProduct    |
-| update_role         | Konekt\AppShell\Contracts\Requests\UpdateRole        | Konekt\AppShell\Http\Requests\UpdateRole        |
-| update_taxon        | Vanilo\Framework\Contracts\Requests\UpdateTaxon      | Vanilo\Framework\Http\Requests\UpdateTaxon      |
-| update_taxonomy     | Vanilo\Framework\Contracts\Requests\UpdateTaxonomy   | Vanilo\Framework\Http\Requests\UpdateTaxonomy   |
-| update_user         | Konekt\AppShell\Contracts\Requests\UpdateUser        | Konekt\AppShell\Http\Requests\UpdateUser        |
-+---------------------+------------------------------------------------------+-------------------------------------------------+
++----------------------------+-------------------------------------------------------------+--------------------------------------------------------+
+| Name                       | Contract                                                    | Concrete                                               |
++----------------------------+-------------------------------------------------------------+--------------------------------------------------------+
+| create_address             | Konekt\AppShell\Contracts\Requests\CreateAddress            | Konekt\AppShell\Http\Requests\CreateAddress            |
+| create_address_form        | Konekt\AppShell\Contracts\Requests\CreateAddressForm        | Konekt\AppShell\Http\Requests\CreateAddressForm        |
+| create_customer            | Konekt\AppShell\Contracts\Requests\CreateCustomer           | Konekt\AppShell\Http\Requests\CreateCustomer           |
+| create_media               | Vanilo\Framework\Contracts\Requests\CreateMedia             | Vanilo\Framework\Http\Requests\CreateMedia             |
+| create_product             | Vanilo\Framework\Contracts\Requests\CreateProduct           | Vanilo\Framework\Http\Requests\CreateProduct           |
+| create_property            | Vanilo\Framework\Contracts\Requests\CreateProperty          | Vanilo\Framework\Http\Requests\CreateProperty          |
+| create_property_value      | Vanilo\Framework\Contracts\Requests\CreatePropertyValue     | Vanilo\Framework\Http\Requests\CreatePropertyValue     |
+| create_property_value_form | Vanilo\Framework\Contracts\Requests\CreatePropertyValueForm | Vanilo\Framework\Http\Requests\CreatePropertyValueForm |
+| create_role                | Konekt\AppShell\Contracts\Requests\CreateRole               | Konekt\AppShell\Http\Requests\CreateRole               |
+| create_taxon               | Vanilo\Framework\Contracts\Requests\CreateTaxon             | Vanilo\Framework\Http\Requests\CreateTaxon             |
+| create_taxon_form          | Vanilo\Framework\Contracts\Requests\CreateTaxonForm         | Vanilo\Framework\Http\Requests\CreateTaxonForm         |
+| create_taxonomy            | Vanilo\Framework\Contracts\Requests\CreateTaxonomy          | Vanilo\Framework\Http\Requests\CreateTaxonomy          |
+| create_user                | Konekt\AppShell\Contracts\Requests\CreateUser               | Konekt\AppShell\Http\Requests\CreateUser               |
+| edit_address_form          | Konekt\AppShell\Contracts\Requests\EditAddressForm          | Konekt\AppShell\Http\Requests\EditAddressForm          |
+| save_account               | Konekt\AppShell\Contracts\Requests\SaveAccount              | Konekt\AppShell\Http\Requests\SaveAccount              |
+| sync_model_property_values | Vanilo\Framework\Contracts\Requests\SyncModelPropertyValues | Vanilo\Framework\Http\Requests\SyncModelPropertyValues |
+| sync_model_taxons          | Vanilo\Framework\Contracts\Requests\SyncModelTaxons         | Vanilo\Framework\Http\Requests\SyncModelTaxons         |
+| update_address             | Konekt\AppShell\Contracts\Requests\UpdateAddress            | Konekt\AppShell\Http\Requests\UpdateAddress            |
+| update_customer            | Konekt\AppShell\Contracts\Requests\UpdateCustomer           | Konekt\AppShell\Http\Requests\UpdateCustomer           |
+| update_order               | Vanilo\Framework\Contracts\Requests\UpdateOrder             | Vanilo\Framework\Http\Requests\UpdateOrder             |
+| update_product             | Vanilo\Framework\Contracts\Requests\UpdateProduct           | Vanilo\Framework\Http\Requests\UpdateProduct           |
+| update_property            | Vanilo\Framework\Contracts\Requests\UpdateProperty          | Vanilo\Framework\Http\Requests\UpdateProperty          |
+| update_property_value      | Vanilo\Framework\Contracts\Requests\UpdatePropertyValue     | Vanilo\Framework\Http\Requests\UpdatePropertyValue     |
+| update_role                | Konekt\AppShell\Contracts\Requests\UpdateRole               | Konekt\AppShell\Http\Requests\UpdateRole               |
+| update_taxon               | Vanilo\Framework\Contracts\Requests\UpdateTaxon             | Vanilo\Framework\Http\Requests\UpdateTaxon             |
+| update_taxonomy            | Vanilo\Framework\Contracts\Requests\UpdateTaxonomy          | Vanilo\Framework\Http\Requests\UpdateTaxonomy          |
+| update_user                | Konekt\AppShell\Contracts\Requests\UpdateUser               | Konekt\AppShell\Http\Requests\UpdateUser               |
++----------------------------+-------------------------------------------------------------+--------------------------------------------------------+
 ```
 
 ## Customizing Form Requests

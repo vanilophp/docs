@@ -4,12 +4,12 @@ Vanilo is an E-commerce Framework for Laravel. It's like Magento or Sylius.
 
 ## Is It Ready For Production?
 
-It depends. The current feature set is not yet enough to run a "usual" Webshop in 2018. But what
+It depends. The current feature set is not yet enough to run a "usual" Webshop in 2019. But what
 Vanilo already provides is stable, tested and extensible.
 
 Starting from v0.2 there has been a well defined [upgrade path](upgrade.md) up to v1.0.
 
-Thus it is possible to build a Webshop on Vanilo 0.4 - even if it doesn't have a stable version
+Thus it is possible to build a Webshop on Vanilo 0.5 - even if it doesn't have a stable version
 number yet.
 
 Refer to [Release Notes](releases.md) for more details.
@@ -23,13 +23,13 @@ about why it came to life.
 
 ## Alternatives
 
-| Name                                         | Based on              | Version (Nov 2018) |
+| Name                                         | Based on              | Version (Feb 2019) |
 |:---------------------------------------------|:----------------------|:-------------------|
 | [GetCandy](https://getcandy.io/)             | Laravel 5             | Unreleased         |
 | [Aimeos](https://aimeos.org/)                | Laravel 5             | 2018.10.2          |
-| [Sylius](http://sylius.org/)                 | Symfony 3.4 or 4.1    | 1.3.3              |
-| [ORO Commerce](https://www.orocommerce.com/) | Symfony 3.4 (<3.4.15) | 1.6                |
-| [Magento](https://magento.com/)              | Zend 2.7              | 2.2                |
+| [Sylius](http://sylius.org/)                 | Symfony 3.4 or 4.1+   | 1.4                |
+| [ORO Commerce](https://www.orocommerce.com/) | Symfony 3.4 (3.4.30)  | 3.1                |
+| [Magento](https://magento.com/)              | Zend 2.7              | 2.3                |
 
 For even more alternatives read the
 [E-commerce Status Quo 2016](https://blog.fortrabbit.com/ecommerce-status-quo-2016).

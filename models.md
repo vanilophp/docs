@@ -14,28 +14,30 @@ To see a list of models and their contracts use this command:
 ```
 $> php artisan concord:models
 
-+--------------+---------------------------------------+------------------------------------+
-| Entity       | Contract                              | Model                              |
-+--------------+---------------------------------------+------------------------------------+
-| Address      | Konekt\Address\Contracts\Address      | Vanilo\Framework\Models\Address    |
-| Billpayer    | Vanilo\Order\Contracts\Billpayer      | Vanilo\Order\Models\Billpayer      |
-| Cart         | Vanilo\Cart\Contracts\Cart            | Vanilo\Cart\Models\Cart            |
-| CartItem     | Vanilo\Cart\Contracts\CartItem        | Vanilo\Cart\Models\CartItem        |
-| Country      | Konekt\Address\Contracts\Country      | Konekt\Address\Models\Country      |
-| Customer     | Konekt\Customer\Contracts\Customer    | Vanilo\Framework\Models\Customer   |
-| Order        | Vanilo\Order\Contracts\Order          | Vanilo\Order\Models\Order          |
-| OrderItem    | Vanilo\Order\Contracts\OrderItem      | Vanilo\Order\Models\OrderItem      |
-| Organization | Konekt\Address\Contracts\Organization | Konekt\Address\Models\Organization |
-| Permission   | Konekt\Acl\Contracts\Permission       | Konekt\Acl\Models\Permission       |
-| Person       | Konekt\Address\Contracts\Person       | Konekt\Address\Models\Person       |
-| Product      | Vanilo\Product\Contracts\Product      | Vanilo\Framework\Models\Product    |
-| Profile      | Konekt\User\Contracts\Profile         | Konekt\User\Models\Profile         |
-| Province     | Konekt\Address\Contracts\Province     | Konekt\Address\Models\Province     |
-| Role         | Konekt\Acl\Contracts\Role             | Konekt\Acl\Models\Role             |
-| Taxon        | Vanilo\Category\Contracts\Taxon       | Vanilo\Framework\Models\Taxon      |
-| Taxonomy     | Vanilo\Category\Contracts\Taxonomy    | Vanilo\Category\Models\Taxonomy    |
-| User         | Konekt\User\Contracts\User            | App\User                           |
-+--------------+---------------------------------------+------------------------------------+
++---------------+-------------------------------------------+----------------------------------------+
+| Entity        | Contract                                  | Model                                  |
++---------------+-------------------------------------------+----------------------------------------+
+| Address       | Konekt\Address\Contracts\Address          | Vanilo\Framework\Models\Address        |
+| Billpayer     | Vanilo\Order\Contracts\Billpayer          | Vanilo\Order\Models\Billpayer          |
+| Cart          | Vanilo\Cart\Contracts\Cart                | Vanilo\Cart\Models\Cart                |
+| CartItem      | Vanilo\Cart\Contracts\CartItem            | Vanilo\Cart\Models\CartItem            |
+| Country       | Konekt\Address\Contracts\Country          | Konekt\Address\Models\Country          |
+| Customer      | Konekt\Customer\Contracts\Customer        | Vanilo\Framework\Models\Customer       |
+| Order         | Vanilo\Order\Contracts\Order              | Vanilo\Order\Models\Order              |
+| OrderItem     | Vanilo\Order\Contracts\OrderItem          | Vanilo\Order\Models\OrderItem          |
+| Organization  | Konekt\Address\Contracts\Organization     | Konekt\Address\Models\Organization     |
+| Permission    | Konekt\Acl\Contracts\Permission           | Konekt\Acl\Models\Permission           |
+| Person        | Konekt\Address\Contracts\Person           | Konekt\Address\Models\Person           |
+| Product       | Vanilo\Product\Contracts\Product          | Vanilo\Framework\Models\Product        |
+| Profile       | Konekt\User\Contracts\Profile             | Konekt\User\Models\Profile             |
+| Property      | Vanilo\Properties\Contracts\Property      | Vanilo\Properties\Models\Property      |
+| PropertyValue | Vanilo\Properties\Contracts\PropertyValue | Vanilo\Properties\Models\PropertyValue |
+| Province      | Konekt\Address\Contracts\Province         | Konekt\Address\Models\Province         |
+| Role          | Konekt\Acl\Contracts\Role                 | Konekt\Acl\Models\Role                 |
+| Taxon         | Vanilo\Category\Contracts\Taxon           | Vanilo\Framework\Models\Taxon          |
+| Taxonomy      | Vanilo\Category\Contracts\Taxonomy        | Vanilo\Category\Models\Taxonomy        |
+| User          | Konekt\User\Contracts\User                | App\User                               |
++---------------+-------------------------------------------+----------------------------------------+
 ```
 
 ## Using Custom Models

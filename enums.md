@@ -87,6 +87,7 @@ $> php artisan concord:enums
 | checkout_state   | Vanilo\Checkout\Contracts\CheckoutState   | Vanilo\Checkout\Models\CheckoutState   |
 | customer_type    | Konekt\Customer\Contracts\CustomerType    | Konekt\Customer\Models\CustomerType    |
 | gender           | Konekt\Address\Contracts\Gender           | Konekt\Address\Models\Gender           |
+| gravatar_default | Konekt\AppShell\Contracts\GravatarDefault | Konekt\AppShell\Models\GravatarDefault |
 | name_order       | Konekt\Address\Contracts\NameOrder        | Konekt\Address\Models\NameOrder        |
 | order_status     | Vanilo\Order\Contracts\OrderStatus        | Vanilo\Order\Models\OrderStatus        |
 | product_state    | Vanilo\Product\Contracts\ProductState     | Vanilo\Product\Models\ProductState     |

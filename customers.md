@@ -5,7 +5,7 @@ Customers in E-commerce systems are one of the very basic data models.
 Some webshops however, don't use them at all: all orders are "anonymus"
 without user login, customer account.
 
-It's more likely that E-commerce systems of 2018 need the handling of
+It's more likely that E-commerce systems of 2019 need the handling of
 customers, therefore they're enabled by default in Vanilo, but it's
 possible to opt-out.
 

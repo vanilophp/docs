@@ -21,6 +21,7 @@ separately installed via composer.
     - [Menu Module](https://github.com/artkonekt/menu)
 - [Product Module](products.md)
 - [Categorization Module](categorization.md)
+- [Properties Module](properties.md)
 - [Cart Module](cart.md)
 - [Checkout Module](checkout.md)
 - [Order Module](orders.md)

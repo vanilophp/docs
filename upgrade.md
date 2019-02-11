@@ -1,5 +1,25 @@
 # Upgrade Between Versions
 
+## 0.4 -> 0.5
+
+This release drops PHP 7.0 support, minimum requirement is PHP 7.1.3.
+
+To upgrade the libraries to v0.5 run:
+
+```bash
+composer require --update-with-dependencies vanilo/framework 0.5
+```
+
+### New Migrations
+
+There are some new migrations, run them:
+
+```bash
+php artisan migrate
+```
+
+That's all.
+
 ## 0.3 -> 0.4
 
 To upgrade the libraries to v0.4 run:

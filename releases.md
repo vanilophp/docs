@@ -2,6 +2,12 @@
 
 > For upcoming releases refer to the [Roadmap](roadmap.md).
 
+## 0.5
+##### 2019-02-11
+
+- Arbitrary product properties (eg. color, RAM size, Wheel size, etc)
+- Product filtering
+
 ## 0.4
 ##### 2018-11-12
 
