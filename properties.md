@@ -1,6 +1,6 @@
 # Product Properties
 
-> The Properties Module is WIP at the moment and will be released in [Vanilo v0.5](roadmap.md).
+> The Properties Module first appeared in Vanilo v0.5.
 
 > Most E-commerce systems name this technique as "product attributes".
 > Laravel's Eloquent also names fields of models (entities) as "attributes".
@@ -17,3 +17,236 @@ Examples of product properties are:
  - **RAM size** of a _Laptop_,
  - **alcohol %** of a _Spirit drink_,
  - whether a _Fridge_ **has display**.
+
+The property module was created so that properties can be created and
+assigned to any model, not just products. This description however, will
+focus on using properties for products.
+
+## Defining Properties
+
+Properties are like "color", "material" or "wheel size".
+To create a new property you have to specify it's name and type.
+
+```php
+use Vanilo\Properties\Models\Property;
+
+$wheelSize = Property::create(['name' => 'Wheel Size', 'type' => 'text']);
+
+echo $wheelSize->name;
+// Wheel Size
+echo $wheelSize->slug;
+// wheel-size
+```
+
+### Property Slug
+
+The slug of a property is the URL compatible/friendly variant of the
+property name, intended to be used in filter URLs, APIs where brevity,
+human readability and machine compatibility are needed.
+
+Eg.: name: Color, slug: color; name: RAM Size, slug=ram
+
+Example filter URL usage: *http://someshop.com/cars?color=red&brand=chrysler&year=2019*
+
+> The Property and the PropertyValue models use the
+> [Eloquent Sluggable](https://github.com/cviebrock/eloquent-sluggable)
+> package.
+
+If you explicitly set the slug, no auto-generation will take place:
+
+```php
+$property = Property::create(['name' => 'RAM Size', 'slug' => 'ram']);
+
+echo $property->slug;
+// ram
+```
+
+In case a slug already exists, the slug will be automatically extended
+to prevent duplicates:
+
+```php
+$property1 = Taxonomy::create(['name' => 'Property']);
+$property2 = Taxonomy::create(['name' => 'Property']);
+
+echo $property1->slug;
+// property
+
+echo $property2->slug;
+// property-1
+```
+
+## Retrieving Properties
+
+Find property by id, works the usual way:
+
+```php
+$someProperty = Property::find(1);
+```
+
+To find by name:
+
+```php
+$screenSizeProperty = Property::findOneByName('Screen Size');
+```
+
+Find by slug:
+
+```php
+Property::findBySlug('screen-size');
+```
+
+## Property Types
+
+Properties can have types. Built-in types are:
+
+- text
+- boolean
+- integer
+- number
+
+Types are applied to the values of properties.
+
+### Adding Custom Types
+
+To add custom types you need to
+- Create a class that implements the `PropertyType` interface
+- Register the type.
+
+**Example**
+```php
+namespace App;
+
+class Stars implements \Vanilo\Properties\Contracts\PropertyType
+{
+    public function getName(): string
+    {
+        return __('Stars (1-5)');
+    }
+
+    public function transformValue(string $value, ?array $settings)
+    {
+        $stars = intval($value);
+        if ($stars > 5) {
+            $stars = 5;
+        } elseif ($stars < 1) {
+            $stars = 1;
+        }
+        
+        return $stars;
+    }
+}
+```
+
+Register the type (preferably in `AppServiceProvider::boot()`):
+
+```php
+namespace App\Providers;
+
+use App\Stars;
+use Illuminate\Support\ServiceProvider;
+use Vanilo\Properties\PropertyTypes;
+
+class AppServiceProvider extends ServiceProvider
+{
+    public function boot()
+    {
+        //...
+        PropertyTypes::register('stars', Stars::class);        
+        //...
+    }
+    //...
+}
+```
+
+## Creating Property Values
+
+Property values are like "red", "blue" or "white" for the "Color"
+property; "32GB", "64GB", etc for the "RAM Size" property.
+
+Property values always belong exclusively to one Property. Ie. if you
+have for example "Drape Color" and "External Color" properties, and both
+have "black" as value, there will be two separate black value entries.
+
+```php
+use Vanilo\Properties\Models\Property;
+use Vanilo\Properties\Models\PropertyValue;
+
+$color = Property::create(['name' => 'Color']);
+$color->propertyValues()->create([
+    'name' => 'Red'
+]);
+// or
+$color->propertyValues()->createMany([
+    ['name' => 'Black'],
+    ['name' => 'White'],
+    ['name' => 'Yellow']
+]);
+// or
+PropertyValue::create([
+    'property_id' => $color->id,
+    'name' => 'Blue'
+]);
+```
+
+## Retrieving Property Values
+
+```php
+$colors = Property::find(['name' => 'Color']);
+
+foreach($colors->values() as $color) {
+    echo $color->name . ', ';
+}
+// Red, Black, White, Yellow, Blue
+```
+
+Alternatively you can approach from the `PropertyValue` model as well:
+
+```php
+$property = Property::find(1);
+$values = PropertyValue::byProperty($property)->get();
+
+// it also works by passing the property id 
+$values = PropertyValue::byProperty(1)->get();
+```
+
+## Ordering Values
+
+Property values have a `priority` field which is being used to sort
+values.
+
+**To set the priority:**
+```php
+PropertyValue::create(['name' => '16GB', 'priority' => 15]);
+PropertyValue::create(['name' => '32GB', 'priority' => 30]);
+```
+
+There are two option to work with the sorted values:
+
+1. Use the [scopes](https://laravel.com/docs/5.7/eloquent#local-scopes) directly,
+2. Use the `$property->values()` method, it gives a sorted list of property values
+
+### Sorting Scopes
+
+To retrieve values unsorted, just use the plain `propertyValues` relationship:
+
+```php
+// Collection of values, without sorting:
+$property->propertyValues;
+```
+
+To retrieve values sorted:
+
+```php
+// Get the relationship, apply the sort scope, get the results:
+$property->propertyValues()->sort()->get();
+// The same as above, short form:
+$property->values();
+
+// Reverse sort:
+$property->propertyValues()->sortReverse()->get();
+
+// Approaching from the PropertyValue model:
+PropertyValue::byProperty($propertyId = 1)->sort()->get();
+// Same as above, but reverse sorted:
+PropertyValue::byProperty($propertyId = 1)->sortReverse()->get();
+```
