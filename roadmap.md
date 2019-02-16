@@ -8,13 +8,13 @@
 - Stable release
 - Customer Accounts
 - Product Stock
+- Shipments handling
 - Payment handling
 
-## 1.1 - Shipping
+## 1.1 - Order Workflow
 ##### 2019-04-28
 
-- Shipments handling
-- Order Processing
+- Configurable Order Workflow
 
 ## 1.2 - Diversity
 ##### 2019-05-27
