@@ -22,6 +22,7 @@
     - [Cart](/docs/{{version}}/cart)
     - [Checkout](/docs/{{version}}/checkout)
     - [Orders](/docs/{{version}}/orders)
+    - [Shipping](/docs/{{version}}/shipping)
 - Admin
     - [Basics](/docs/{{version}}/admin-basics)
     - [Users](/docs/{{version}}/users)
