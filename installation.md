@@ -103,6 +103,8 @@ class User extends \Konekt\AppShell\Models\User
 And add this to you `AppServiceProviders`'s boot method:
 
 ```php
+// app/Providers/AppServiceProvider.php
+
    $this->app->concord->registerModel(\Konekt\User\Contracts\User::class, \App\User::class);
 ```
 
