@@ -8,7 +8,7 @@
     - **MySQL 5.7** or higher,
     - **MariaDB 10.2.7** or higher,
     - **PostgreSQL 9.2** or higher.
-- Laravel/Framework 5.7
+- Laravel/Framework 5.4 - 5.7
 
 > <sup>*</sup> JSON field types are used, therefore make sure to use at least the required minimum
 > version of your preferred DB engine.
