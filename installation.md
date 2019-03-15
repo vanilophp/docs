@@ -8,6 +8,7 @@
     - **MySQL 5.7** or higher,
     - **MariaDB 10.2.7** or higher,
     - **PostgreSQL 9.2** or higher.
+- Laravel/Framework 5.7
 
 > <sup>*</sup> JSON field types are used, therefore make sure to use at least the required minimum
 > version of your preferred DB engine.
@@ -16,7 +17,7 @@
 
 ```bash
 # Create a new project (optional):
-composer create-project --prefer-dist laravel/laravel vaniloapp
+composer create-project --prefer-dist laravel/laravel=5.7 vaniloapp
 cd vaniloapp
 
 # Install the vanilo package:
