@@ -3,7 +3,7 @@
 > Refer to [Releases](releases.md) for details about published versions.
 
 ## 1.0 - Stable
-##### 2019-03-18
+##### 2019-04-03
 
 - Stable release
 - Customer Accounts
