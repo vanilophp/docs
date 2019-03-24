@@ -67,8 +67,8 @@ In case a slug already exists, the slug will be automatically extended
 to prevent duplicates:
 
 ```php
-$property1 = Taxonomy::create(['name' => 'Property']);
-$property2 = Taxonomy::create(['name' => 'Property']);
+$property1 = Property::create(['name' => 'Property']);
+$property2 = Property::create(['name' => 'Property']);
 
 echo $property1->slug;
 // property
@@ -175,18 +175,19 @@ use Vanilo\Properties\Models\PropertyValue;
 
 $color = Property::create(['name' => 'Color']);
 $color->propertyValues()->create([
-    'name' => 'Red'
+    'title' => 'Red'
 ]);
 // or
 $color->propertyValues()->createMany([
-    ['name' => 'Black'],
-    ['name' => 'White'],
-    ['name' => 'Yellow']
+    ['title' => 'Black'],
+    ['title' => 'White'],
+    ['title' => 'Yellow']
 ]);
 // or
 PropertyValue::create([
     'property_id' => $color->id,
-    'name' => 'Blue'
+    'title'       => 'Blue',
+    'value'       => 'blue'
 ]);
 ```
 
@@ -196,7 +197,7 @@ PropertyValue::create([
 $colors = Property::find(['name' => 'Color']);
 
 foreach($colors->values() as $color) {
-    echo $color->name . ', ';
+    echo $color->title . ', ';
 }
 // Red, Black, White, Yellow, Blue
 ```
@@ -218,8 +219,8 @@ values.
 
 **To set the priority:**
 ```php
-PropertyValue::create(['name' => '16GB', 'priority' => 15]);
-PropertyValue::create(['name' => '32GB', 'priority' => 30]);
+PropertyValue::create(['title' => '16GB', 'priority' => 15]);
+PropertyValue::create(['title' => '32GB', 'priority' => 30]);
 ```
 
 There are two options to work with the sorted values:
