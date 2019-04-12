@@ -35,6 +35,8 @@ echo $product->slug;
 Product::create([
     'name'             => 'Maxi Baxi 2000',
     'sku'              => 'MXB-2000',
+    'stock'            => 123.4567,
+    'price'            => 1999.95,
     'slug'             => 'maxi-baxi-2000',
     'excerpt'          => 'Maxi Baxi 2000 is the THING you always have dreamt of',
     'description'      => 'Maxi Baxi 2000 makes your dreams come true. See: https://youtu.be/5RKM_VLEbOc',
@@ -65,6 +67,27 @@ echo $product->title();
 // It can be accessed as property as well:
 echo $product->title;
 // "I am a product with attitudes"
+```
+
+#### Product Stock:
+
+```php
+$product = Product::create([
+    'name' => 'Yet Another Product',
+    'sku'  => 'YAP',
+]);
+
+echo $product->stock;
+// 0
+
+echo ($product->isOnStock() ? 'On Stock' : 'Not on Stock');
+// "Not on Stock"
+
+$product->stock = 34;
+
+echo ($product->isOnStock() ? 'On Stock' : 'Not on Stock');
+// "On Stock"
+
 ```
 
 #### Product State:
