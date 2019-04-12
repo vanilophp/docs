@@ -7,7 +7,7 @@ It should be straightforward enough, so not detailing that part here.
 
 However if you need to create products from code, here are some examples:
 
-**Minimal Product:**
+#### Minimal Product:
 
 ```php
 use Vanilo\Product\Models\Product;
@@ -29,7 +29,7 @@ echo $product->slug;
 > [Eloquent-Sluggable](https://github.com/cviebrock/eloquent-sluggable)
 > library.
 
-**All Product Fields:**
+#### All Product Fields:
 
 ```php
 Product::create([
@@ -44,7 +44,7 @@ Product::create([
 ]);
 ```
 
-**Product Title:**
+#### Product Title:
 
 Product title is either the `ext_title` field's value or the `name` if
 ext_title is empty.
@@ -67,7 +67,7 @@ echo $product->title;
 // "I am a product with attitudes"
 ```
 
-**Product State:**
+#### Product State:
 
 Product state is an [enum](enums.md).
 
