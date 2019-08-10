@@ -79,7 +79,7 @@ Vanilo contains ~20 migrations out of the box
 It's not mandatory but recommended to seed the countries table:
 
 ```bash
-php artisan db:seed --class 'Konekt\Address\Seeds\Countries'
+php artisan db:seed --class '\Konekt\Address\Seeds\Countries'
 ```
 
 ## Laravel Auth Support
@@ -121,7 +121,7 @@ This will ask several questions and create a proper superuser that you can start
 In `webpack.mix.js` change:
 ```js
 mix.js('resources/js/app.js', 'public/js')
-    // Add these 2 lines:   
+    // Add these 2 lines:
    .js('vendor/konekt/appshell/src/resources/assets/js/appshell.standalone.js', 'public/js/appshell.js')
    .sass('vendor/konekt/appshell/src/resources/assets/sass/appshell.sass', 'public/css')
     // Keep this for the "rest" (usually public frontend)
