@@ -3,35 +3,45 @@
 > Refer to [Releases](releases.md) for details about published versions.
 
 ## 1.0 - Stable
-##### 2019-08-11
+##### 2019-11-11
 
 - Stable release
 - Sales Channels
 - Product Stock
 
-## 1.1 - Diversity
-##### 2019-09-23
+## 1.1 - Shift
+##### 2019-11-23
+
+- Laravel 6.0 Support
+- Switch to Monorepo (for speedier releases)
+
+## 1.2 - Rollup
+##### 2019-12-21
+
+- Payment handling
+- Shipments handling
+
+## 1.3 - Order Workflow
+##### 2020-01-27
+
+- Configurable Order Workflow
+- Customer Accounts
+
+## 1.4 - Shipments, Fees & Taxes
+##### 2019-02-23
+
+- Shipping fees
+- Tax Calculations (incl. EU VAT)
+
+## 1.5 - Diversity
+##### 2020-03-23
 
 - Multi-language support
 - Multi-currency support
 - Product Variants
-- Customer Accounts
 
-## 1.2 - Order Workflow
-##### 2019-10-27
-
-- Configurable Order Workflow
-- Payment handling
-
-## 1.3 - Shipments, Fees & Taxes
-##### 2019-11-25
-
-- Shipments handling
-- Shipping fees
-- Tax Calculations (incl. EU VAT)
-
-## 1.4 - Marketing
-##### 2019-12-30
+## 1.6 - Marketing
+##### 2019-04-19
 
 - Promotions
 - Product Relations (upsell, x-sell)
@@ -39,22 +49,22 @@
 - Favourites
 - Reviews
 
-## 1.5 - Muscles
-##### 2020-01-27
+## 1.7 - Muscles
+##### 2020-05-25
 
 - Distributed, multi-server mode
 - Varnish Support
 - CDN support
 
-## 1.6 - Cooperation
-##### 2020-02-23
+## 1.8 - Cooperation
+##### 2020-06-28
 
 - Synchronization with external systems (ERP)
 - REST API
 - Webhooks
 
-## 1.7 - Automation
-##### 2020-03-23
+## 1.9 - Automation
+##### 2020-07-27
 
 - Editable Workflows (follow ups, abandoned cart recovery,
   recommendations, recurring billing, etc)
