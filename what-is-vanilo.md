@@ -4,13 +4,10 @@ Vanilo is an E-commerce Framework for Laravel. It's like Magento or Sylius.
 
 ## Is It Ready For Production?
 
-It depends. The current feature set is not yet enough to run a "usual" Webshop in 2019. But what
-Vanilo already provides is stable, tested and extensible.
+Yes.
 
-Starting from v0.2 there has been a well defined [upgrade path](upgrade.md) up to v1.0.
-
-Thus it is possible to build a Webshop on Vanilo 0.5 - even if it doesn't have a stable version
-number yet.
+Starting from v0.2 there has been a well defined [upgrade path](upgrade.md) up until the current
+latest version.
 
 Refer to [Release Notes](releases.md) for more details.
 
@@ -23,12 +20,13 @@ about why it came to life.
 
 ## Alternatives
 
-| Name                                         | Based on              | Version (Feb 2019) |
+| Name                                         | Based on              | Version (Nov 2019) |
 |:---------------------------------------------|:----------------------|:-------------------|
+| [Bagisto](https://bagisto.com/en/)           | Laravel 5.6           | 0.1                |
 | [GetCandy](https://getcandy.io/)             | Laravel 5             | Unreleased         |
-| [Aimeos](https://aimeos.org/)                | Laravel 5             | 2018.10.2          |
-| [Sylius](http://sylius.org/)                 | Symfony 3.4 or 4.1+   | 1.4                |
-| [ORO Commerce](https://www.orocommerce.com/) | Symfony 3.4 (3.4.30)  | 3.1                |
+| [Aimeos](https://aimeos.org/)                | Laravel 5/6           | 2019.10.1          |
+| [Sylius](http://sylius.org/)                 | Symfony 4.3+          | 1.6                |
+| [ORO Commerce](https://www.orocommerce.com/) | Symfony 4.2+          | 4.0                |
 | [Magento](https://magento.com/)              | Zend 2.7              | 2.3                |
 
 For even more alternatives read the

@@ -45,7 +45,7 @@ return [
                     // Route name prefix
                     'as'         => 'vanilo.'
                 ],
-            // Currency settings (Multi currency support in v0.5)
+            // Currency settings (Multi currency support in v1.5)
             'currency'    => [
                 'code'   => 'USD',
                 'sign'   => '$',

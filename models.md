@@ -21,6 +21,7 @@ $> php artisan concord:models
 | Billpayer     | Vanilo\Order\Contracts\Billpayer          | Vanilo\Order\Models\Billpayer          |
 | Cart          | Vanilo\Cart\Contracts\Cart                | Vanilo\Cart\Models\Cart                |
 | CartItem      | Vanilo\Cart\Contracts\CartItem            | Vanilo\Cart\Models\CartItem            |
+| Channel       | Vanilo\Channel\Contracts\Channel          | Vanilo\Channel\Models\Channel          |
 | Country       | Konekt\Address\Contracts\Country          | Konekt\Address\Models\Country          |
 | Customer      | Konekt\Customer\Contracts\Customer        | Vanilo\Framework\Models\Customer       |
 | Order         | Vanilo\Order\Contracts\Order              | Vanilo\Order\Models\Order              |

@@ -20,6 +20,7 @@
     - [Product Properties](/docs/{{version}}/properties)
     - [Categorization](/docs/{{version}}/categorization)
     - [Cart](/docs/{{version}}/cart)
+    - [Channels](/docs/{{version}}/channels)
     - [Checkout](/docs/{{version}}/checkout)
     - [Orders](/docs/{{version}}/orders)
     - [Shipping](/docs/{{version}}/shipping)

@@ -2,6 +2,17 @@
 
 > For upcoming releases refer to the [Roadmap](roadmap.md).
 
+## 1.0
+##### 2019-11-11
+
+- Stable release
+- Supports PHP 7.1 - 7.3 & Laravel 5.5 - 5.8
+- Added simple product stock
+- Added ProductFinder pagination support
+- Added Channel Module
+- Added custom checkout attributes
+- Migration compatibility fixes with bigint user id
+
 ## 0.5
 ##### 2019-02-11
 

@@ -2,13 +2,6 @@
 
 > Refer to [Releases](releases.md) for details about published versions.
 
-## 1.0 - Stable
-##### 2019-11-11
-
-- Stable release
-- Sales Channels
-- Product Stock
-
 ## 1.1 - Shift
 ##### 2019-11-23
 
