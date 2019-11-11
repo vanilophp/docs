@@ -118,6 +118,30 @@ class CheckoutController extends Controller
 }
 ```
 
+## Custom Checkout Attributes
+
+It's possible to store custom attributes with the Checkout.
+
+Custom attributes are arbitrary key-value pairs.
+
+**Set custom attribute:**
+
+```php
+Checkout::setCustomAttribute('gift', 'Unisex T-Shirt L');
+// Retrieve custom attribute
+echo Checkout::getCustomAttribute('gift');
+// "Unisex T-Shirt L"
+```
+
+**Retrieve all custom attributes at once:**
+
+```php
+Checkout::getCustomAttributes();
+// array(2) 
+// 'gift'          => 'Unisex T-Shirt L'
+// 'gdpr_accepted' => true
+```
+
 > See
 > [Vanilo Demo's CheckoutController](https://github.com/vanilophp/demo/blob/master/app/Http/Controllers/CheckoutController.php)
 > for a working example.
