@@ -2,6 +2,11 @@
 
 > For upcoming releases refer to the [Roadmap](roadmap.md).
 
+## 1.1
+##### 2019-11-25
+
+- Fully supports Laravel 6
+
 ## 1.0
 ##### 2019-11-11
 

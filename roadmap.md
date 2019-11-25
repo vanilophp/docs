@@ -2,12 +2,6 @@
 
 > Refer to [Releases](releases.md) for details about published versions.
 
-## 1.1 - Shift
-##### 2019-11-23
-
-- Laravel 6.0 Support
-- Switch to Monorepo (for speedier releases)
-
 ## 1.2 - Rollup
 ##### 2019-12-21
 

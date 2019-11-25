@@ -1,5 +1,15 @@
 # Upgrade Between Versions
 
+## 1.0 -> 1.1
+
+This release doesn't contain breaking changes.
+
+To upgrade the libraries to v1.1 run:
+
+```bash
+composer require --update-with-dependencies vanilo/framework '~1.1'
+```
+
 ## 0.5 -> 1.0
 
 This release doesn't contain breaking changes.

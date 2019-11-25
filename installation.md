@@ -49,23 +49,23 @@ The following [Concord](concord.md) modules should be installed now:
 `php artisan concord:modules -a`
 
 ```
-+-----+---------------------------+--------+---------+------------------+------------------+
-| #   | Name                      | Kind   | Version | Id               | Namespace        |
-+-----+---------------------------+--------+---------+------------------+------------------+
-| 1.  | Konekt Address Module     | Module | 1.0.1   | konekt.address   | Konekt\Address   |
-| 2.  | Konekt Customer Module    | Module | 1.0.0   | konekt.customer  | Konekt\Customer  |
-| 3.  | Konekt User Module        | Module | 1.2.1   | konekt.user      | Konekt\User      |
-| 4.  | Konekt Acl Module         | Module | 1.1.0   | konekt.acl       | Konekt\Acl       |
-| 5.  | Konekt AppShell Box       | Box    | 1.4.1   | konekt.app_shell | Konekt\AppShell  |
-| 6.  | Vanilo Category Module    | Module | 1.0.0   | vanilo.category  | Vanilo\Category  |
-| 7.  | Vanilo Product Module     | Module | 1.0.0   | vanilo.product   | Vanilo\Product   |
-| 7.  | Vanilo Properties Module  | Module | 1.0.0   | vanilo.properties| Vanilo\Properties|
-| 7.  | Vanilo Channel Module     | Module | 1.0.0   | vanilo.channel   | Vanilo\Channel   |
-| 8.  | Vanilo Cart Module        | Module | 1.0.0   | vanilo.cart      | Vanilo\Cart      |
-| 9.  | Vanilo Checkout Module    | Module | 1.0.0   | vanilo.checkout  | Vanilo\Checkout  |
-| 10. | Vanilo Order Module       | Module | 1.0.0   | vanilo.order     | Vanilo\Order     |
-| 11. | Vanilo Framework          | Box    | 1.0.0   | vanilo.framework | Vanilo\Framework |
-+-----+---------------------------+--------+---------+------------------+------------------+
++-----+--------------------------+--------+---------+-------------------+-------------------+
+| #   | Name                     | Kind   | Version | Id                | Namespace         |
++-----+--------------------------+--------+---------+-------------------+-------------------+
+| 1.  | Konekt Address Module    | Module | 1.1.0   | konekt.address    | Konekt\Address    |
+| 2.  | Konekt Customer Module   | Module | 1.1.0   | konekt.customer   | Konekt\Customer   |
+| 3.  | Konekt User Module       | Module | 1.3.0   | konekt.user       | Konekt\User       |
+| 4.  | Konekt Acl Module        | Module | 1.2.0   | konekt.acl        | Konekt\Acl        |
+| 5.  | Konekt AppShell Box      | Box    | 1.5.0   | konekt.app_shell  | Konekt\AppShell   |
+| 6.  | Vanilo Category Module   | Module | 1.1.0   | vanilo.category   | Vanilo\Category   |
+| 7.  | Vanilo Product Module    | Module | 1.1.0   | vanilo.product    | Vanilo\Product    |
+| 8.  | Vanilo Properties Module | Module | 1.1.0   | vanilo.properties | Vanilo\Properties |
+| 9.  | Vanilo Channel Module    | Module | 1.1.0   | vanilo.channel    | Vanilo\Channel    |
+| 10. | Vanilo Cart Module       | Module | 1.1.0   | vanilo.cart       | Vanilo\Cart       |
+| 11. | Vanilo Checkout Module   | Module | 1.1.0   | vanilo.checkout   | Vanilo\Checkout   |
+| 12. | Vanilo Order Module      | Module | 1.1.0   | vanilo.order      | Vanilo\Order      |
+| 13. | Vanilo Framework         | Box    | 1.1.0   | vanilo.framework  | Vanilo\Framework  |
++-----+--------------------------+--------+---------+-------------------+-------------------+
 ```
 
 Configure `.env`, along with a database. (Also create the db if necessary)
