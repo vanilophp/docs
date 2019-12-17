@@ -3,7 +3,7 @@
 > Refer to [Releases](releases.md) for details about published versions.
 
 ## 1.2 - Rollup
-##### 2019-12-21
+##### 2019-12-23
 
 - Payment handling
 - Shipments handling

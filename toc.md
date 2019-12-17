@@ -23,6 +23,7 @@
     - [Channels](/docs/{{version}}/channels)
     - [Checkout](/docs/{{version}}/checkout)
     - [Orders](/docs/{{version}}/orders)
+    - [Payments](/docs/{{version}}/payments)
     - [Shipping](/docs/{{version}}/shipping)
 - Admin
     - [Basics](/docs/{{version}}/admin-basics)
