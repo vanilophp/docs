@@ -19,6 +19,12 @@ The `CartManager` was introduced in order to take care of:
 >
 > Using the cart manager can be omitted, just use the `Vanilo\Cart\Models\Cart` instead of the Cart facade.
 
+### Get Products in Cart
+
+`Cart::getItems()` returns all products in the cart.
+
+It returns an empty collection if the cart is empty.
+
 ### Checking Whether A Cart Exists
 
 As written above, the cart manager only creates a cart entry (db) if
