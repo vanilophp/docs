@@ -2,11 +2,6 @@
 
 > Refer to [Releases](releases.md) for details about published versions.
 
-## 1.2 - Laravel 7
-##### 2020-03-31
-
-- Laravel 7 compatibility
-
 ## 2.0 - Rollup
 ##### 2020-04-21
 

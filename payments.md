@@ -1,3 +1,3 @@
 # Payments
 
-> The Payment Module will be released with [Vanilo v1.2](roadmap.md).
+> The Payment Module will be released with [Vanilo v2.0](roadmap.md).
