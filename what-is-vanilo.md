@@ -20,13 +20,13 @@ about why it came to life.
 
 ## Alternatives
 
-| Name                                         | Based on              | Version (Nov 2019) |
+| Name                                         | Based on              | Version (Mar 2020) |
 |:---------------------------------------------|:----------------------|:-------------------|
-| [Bagisto](https://bagisto.com/en/)           | Laravel 5.6           | 0.1                |
-| [GetCandy](https://getcandy.io/)             | Laravel 5             | Unreleased         |
-| [Aimeos](https://aimeos.org/)                | Laravel 5/6           | 2019.10.1          |
-| [Sylius](http://sylius.org/)                 | Symfony 4.3+          | 1.6                |
-| [ORO Commerce](https://www.orocommerce.com/) | Symfony 4.2+          | 4.0                |
+| [Bagisto](https://bagisto.com/en/)           | Laravel 6.0           | 1.1                |
+| [GetCandy](https://getcandy.io/)             | Laravel 5.7           | 0.2.98             |
+| [Aimeos](https://aimeos.org/)                | Laravel 5/6           | 2020.01.1          |
+| [Sylius](http://sylius.org/)                 | Symfony 4.4+          | 1.7                |
+| [ORO Commerce](https://www.orocommerce.com/) | Symfony 4.4           | 4.1                |
 | [Magento](https://magento.com/)              | Zend 2.7              | 2.3                |
 
 For even more alternatives read the
