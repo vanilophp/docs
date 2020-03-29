@@ -56,7 +56,7 @@
 - Webhooks
 
 ## 2.7 - Automation
-##### 2020-01-31
+##### 2021-01-31
 
 - Editable Workflows (follow ups, abandoned cart recovery,
   recommendations, recurring billing, etc)
