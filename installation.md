@@ -105,6 +105,8 @@ php artisan ui:auth
 
 ### Step 2 for Both Versions
 
+#### Variant 1 - Simple
+
 Modify `App\User` so that it extends Vanilo's user model:
 
 ```php
@@ -118,6 +120,50 @@ class User extends \Konekt\AppShell\Models\User
 {
 }
 ```
+
+#### Variant 2 - Flexible
+
+In case you don't want to extend the Konekt User, then it's sufficient just to implement its
+interface:
+
+```php
+// app/User.php
+// ... The default User model or arbitrary code for your app
+
+// You can use any other base class eg: TCG\Voyager\Models\User
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Konekt\User\Contracts\Profile;
+use Konekt\User\Contracts\User as UserContract;
+
+class User extends Authenticatable implements UserContract
+{
+    // ...
+    
+    // Implement these methods from the required Interface:
+    public function inactivate()
+    {
+        $this->is_active = false;
+        $this->save();
+    }
+
+    public function activate()
+    {
+        $this->is_active = true;
+        $this->save();
+    }
+
+    public function getProfile(): ?Profile
+    {
+        return null;
+    }
+    
+    // ...
+}
+```
+
+> You may also completely leave empty the implementations of the new methods.
+
+### Step 3 - Register The Model
 
 And add this to you `AppServiceProviders`'s boot method:
 
