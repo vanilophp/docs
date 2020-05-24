@@ -86,7 +86,24 @@ php artisan db:seed --class '\Konekt\Address\Seeds\Countries'
 
 ## Laravel Auth Support
 
-First, Run `php artisan make:auth`
+### Step 1 for Laravel 5.x
+
+Run
+
+```bash
+php artisan make:auth
+```
+
+### Step 1 for Laravel 6.x and above
+
+> More background about the Laravel 5.x/6.x+ difference [can be found in this article](https://laravel-news.com/running-make-auth-in-laravel-6).
+
+```bash
+composer require laravel/ui
+php artisan ui:auth
+```
+
+### Step 2 for Both Versions
 
 Modify `App\User` so that it extends Vanilo's user model:
 
