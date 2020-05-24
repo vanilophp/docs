@@ -3,7 +3,7 @@
 > Refer to [Releases](releases.md) for details about published versions.
 
 ## 2.0 - Rollup
-##### 2020-05-25
+##### 2020-05-31
 
 - Updated interfaces (return+argument types for PHP 7.2+)
 - PHP 7.2+
