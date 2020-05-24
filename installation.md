@@ -147,6 +147,13 @@ mix.js('resources/js/app.js', 'public/js')
    .sass('resources/sass/app.scss', 'public/css');
 ```
 
+Depending on which version of Laravel you have and how you've installed Laravel UI, you may need to
+add the following packages:
+
+```bash
+yarn add bootstrap jquery vue popper.js
+```
+
 Now compile the assets with mix:
 
 ```bash
