@@ -2,7 +2,7 @@
 
 ## Requirements
 
-- PHP 7.2 or higher
+- PHP 7.3 or higher
 - json, openssl, PDO, mbstring, tokenizer, xml, ctype PHP extensions
 - Supported database engines<sup>*</sup>:
     - **MySQL 5.7** or higher,
@@ -86,24 +86,14 @@ php artisan db:seed --class '\Konekt\Address\Seeds\Countries'
 
 ## Laravel Auth Support
 
-### Step 1 for Laravel 5.x
-
-Run
-
-```bash
-php artisan make:auth
-```
-
-### Step 1 for Laravel 6.x and above
-
-> More background about the Laravel 5.x/6.x+ difference [can be found in this article](https://laravel-news.com/running-make-auth-in-laravel-6).
+### Step 1
 
 ```bash
 composer require laravel/ui
 php artisan ui:auth
 ```
 
-### Step 2 for Both Versions
+### Step 2
 
 #### Variant 1 - Simple
 

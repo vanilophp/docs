@@ -1,6 +1,7 @@
 # What Is Vanilo?
 
-Vanilo is an E-commerce Framework for Laravel. It's like Magento or Sylius.
+Vanilo is an E-commerce Framework for Laravel. Vanilo to Laravel is like Magento to Zend or Sylius
+to Symfony.
 
 ## Is It Ready For Production?
 
@@ -13,7 +14,7 @@ Refer to [Release Notes](releases.md) for more details.
 
 ## Why Another E-commerce Package?
 
-Shortly, because back in 2017 there was no decent one **especially for Laravel**. There's a slightly
+Shortly, because back in 2017 there was no decent one **particularly for Laravel**. There's a slightly
 longer
 [article on medium](https://medium.com/@attilafulop/e-commerce-platform-for-laravel-c09a2bcfe8c6)
 about why it came to life.
