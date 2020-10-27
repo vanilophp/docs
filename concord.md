@@ -11,7 +11,7 @@ composer in the target application.
 
 For more details check Concord on
 [github](https://github.com/artkonekt/concord) or refer to its
-[Documentation](https://artkonekt.github.io/concord).
+[Documentation](https://konekt.dev/concord/docs).
 
 When you're using Vanilo for your web application or API, it's likely
 that you won't interact much with Concord.
@@ -116,4 +116,4 @@ This results that if the model is used in a relation, the extended model
 class will be used even there.
 
 For more details refer to the Concord
-[Models Documentation](https://artkonekt.github.io/concord/#/models).
+[Models Documentation](https://konekt.dev/concord/1.8/models).

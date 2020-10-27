@@ -1,5 +1,12 @@
 # Upgrade Between Versions
 
+## 1.2 -> 2.x
+
+The minimum requirements are:
+
+- Vanilo 2.0: PHP 7.3 and Laravel 6.0
+- Vanilo 2.1: PHP 7.4 and Laravel 6.18
+
 ## 1.1 -> 1.2
 
 This release doesn't contain breaking changes.
@@ -76,7 +83,7 @@ php artisan migrate
 
 ### Frontend Assets
 
-The Admin of the new version is built on top of [AppShell v1.2](https://artkonekt.github.io/appshell/#/upgrade?id=_09-gt-10).
+The Admin of the new version is built on top of [AppShell v2](https://konekt.dev/appshell/).
 
 The Laravel mix (webpack) compilation has slightly changed.
 

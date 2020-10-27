@@ -12,14 +12,14 @@ implementation, the only requirement is to implement the
 Please refer to the original address documentation for more details:
 
 - Models:
-    - [Countries](https://artkonekt.github.io/address/#/country)
-    - [Province](https://artkonekt.github.io/address/#/province)
-    - [Address](https://artkonekt.github.io/address/#/address)
-    - [Person](https://artkonekt.github.io/address/#/person)
-    - [Organization](https://artkonekt.github.io/address/#/organization)
+    - [Countries](https://konekt.dev/address/2.x/country)
+    - [Province](https://konekt.dev/address/2.x/province)
+    - [Address](https://konekt.dev/address/2.x/address)
+    - [Person](https://konekt.dev/address/2.x/person)
+    - [Organization](https://konekt.dev/address/2.x/organization)
 - Enums:
-    - [Address Type](https://artkonekt.github.io/address/#/address-type)
-    - [Province Type](https://artkonekt.github.io/address/#/province-type)
-    - [Gender](https://artkonekt.github.io/address/#/gender)
-    - [Name Order](https://artkonekt.github.io/address/#/name-order)
-- [Seeders](https://artkonekt.github.io/address/#/seeders)
+    - [Address Type](https://konekt.dev/address/2.x/address-type)
+    - [Province Type](https://konekt.dev/address/2.x/province-type)
+    - [Gender](https://konekt.dev/address/2.x/gender)
+    - [Name Order](https://konekt.dev/address/2.x/name-order)
+- [Seeders](https://konekt.dev/address/2.x/seeders)

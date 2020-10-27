@@ -1,7 +1,7 @@
 # Extending Vanilo's Admin Panel
 
 > This section is incomplete, for more details refer to the
-[AppShell Documentation](https://artkonekt.github.io/appshell/#/customize-admin-ui)
+[AppShell Documentation](https://konekt.dev/appshell/2.x/customize-admin-ui)
 
 ## Views
 

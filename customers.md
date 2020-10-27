@@ -77,7 +77,7 @@ var_dump($acmeInc->isOrganization());
 
 ### Customer Type
 
-This is an [enum type](https://artkonekt.github.io/enum/#/) so if you
+This is an [enum type](https://konekt.dev/enum/) so if you
 want to add further variants, extend the class and define new consts.
 
 **1. Create The Extended Class:**
@@ -169,7 +169,7 @@ new type and it will be used.
 
 If for any reason you need to know what is the current concrete class in
 effect, use the
-[proxy class](https://artkonekt.github.io/concord/#/models?id=model-proxy-has-even-more):
+[proxy class](https://konekt.dev/concord/1.8/models#model-proxy-has-even-more):
 
 ```php
 use Konekt\Customer\Models\CustomerProxy;

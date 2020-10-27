@@ -88,5 +88,5 @@ echo get_class($product);
 > interface (`Vanilo\Product\Contracts\Product`).
 
 There is a
-[detailed example](https://artkonekt.github.io/concord/#/models?id=detailed-example)
+[detailed example](https://konekt.dev/concord/1.8/models#detailed-example)
 available in the Concord Documentation.

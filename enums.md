@@ -38,7 +38,7 @@ echo $status->isPending(); // <- one of the nice enum features
 ```
 
 > For more details refer to the
-> [Enum Documentation](https://artkonekt.github.io/enum/#/create).
+> [Enum Documentation](https://konekt.dev/enum/3.0/create).
 
 ## Enums As Model Fields
 
@@ -160,6 +160,6 @@ echo get_class($status);
 > `Vanilo\Order\Models\OrderStatus`.
 
 There is a
-[detailed example](https://artkonekt.github.io/concord/#/enums?id=extending-enums)
+[detailed example](https://konekt.dev/concord/1.8/enums#extending-enums)
 available in the Concord Documentation.
 

@@ -2,7 +2,7 @@
 
 > Implemented using the [Gears](https://github.com/artkonekt/gears)
 > library. Refer to
-> [Gears Documentation](https://artkonekt.github.io/gears/#/) for all
+> [Gears Documentation](https://konekt.dev/gears/docs) for all
 > the features.
 
 ## Overview
@@ -68,7 +68,7 @@ You can also set a list of possible options (useful for dropdowns):
 $settingsRegistry->add(new SimpleSetting('theme', 'dark', ['dark', 'light']));
 ```
 
-> The [Gear Documentation](https://artkonekt.github.io/gears/#/defining-settings?id=custom-setting-classes)
+> The [Gear Documentation](https://konekt.dev/gears/1.6/defining-settings#custom-setting-classes)
 > also has an example of creating custom setting classes.
 
 ## Creating Preferences
@@ -302,7 +302,7 @@ automatically saved when changing their values and hitting the save button.
 Preferences will be available in the upcoming Profile page under the
 User account dropdown menu (dead link atm).
 
-> For more details refer to the [Building UI](https://artkonekt.github.io/gears/#/building-ui)
+> For more details refer to the [Building UI](https://konekt.dev/gears/1.6/building-ui)
 > section of the Gears Documentation.
 
 
