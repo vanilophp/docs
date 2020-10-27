@@ -2,6 +2,21 @@
 
 > For upcoming releases refer to the [Roadmap](roadmap.md).
 
+## 2.0
+##### 2020-10-11
+
+> All components, except the framework have been released.
+
+- Added Laravel 8 support
+- Dropped Laravel 5 support
+- Dropped PHP 7.2 support
+- BC: Upgrade to Enum v3
+- BC: Contracts have been updated (mostly missing return types have been added)
+- BC: Renamed getValue() -> getCastedValue() in the PropertyValue module
+- Added the Payable interface
+- Added the Shippable interface
+- Added nanoid style order number generator
+
 ## 1.2
 ##### 2020-03-29
 
