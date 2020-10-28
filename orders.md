@@ -50,6 +50,20 @@ OrderStatus::values();
 //   ]
 ```
 
+Beginning with v2.1, it is possible to obtain whether an order status is open:
+
+```php
+$order->status->isOpen();
+// true if `pending`, false otherwise
+```
+
+The order status class can also give you a list of open statuses:
+
+```php
+OrderStatus::getOpenStatuses();
+// => ["pending"]
+```
+
 ## Creating Orders Using Models
 
 Orders can be created simply by creating the appropriate eloquent
@@ -177,7 +191,7 @@ If you omit setting an order status then the default value will be used, that
 comes from the `OrderStatus` enum class:
 
 ```php
-echo OrderStatus::__default;
+echo OrderStatus::defaultValue();
 // "pending"
 ```
 
@@ -201,7 +215,22 @@ $orderData = [
 $factory->createFromDataArray($orderData, $items);
 ```
 
-> To customize order statuses, refer to the [enums](enums.md) page.
+#### Customizing Order Statuses
+
+To customize order statuses, refer to the [enums](enums.md) page.
+
+Additionally, you can tell the class if the new order status you added represents an open status,
+by adding it to the static `$openStatuses` array in your new class:
+
+```php
+class MyOrderStatus extends OrderStatus
+{
+    const CONFIRMED = 'confirmed';
+    
+    protected static $openStatuses = [self::PENDING, self::CONFIRMED];
+}
+```
+
 
 #### Setting The User
 
