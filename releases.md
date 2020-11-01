@@ -2,6 +2,12 @@
 
 > For upcoming releases refer to the [Roadmap](roadmap.md).
 
+## 2.0 (Framework)
+##### 2020-10-31
+
+- Themeable Admin
+- PHP 7.4+ (Framework only)
+
 ## 2.0
 ##### 2020-10-11
 

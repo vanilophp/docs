@@ -2,34 +2,30 @@
 
 > Refer to [Releases](releases.md) for details about published versions.
 
-## 2.1 - Admin Theming
-##### 2020-10-27
-
-- Themeable Admin
-- PHP 7.4+
-- Payment handling
-- Shipments handling
-
-## 2.2 - Fees & Taxes
+## 2.1 - Ship & Pay
 ##### 2020-11-27
 
+- PHP 7.4+ (dropping PHP 7.3 support)
+- PHP 8 support
+- Payment handling
+- Shipments handling
 - Shipping fees
-- Tax Calculations (incl. EU VAT)
 
-## 2.3 - Order Workflow
+## 2.2 - Order Workflow
 ##### 2020-12-31
 
 - Configurable Order Workflow
 - Customer Accounts
 
-## 2.4 - Diversity
+## 2.3 - Diversity
 ##### 2021-01-31
 
 - Multi-language support
 - Multi-currency support
 - Product Variants
+- Tax Calculations (incl. EU VAT)
 
-## 2.5 - Marketing
+## 2.4 - Marketing
 ##### 2021-02-28
 
 - Promotions
@@ -38,7 +34,7 @@
 - Favourites
 - Reviews
 
-## 2.6 - Automation
+## 2.5 - Automation
 ##### 2021-03-28
 
 - Editable Workflows (follow ups, abandoned cart recovery,
