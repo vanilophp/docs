@@ -125,9 +125,12 @@ interface:
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Konekt\User\Contracts\Profile;
 use Konekt\User\Contracts\User as UserContract;
+use Konekt\Acl\Traits\HasRoles;
 
 class User extends Authenticatable implements UserContract
 {
+    use HasRoles;
+    
     // ...
     
     // Implement these methods from the required Interface:
