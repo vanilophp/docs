@@ -19,16 +19,22 @@ The `Payable` interface enforces classes to define the following information:
 ## Payments
 
 Payments in the system are separate entities and are stored in the `payments` table.
-Each record/entity represents a single payment transaction. Transaction - not in the technical but
-in its trivial meaning - ie. a payment can represent:
+Each record/entity represents a single payment transaction. Such a transaction (not in the technical
+but in its trivial meaning) can represent various forms of payments:
 
 - A single online payment attempt - can be pending, successful, failed, etc
 - A single bank transfer payment - can be pending, paid, timed out, etc
 - A single cash payment
 - A single refund - partial or complete refund
 
+All payments have a status, and they have a lifecycle - from start until finish.
+This lifecycle can span from as low as a few seconds (eg. one click payments) until as high as
+months, for example B2B Wire Transfer payments.
+
 Payments are always bound to payables - typically orders - via a polymorphic relationship, therefore
 you can handle payments of any eloquent model that implements the payable interface.
+
+Payables can have one or more payments, depending on the course of the event.
 
 Payments have `amount`, `currency` and `amount_paid` fields. The amount is the amount intended to
 be paid, whereas the `amount_paid` is the amount that has actually been captured. Amount paid is
