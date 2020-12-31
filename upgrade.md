@@ -2,6 +2,13 @@
 
 > For older upgrade guides see: [Upgrade Guide v0.2 - v1.2](upgrade-v1.md)
 
+## 2.0 -> 2.1
+
+1. In the unlikely case if you were implementing the `Payable` interface from v2.0 in your application, update the signature according to the latest version
+2. If you were implementing a custom Buyable class, make sure to:
+   - Add `string $variant = ''` as a parameter to the `getImageUrl` method
+   - Implement the new methods from the `HasImages` interface
+
 ## 1.x -> 2.x
 
 ### Checklist

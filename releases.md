@@ -2,6 +2,39 @@
 
 > For upcoming releases refer to the [Roadmap](roadmap.md).
 
+## 2.1
+##### 2020-12-31
+
+- Added PHP 8 Support
+- Added Payment module
+- Added Primary Image feature
+- Added Spatie Media Library v9 Support
+- Refactored image handling
+- Added images to taxonomies and taxons
+- Added option to define separate image conversions per entity type (product, taxonomy, taxon)
+- Added the `HasImages` interface - extracted it from `Buyable` (in a compatible manner)
+- Added an extended `Order` model (in Framework module) that implements the `Payable` interface
+- Added Payment method CRUD
+- Added dispatching of order cancelled and completed events when updating their status in the admin panel
+- Added `HasImagesFromMediaLibrary` trait (support module) for supporting the new `HasImages` interface
+- Deprecated the `BuyableImageSpatieV8` and `BuyableImageSpatieV7` traits
+- Added generic NanoId generator utility class to support module
+- Added `Order::findByNumber()` method
+- Added unique index to `orders.number` field
+- Added `Taxon::findOneByParentsAndSlug` method
+- Added `Taxonomy::findOneBySlug` method
+- Added `taxa` (and `taxons` alias) relationship to `Taxonomy` model
+- Added payments, payment statuses, payment methods
+- Added gateway registry
+- Added Payment factory (creates payment from payables and payment methods)
+- Added payment events
+- Added payment- gateway, method, request and response contracts
+- Added NullGateway
+- Changed (reverted) the Product model's route key to the default (id) instead of `slug`. Resolving by slug must be done by the host application.
+- Changed the internal implementation of the nanoid order number generator to utilize the generic nanoid generator from the support module
+- Changed Payable interface signature (since it wasn't used until 2.1 not considering it as BC)
+- Fixed model registration to takes into account Concord's register_route_models setting
+
 ## 2.0 (Framework)
 ##### 2020-10-31
 

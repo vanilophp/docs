@@ -4,6 +4,7 @@
 
 - The standalone components require PHP 7.3 and Laravel 6.0 or higher
 - The framework requires PHP 7.4 and Laravel 6.18 or higher
+- PHP 8 is supported as of v2.1
 - json, openssl, PDO, mbstring, tokenizer, xml, ctype PHP extensions
 - Supported database engines<sup>*</sup>:
     - **MySQL 5.7** or higher,
