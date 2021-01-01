@@ -169,35 +169,41 @@ In case you're using the standalone product module only, then there's no product
 default.
 
 The [contracts](https://github.com/vanilophp/contracts) package defines the `Buyable` interface
-across modules that has 3 image related methods:
+which extends the `HasImages` interface that has 6 image related methods:
 
 1. `hasImage(): bool`
-2. `getThumbnailUrl(): ?string`
-3. `getImageUrl(): ?string`
+2. `imageCount(): int` (since v2.1)
+3. `getThumbnailUrl(): ?string`
+4. `getThumbnailUrls(): Collection` (since v2.1)
+5. `getImageUrl(string $variant = ''): ?string`
+6. `getImageUrls(string $variant = ''): Collection` (since v2.1)
 
 The [support](https://github.com/vanilophp/support) package offers 2 traits for implementing the
 image related functionality of the `Buyable` interface:
 
 - `BuyableNoImage`: "Null image" trait for products that don't actually have images
-- `BuyableImageSpatieV7`: Adapter for using images with [Spatie's Laravel Media Library V7](https://github.com/spatie/laravel-medialibrary)
+- `HasImagesFromMediaLibrary`: adapter for using images with [Spatie's Laravel Media Library](https://github.com/spatie/laravel-medialibrary)
+
+> `BuyableImageSpatieV7` and `BuyableImageSpatieV8` traits are deprecated as of Vanilo v2.1, please
+> use the `HasImagesFromMediaLibrary` trait instead
 
 In case you want to compose your own product model with Spatie image support:
 
 ```php
 namespace App;
 
-use Spatie\MediaLibrary\HasMedia\HasMedia;
-use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
 use Vanilo\Contracts\Buyable;
 use Vanilo\Product\Models\Product as BaseProduct;
 use Vanilo\Support\Traits\BuyableModel;
-use Vanilo\Support\Traits\BuyableImageSpatieV7;
+use Vanilo\Support\Traits\HasImagesFromMediaLibrary;
 
 class Product extends BaseProduct implements Buyable, HasMedia
 {
     use BuyableModel; // Implements Buyable methods for common Eloquent models
-    use BuyableImageSpatieV7; // Implements Buyable's image methods using Spatie Media Library
-    use HasMediaTrait; // Spatie package's default trait
+    use HasImagesFromMediaLibrary; // Implements Buyable's image methods using Spatie Media Library
+    use InteractsWithMedia; // Spatie package's default trait
 }
 ```
 
@@ -210,7 +216,7 @@ If you're using the [Vanilo Framework](modules-vs-framework.md) (and not just th
 it already ships with an extended product model (`Vanilo\Framework\Models\Product`) with image
 support via Spatie Media Library.
 
-> Refer to the [Spatie Media Library Documentation](https://docs.spatie.be/laravel-medialibrary/v7/introduction),
+> Refer to the [Spatie Media Library Documentation](https://docs.spatie.be/laravel-medialibrary/v9/introduction),
 > to discover all the possibilities.
 
 #### Add Multiple Product Images

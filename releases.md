@@ -33,7 +33,7 @@
 - Changed (reverted) the Product model's route key to the default (id) instead of `slug`. Resolving by slug must be done by the host application.
 - Changed the internal implementation of the nanoid order number generator to utilize the generic nanoid generator from the support module
 - Changed Payable interface signature (since it wasn't used until 2.1 not considering it as BC)
-- Fixed model registration to takes into account Concord's register_route_models setting
+- Fixed model registration to take into account Concord's `register_route_models` setting
 
 ## 2.0 (Framework)
 ##### 2020-10-31
