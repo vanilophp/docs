@@ -1,12 +1,8 @@
 # Roadmap
 
+This page contains the planned upcoming versions along with their contents.
+
 > Refer to [Releases](releases.md) for details about published versions.
-
-## 2.1 - Payments
-##### 2020-12-31
-
-- PHP 8 support
-- Payment handling
 
 ## 2.2 - Order Workflow
 ##### 2021-01-31
