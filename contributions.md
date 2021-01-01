@@ -26,6 +26,8 @@ for each of the separate components:
 - [Category](https://github.com/vanilophp/category)
 - [Checkout](https://github.com/vanilophp/checkout)
 - [Order](https://github.com/vanilophp/checkout)
+- [Payment](https://github.com/vanilophp/payment)
+- [Channels](https://github.com/vanilophp/channel)
 - [Documentation](https://github.com/vanilophp/docs)
 
 ## Features, Improvements

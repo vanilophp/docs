@@ -54,19 +54,20 @@ The following [Concord](concord.md) modules should be installed now:
 +-----+--------------------------+--------+---------+-------------------+-------------------+
 | #   | Name                     | Kind   | Version | Id                | Namespace         |
 +-----+--------------------------+--------+---------+-------------------+-------------------+
-| 1.  | Konekt Address Module    | Module | 2.0.0   | konekt.address    | Konekt\Address    |
-| 2.  | Konekt Customer Module   | Module | 2.0.0   | konekt.customer   | Konekt\Customer   |
-| 3.  | Konekt User Module       | Module | 2.0.0   | konekt.user       | Konekt\User       |
-| 4.  | Konekt Acl Module        | Module | 1.4.0   | konekt.acl        | Konekt\Acl        |
-| 5.  | Konekt AppShell Box      | Box    | 2.0.0   | konekt.app_shell  | Konekt\AppShell   |
-| 6.  | Vanilo Category Module   | Module | 2.0.0   | vanilo.category   | Vanilo\Category   |
-| 7.  | Vanilo Product Module    | Module | 2.0.0   | vanilo.product    | Vanilo\Product    |
-| 8.  | Vanilo Properties Module | Module | 2.0.0   | vanilo.properties | Vanilo\Properties |
-| 9.  | Vanilo Channel Module    | Module | 2.0.0   | vanilo.channel    | Vanilo\Channel    |
-| 10. | Vanilo Cart Module       | Module | 2.1.0   | vanilo.cart       | Vanilo\Cart       |
-| 11. | Vanilo Checkout Module   | Module | 2.0.0   | vanilo.checkout   | Vanilo\Checkout   |
-| 12. | Vanilo Order Module      | Module | 2.0.0   | vanilo.order      | Vanilo\Order      |
-| 13. | Vanilo Framework         | Box    | 2.1.0   | vanilo.framework  | Vanilo\Framework  |
+| 1.  | Konekt Address Module    | Module | 2.1.0   | konekt.address    | Konekt\Address    |
+| 2.  | Konekt Customer Module   | Module | 2.1.0   | konekt.customer   | Konekt\Customer   |
+| 3.  | Konekt User Module       | Module | 2.3.0   | konekt.user       | Konekt\User       |
+| 4.  | Konekt Acl Module        | Module | 1.5.0   | konekt.acl        | Konekt\Acl        |
+| 5.  | Konekt AppShell Box      | Box    | 2.1.0   | konekt.app_shell  | Konekt\AppShell   |
+| 6.  | Vanilo Category Module   | Module | 2.1.0   | vanilo.category   | Vanilo\Category   |
+| 7.  | Vanilo Product Module    | Module | 2.1.0   | vanilo.product    | Vanilo\Product    |
+| 8.  | Vanilo Properties Module | Module | 2.1.0   | vanilo.properties | Vanilo\Properties |
+| 9.  | Vanilo Channel Module    | Module | 2.1.0   | vanilo.channel    | Vanilo\Channel    |
+| 10. | Vanilo Cart Module       | Module | 2.1.1   | vanilo.cart       | Vanilo\Cart       |
+| 11. | Vanilo Checkout Module   | Module | 2.1.0   | vanilo.checkout   | Vanilo\Checkout   |
+| 12. | Vanilo Order Module      | Module | 2.2.0   | vanilo.order      | Vanilo\Order      |
+| 13. | Vanilo Payment Module    | Module | 2.1.0   | vanilo.payment    | Vanilo\Payment    |
+| 14. | Vanilo Framework         | Box    | 2.1.0   | vanilo.framework  | Vanilo\Framework  |
 +-----+--------------------------+--------+---------+-------------------+-------------------+
 ```
 
