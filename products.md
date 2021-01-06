@@ -237,36 +237,5 @@ public function store(Request $request)
 
 #### Define Image Variants
 
-It is possible to define various sizes (thumbnails, etc) of the images in the config file:
-
-```php
-// config/vanilo.php
-return [
-    // ...
-    'image'       => [
-        'variants' => [
-            'thumbnail' => [ // Name of the image variant
-                'width'  => 250,
-                'height' => 250,
-                'fit'    => 'crop'
-            ],
-            'cart' => [ // Image variant names can be arbitrary
-                'width'  => 120,
-                'height' => 90,
-                'fit'    => 'crop'
-            ]
-        ]
-    ]
-    //...
-];
-```
-
-To retrieve image variants in client code, use:
-
-```php
-$product->getFirstMediaUrl('default', 'thumbnail'); // 250x250
-$product->getFirstMediaUrl('default', 'cart'); // 120x90
-```
-
-> Refer to the [Retrieving Converted Images](https://docs.spatie.be/laravel-medialibrary/v7/converting-images/retrieving-converted-images)
-> section in Media Library Documentation for more details.
+For more details about Vanilo Image handling, refer to the [Handling Images](images.md) section of
+this Documentation.
