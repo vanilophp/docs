@@ -167,6 +167,7 @@ And add this to you `AppServiceProviders`'s boot method:
 // app/Providers/AppServiceProvider.php
 
    $this->app->concord->registerModel(\Konekt\User\Contracts\User::class, \App\User::class);
+   // On fresh Laravel 8+ installations the class is typically \App\Models\User
 ```
 
 ### Create An Initial Super User
