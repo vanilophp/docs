@@ -89,9 +89,16 @@ php artisan db:seed --class '\Konekt\Address\Seeds\Countries'
 
 ### Step 1
 
+#### Install Laravel Breeze
+
+Laravel Breeze is a minimal, simple implementation of all of Laravel's authentication features, including login, registration, password reset, email verification, and password confirmation.
+
 ```bash
-composer require laravel/ui
-php artisan ui:auth
+composer require laravel/breeze --dev
+php artisan breeze:install
+npm install
+npm run dev
+php artisan migrate
 ```
 
 ### Step 2
@@ -162,4 +169,30 @@ And add this to you `AppServiceProviders`'s boot method:
 // app/Providers/AppServiceProvider.php
 
    $this->app->concord->registerModel(\Konekt\User\Contracts\User::class, \App\Models\User::class);
+   $this->app->concord->registerModel(\Konekt\User\Contracts\User::class, \App\User::class);
+   // On fresh Laravel 8+ installations the class is typically \App\Models\User
+```
+
+### Create An Initial Super User
+
+Run command `php artisan make:superuser`.
+
+This will ask several questions and create a proper superuser that you can start working with.
+
+> **NOTE**: Accept `admin` as role for the very first user, because that's the only existing role after installation.
+
+### Add Admin's CSS To Laravel Mix
+
+In `webpack.mix.js` change:
+```js
+// Keep this for the "rest" (usually public frontend)
+mix.js('resources/js/app.js', 'public/js').postCss('resources/css/app.css', 'public/css', [
+    require('postcss-import'),
+    require('tailwindcss'),
+    require('autoprefixer'),
+]);
+
+// Add these 2 lines
+mix.js('vendor/konekt/appshell/src/resources/assets/js/appshell.standalone.js', 'public/js/appshell.js')
+   .sass('vendor/konekt/appshell/src/resources/assets/sass/appshell.sass', 'public/css')
 ```
