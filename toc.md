@@ -26,6 +26,7 @@
     - [Orders](/docs/{{version}}/orders)
     - [Payments](/docs/{{version}}/payments)
     - [Shipping](/docs/{{version}}/shipping)
+    - [Adjustments](/docs/{{version}}/adjustments)
 - Admin
     - [Basics](/docs/{{version}}/admin-basics)
     - [Users](/docs/{{version}}/users)
