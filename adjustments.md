@@ -62,9 +62,9 @@ updated when the next recalculation is triggered.
 
 ### Origin
 
-Adjustment have an `origin` field that can hold a reference to an
-"external source" source. It can be freely used, and can represent eg.
-the id of a promotion entry in the database, or a coupon code, etc.
+Adjustments have an `origin` field that can hold a reference to an
+external source. It can be freely used, and can represent the id of a
+promotion entry in the database, or a coupon code, etc.
 
 ## Adjustables
 
