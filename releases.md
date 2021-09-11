@@ -2,6 +2,17 @@
 
 > For upcoming releases refer to the [Roadmap](roadmap.md).
 
+## 2.2
+##### 2021-09-11
+
+- Dropped PHP 7.3 support
+- Stripe, PayPal, Adyen, SimplePay and Netopia payment modules
+- Added Payment History
+- Improved the Payment Module to work with more gateways
+- Added Order print in Admin
+- Added show/hide closed orders button to order list in admin
+- Several minor fixes and improvements
+
 ## 2.1
 ##### 2020-12-31
 
