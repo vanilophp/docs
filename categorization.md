@@ -1,7 +1,5 @@
 # Categorization
 
-> The Category Module first appeared in Vanilo v0.4.
-
 ## Overview
 
 Depending on your needs you may want to have a single category tree, or
@@ -342,7 +340,7 @@ Neighbours are the taxons which are under a common parent (within the same taxon
 It is defined as a [HasMany Eloquent relationship](https://laravel.com/docs/5.7/eloquent-relationships#one-to-many)
 thus available as a property (`$taxon->neighbours`) which gives a collection.
 
-> Due to the internals of relationships, the relationship doesn't work for root level taxons (`parent_id == NULL`)
+> Due to the internals of relationships, the relationship doesn't work for root level taxons (`parent_id === NULL`)
 
 ```php
 $books = Taxon::create(['name' => 'Books']);
@@ -529,10 +527,12 @@ Taxon::except($me)->get();
 The goal of categorization is to define "things" to be categorized.
 
 The most common use case is to arrange **products** in categories, and this is already configured
-in the Framework (but not in standalone modules!).
+in the Framework (`Foundation` classes), but not in standalone modules.
+
+> Think of possible use cases like categorizing customers, subscribers, etc.
 
 The assignment is done with
-[Eloquent Many To Many Polymorphic Relations](https://laravel.com/docs/5.7/eloquent-relationships#many-to-many-polymorphic-relations).
+[Eloquent Many To Many Polymorphic Relations](https://laravel.com/docs/8.x/eloquent-relationships#many-to-many-polymorphic-relations).
 
 This category module has prepared the `model_taxons` table for this purpose and is ready to be used without
 any further database change.
@@ -549,15 +549,6 @@ $product->addTaxon($taxon1);
 
 //To assign multiple taxons:
 $product->addTaxons([$taxon1, $taxon2]);
-```
-#### Removing Taxons From A Subscriber:
-
-```php
-$product = Product::find(1);
-$taxon = Taxon::find(1);
-
-// To assign a single taxon:
-$product->removeTaxon($taxon);
 ```
 
 ## The Inverse: Add Products To Taxons
@@ -583,8 +574,122 @@ $taxon->products;
 
 ## Assign Taxons To Models (Other Than Products)
 
-The Category module's [README has a detailed description](https://github.com/vanilophp/category#assign-taxons-to-models-eg-products)
-about assigning Taxons with any model in your system.
+Let's say you have a `Subscriber` model and you want to put them in categories.
+
+Here's how to define the relationship on the Subscriber model class:
+
+```php
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\MorphToMany;
+use Vanilo\Category\Models\TaxonProxy;
+
+class Subscriber extends Model
+{
+    public function taxons(): MorphToMany
+    {
+        return $this->morphToMany(
+            TaxonProxy::modelClass(), 'model', 'model_taxons', 'model_id', 'taxon_id'
+        );
+    }
+}
+```
+
+#### Assigning Taxons To A Subscriber:
+
+```php
+$subscriber = Subscriber::find(1);
+$taxon1 = Taxon::find(1);
+$taxon2 = Taxon::find(2);
+
+// To assign a single taxon:
+$subscriber->taxons->save($taxon1);
+
+//To assign multiple taxons:
+$subscriber->taxons->saveMany([$taxon1, $taxon2]);
+```
+#### Removing Taxons From A Subscriber:
+
+```php
+$subscriber = Subscriber::find(1);
+$taxon = Taxon::find(1);
+
+// To assign a single taxon:
+$subscriber->taxons->detach($taxon);
+```
+
+### Defining The Inverse Of The Relationship
+
+Another common use case is to retrieve all the models within a category (Taxon).
+
+This way you'll be able to do this:
+
+```php
+$taxon = Taxon::find(1);
+
+// To return a collection of subscribers within the taxon:
+$taxon->subscribers();
+```
+
+To do this you need to:
+
+- Extend the Taxon model
+- Define the (inverse) relationship
+- Register the extended Taxon model
+
+**The extended Taxon model with the relationship:**
+
+```php
+namespace App;
+
+class Taxon extends \Vanilo\Category\Models\Taxon
+{
+    public function subscribers()
+    {
+        return $this->morphedByMany(
+            Subscriber::class, 'model', 'model_taxons', 'taxon_id', 'model_id'
+        );
+    }
+}
+```
+
+To register the model:
+
+```php
+// app/Providers/AppServiceProvider.php
+namespace App\Providers;
+
+use Illuminate\Support\ServiceProvider;
+use Vanilo\Category\Contracts\Taxon as TaxonContract;
+
+class AppServiceProvider extends ServiceProvider
+{
+
+    public function boot()
+    {
+        $this->app->concord->registerModel(
+            TaxonContract::class, \App\Taxon::class
+        );
+    }
+}
+```
+
+After this you can get and manipulate the subscribers within a taxon:
+
+```php
+$taxon = \App\Taxon::find(1);
+$subscriber = Subscriber::find(1);
+
+// Add the subscriber to the taxon
+$taxon->subscribers()->save($subscriber);
+// Note that it has exactly the same effect as
+$subscriber->taxons()->save($taxon);
+
+// To retrieve all the subscribers within the taxon:
+$taxon->subscribers;
+// Collection of Subscriber objects
+```
 
 ## Known Issues
 
