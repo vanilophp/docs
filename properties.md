@@ -1,11 +1,12 @@
 # Product Properties
 
-> The Properties Module first appeared in Vanilo v0.5.
-
 > Most E-commerce systems name this technique as "product attributes".
+>
 > Laravel's Eloquent also names fields of models (entities) as "attributes".
-> In order to prevent confusion between the two, Vanilo calls these "EAV" style attributes as "properties".
-> Spree Commerce for example also has this naming: [Product Properties](https://guides.spreecommerce.org/developer/products.html#product-properties)
+> 
+> In order to prevent confusion between the two, Vanilo calls these "EAV" style attributes as "properties" instead.
+> 
+> Spree Commerce for example also has this naming: [Spree Commerce Product Properties](https://guides.spreecommerce.org/developer/products.html#product-properties)
 
 ## Overview
 
