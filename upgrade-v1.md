@@ -158,7 +158,7 @@ php artisan migrate
 ### Storage Link Required
 
 For product image support, your application should have a
-[storage link](https://laravel.com/docs/5.6/filesystem#configuration).
+[storage link](https://laravel.com/docs/8.x/filesystem#configuration).
 
 To create the symbolic link, you may use the storage:link Artisan command:
 

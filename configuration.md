@@ -45,7 +45,7 @@ return [
                     // Route name prefix
                     'as'         => 'vanilo.'
                 ],
-            // Currency settings (Multi currency support in v1.5)
+            // Currency settings
             'currency'    => [
                 'code'   => 'USD',
                 'sign'   => '$',
@@ -70,7 +70,7 @@ return [
 > Eg. if you want to use a custom route prefix, you need to add all the values for the route config
 > (middleware, files, route) as well.
 >
-> See: [Laravel Package Development](https://laravel.com/docs/5.6/packages#configuration)
+> See: [Laravel Package Development](https://laravel.com/docs/8.x/packages#configuration)
 
 ## Configuring The Admin Shell
 

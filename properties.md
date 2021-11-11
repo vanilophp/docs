@@ -225,7 +225,7 @@ PropertyValue::create(['title' => '32GB', 'priority' => 30]);
 
 There are two options to work with the sorted values:
 
-1. Use the [scopes](https://laravel.com/docs/5.7/eloquent#local-scopes) directly,
+1. Use the [scopes](https://laravel.com/docs/8.x/eloquent#local-scopes) directly,
 2. Use the `$property->values()` method, which gives a sorted collection of property values
 
 ### Sorting Scopes

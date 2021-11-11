@@ -22,7 +22,7 @@ provides quite several solutions for that.
 ## Concord Overview
 
 The most important information is that Concord modules are Laravel
-[Service Providers](https://laravel.com/docs/5.7/providers) with some
+[Service Providers](https://laravel.com/docs/8.x/providers) with some
 extra functionality. Concord also uses conventions (customizable) so
 that modules are using an identical structure.
 

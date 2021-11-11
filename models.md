@@ -1,7 +1,7 @@
 # Models
 
 Vanilo models are usual
-[Eloquent Models](https://laravel.com/docs/5.7/eloquent) prevalent in
+[Eloquent Models](https://laravel.com/docs/8.x/eloquent) prevalent in
 Laravel apps.
 
 Vanilo's explicit aim is to refrain from deviations from Laravel's
