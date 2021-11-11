@@ -243,7 +243,7 @@ Cart::removeItem($item);
 
 ### Cart States
 
-Cart has a state field (added in v0.4) which can be by default one of these values:
+Cart has a state field which can be by default one of these values:
 
 - active: the cart is active;
 - checkout: the cart is being checked out;

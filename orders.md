@@ -285,7 +285,7 @@ an order with the models. Make sure you fire the event in such cases:
 event(new OrderWasCreated($order));
 ```
 
-Further events (added with v0.4):
+Further events:
 
 - `OrderWasCompleted`
 - `OrderWasCancelled`
