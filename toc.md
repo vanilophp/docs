@@ -20,6 +20,7 @@
     - [Images](/docs/{{version}}/images)
     - [Product Properties](/docs/{{version}}/properties)
     - [Categorization](/docs/{{version}}/categorization)
+    - [Links](/docs/{{version}}/links)
     - [Cart](/docs/{{version}}/cart)
     - [Channels](/docs/{{version}}/channels)
     - [Checkout](/docs/{{version}}/checkout)
