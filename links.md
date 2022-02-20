@@ -8,24 +8,28 @@
 to be aware of a collection of other models (eg. products, categories, etc) that are
 somehow associated with a given model (most typically products and taxon items).
 
-Example use cases:
+**Example use cases**:
 
-- "Colorways" - the color variants of a certain product;
-- "Matches" - Products that have a similar, matching style to a given product;
-- "Similar categories" - When a customer is viewing a category, other, recommended categories can be linked to the category
-- "Customers Also Viewed" - Products that were also viewed by other shoppers before/after viewing this product;
-- "Upsell" - A similar but more expensive product - typically offered in cart or at checkout;
-- "Cros sell" - Accessories or other, typically cheaper products that can be sold as companion products.
+- **"Colorways"** - the color variants of a certain product;
+- **"Matches"** - Products that have a similar, matching style to a given product;
+- **"Similar categories"** - When a customer is viewing a category, other, recommended categories can be linked to the category
+- **"Customers Also Viewed"** - Products that were also viewed by other shoppers before/after viewing this product;
+- **"Upsell"** - A similar but more expensive product - typically offered in cart or at checkout;
+- **"Cros sell"** - Accessories or other, typically cheaper products that can be sold as companion products.
 
-Linked models can be added to each-other on a "relation" basis, ie. if **'Laptop Blue'** is a "color" variant
-of **'Laptop Green'**, then if **'Laptop Red'** gets added as a "color" variant to 'Laptop Green',
-then it automatically becomes the color variant of 'Laptop Blue' as well.
+### Peer Relationship
 
 The linked model entries are peers, they're in an equal relationship.
 
 > In future releases, there might be unidirectional links between models,
 > eg. "White T-shirt" is linked as "Recommended" to "Blue Jeans", but
 > not reverse, ie. the blue jeans isn't recommended at the T-shirt
+
+Linked models can be added to each-other on a "relation" basis, ie. if **'Laptop Blue'** is a`color` variant
+of **'Laptop Green'**, then if **'Laptop Red'** gets added as a `color` variant to 'Laptop Green',
+then it automatically becomes the color variant of 'Laptop Blue' as well.
+
+> Read more about [Product Variants](product-variants.md).
 
 ## Link Types
 
@@ -143,7 +147,62 @@ the usage very significantly.
 
 ### Creating Links
 
+DRAFT
+
+- CHECK: When attempting to add a product to a link_type that the product is already the part of, an error is thrown (due to the unique constraint)
+- CHECK: A product cannot be added to the same group twice (an error must be thrown)
+- Show it in a code example:
+  - Create a link between product "A" and "B".
+  - Add the same type of link between "B" and "C".
+  - Check if "A" and "C" are now also linked
+
+```php
+Establish::an('upsell')->link()->between($product1)->and($product2);
+
+Establish::a('similar')->link()->between($product1)->and($product2);
+
+Establish::a('variant')->link()->basedOn('shoe-size')->between($product1)->and($product2);
+```
+
 ### Retrieving Links
+
+DRAFT
+
+```php
+Get::the('series')->links()->of($this->galaxyS22);
+
+Get::the('variant')->links()->basedOn(22|slug)->of($this->galaxyS22);
+
+Get::variant()->links()->of($this->galaxyS22);
+```
+
+```php
+Get::usePropertiesModel(Property::class);
+```
+
+```php
+link_groups('series')->of($this->galaxyS22);
+links('variant', 'screen')->of($this->galaxyS22);
+```
 
 ### Deleting Links
 
+DRAFT
+
+```php
+Eliminate::the('upsell')->link()->between($product1)->and($product2);
+
+Eliminate::the('upsell')->group()->constitutedBy($product1)->and($product2);
+
+Eliminate::model($product1)->fromThe('upsell')->group()->of($product2);
+```
+
+### Property-based Links
+
+TBW
+
+## Link Groups
+
+DRAFT:
+Model links can be created given a product id and a link group id
+- CHECK: The product link's `group_id` automatically gets generated if unspecified
