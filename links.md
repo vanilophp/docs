@@ -8,6 +8,9 @@
 to be aware of a collection of other models (eg. products, categories, etc) that are
 somehow associated with a given model (most typically products and taxon items).
 
+One of the possible - but not the only - use case of links is to
+constitute [Product Variants](product-variants.md) with it.
+
 **Example use cases**:
 
 - **"Colorways"** - the color variants of a certain product;
@@ -29,8 +32,6 @@ then it automatically becomes the color variant of 'Laptop Blue' as well.
 > In future releases, there might be **unidirectional links** between models,
 > eg. "White T-shirt" is linked as "Recommended" to "Blue Jeans", but
 > not reverse, ie. the blue jeans isn't recommended at the T-shirt
-
-> Read more about [Product Variants](product-variants.md).
 
 ## Link Types
 
