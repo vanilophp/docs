@@ -22,7 +22,7 @@ constitute [Product Variants](product-variants.md) with it.
 
 **Example Link on an E-commerce Site**:
 
-![Linked Outfits](_links1.png)
+![Linked Outfits](img/_links1.png)
 
 The picture above displays Outfits (bottom part of the picture) linked to a product (upper part of the picture).
 

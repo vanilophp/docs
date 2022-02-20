@@ -88,7 +88,7 @@ in the wild are using the described approaches.
 
 The picture below displays a product page that leverages the link-based approach.
 
-![Variants as Links](_variant_links.png)
+![Variants as Links](img/_variant_links.png)
 
 If you study the picture, you'll notice the followings:
 
@@ -103,7 +103,7 @@ of this iphone.
 
 If you click the red thumbnail, it will open the new product page:
 
-![Variants as Links Red](_variant_links2.png)
+![Variants as Links Red](img/_variant_links2.png)
 
 As you see, this page displays another SKU, title, and only displays the images of the red phone.
 
@@ -113,7 +113,7 @@ In a single word, every variant is a fully standalone product.
 
 The picture below displays a product page that leverages the model-based approach.
 
-![Variant Model](_variant_model.png)
+![Variant Model](img/_variant_model.png)
 
 If you study the picture, you'll notice the followings:
 
@@ -129,7 +129,7 @@ In a single sentence, there is one (master) product, but you can only buy one of
 
 The picture below displays a product page that uses a combination of both approaches.
 
-![Variant Combination](_variant_combination.png)
+![Variant Combination](img/_variant_combination.png)
 
 If you study the picture, you'll notice the followings:
 
