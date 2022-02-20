@@ -19,6 +19,7 @@
     - [Products](/docs/{{version}}/products)
     - [Images](/docs/{{version}}/images)
     - [Product Properties](/docs/{{version}}/properties)
+    - [Product Variants](/docs/{{version}}/product-variants)
     - [Categorization](/docs/{{version}}/categorization)
     - [Links](/docs/{{version}}/links)
     - [Cart](/docs/{{version}}/cart)
