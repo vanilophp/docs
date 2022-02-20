@@ -20,6 +20,15 @@ constitute [Product Variants](product-variants.md) with it.
 - **"Upsell"** - A similar but more expensive product - typically offered in cart or at checkout;
 - **"Cros sell"** - Accessories or other, typically cheaper products that can be sold as companion products.
 
+**Example Link on an E-commerce Site**:
+
+![Linked Outfits](_links1.png)
+
+The picture above displays Outfits (bottom part of the picture) linked to a product (upper part of the picture).
+
+Outfits on the example page are products matched together, represented by an `Outfit` model -
+somewhat similar to categories. 
+
 ### Peer Relationship
 
 Models can be added as each-other's links. The linked model entries are peers,
