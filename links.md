@@ -176,16 +176,21 @@ model or the slug of the link type.
 > The methods `a()` and `an()` are equivalent, it's for grammar beauty
 
 ```php
-Establish::an('upsell')->link()->between($product1)->and($product2);
-Establish::a('similar')->link()->between($product1)->and($product2);
+Establish::an('upsell')->link()
+    ->between($essentialPackage)
+    ->and($premiumPackage);
+
+Establish::a('model-family')->link()
+    ->between($galaxyS22)
+    ->and($galaxyS22Plus);
 ```
 
-The second method should either be `link()` or `group()`.
+The second method should be either `link()` or `group()`.
 
 Calling `between()` requires an eloquent model argument. This is the base
-product that will be used for looking up for existing groups.
+model that will be used to link the other models to.
 
-The `and()` call takes one or mode eloquent model arguments and will
+The `and()` call takes one or more eloquent model arguments and will
 execute the creation of the links.
 
 **Linking multiple models**:
@@ -199,35 +204,87 @@ Establish::a('cross-sell')->link()
 #### Create Links Based On Properties
 
 When using links for creating [product variants](product-variants.md) it is possible
-to specify which particular property is the linking based on.
+to specify which particular [property](properties.md) is the linking based on.
 
 ```php
 Establish::a('variant')->link()
-    ->basedOn('screen-size')
+    ->basedOn('screen-size') // The slug of the property
     ->between($laptop13Inch)
     ->and($laptop15Inch);
 ```
 
 ### Retrieving Links
 
-DRAFT
+To obtain links between models, use the `Get` query builder:
 
 ```php
-Get::the('series')->links()->of($this->galaxyS22);
-
-Get::the('variant')->links()->basedOn(22|slug)->of($this->galaxyS22);
-
-Get::variant()->links()->of($this->galaxyS22);
+Get::the('series')->links()->of($product);
 ```
+
+As a first call in the chain, call the `Get::the($linkType)` static method.
+The `$linkType` parameter can be a `LinkType` object or the slug of the link type.
+
+The second method should either be `links()` or `groups()`. This determines
+whether the resulting collection will contain the linked models or the link
+group(s) based on the given criteria.
+
+The `of()` call takes exactly one eloquent model object argument and will
+immediately return the linked models or groups based on the link type.
 
 ```php
-Get::usePropertiesModel(Property::class);
+Get::the('series')->links()->of($galaxyS22);
+// [
+//    0 => Product [
+//      'name' => 'Galaxy S22 Ultra'   
+//    ],
+//    1 => Product [
+//      'name' => 'Galaxy S22 Plus'
+//    ]
+//]
 ```
 
+#### Retrieving Links Based On Properties
+
+Apart from the link type, it is also possible to get sub-groups of links based
+on [properties](properties.md). 
+
 ```php
-link_groups('series')->of($this->galaxyS22);
-links('variant', 'screen')->of($this->galaxyS22);
+Get::the('variant')->links()
+    ->basedOn('scree-size')
+    ->of($laptop13Inch);
+// [
+//    0 => Product [
+//      'name' => 'Laptop 15"'   
+//    ],
+//    1 => Product [
+//      'name' => 'Laptop 11"'
+//    ]
+//]
 ```
+
+#### Using The Helper Functions
+
+To preserve brevity in blade templates, the `links()` and `link_groups()`
+helper functions are available for obtaining linked models
+
+```blade
+<h2>{{ $product->title }}</h2>
+<div class="related-products">
+  @foreach(links('related')->of($product) as $relatedProduct)
+    <div class="slide">
+      <h4>{{ $relatedProduct->title }}</h4>
+      <img src="{{ $relatedProduct->getThumbnailUrl() }}" />
+    </div>
+  @endforeach()
+</div>
+```
+
+These helpers are basically shortcuts:
+
+- `links('recommended')` is equivalent to `Get::the('recommended')->links()`
+- `links('variant', 'screen-size)` is equivalent to `Get::the('variant')->links()->basedOn('screen-size')`
+- `link_groups('variant')` is equivalent to `Get::the('variant')->groups()`
+- `link_groups('variant', 'color')` is equivalent to `Get::the('type')->groups()->basedOn('color')`
 
 ### Deleting Links
 
