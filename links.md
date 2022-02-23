@@ -167,12 +167,45 @@ DRAFT
   - Add the same type of link between "B" and "C".
   - Check if "A" and "C" are now also linked
 
+To create a link between products, use the `Establish` query builder.
+
+To create a link you need to start with the `Establish::a($linkType)` or
+`Establish::an($linkType)` static method first. $linkType can be a `LinkType`
+model or the slug of the link type.
+
+> The methods `a()` and `an()` are equivalent, it's for grammar beauty
+
 ```php
 Establish::an('upsell')->link()->between($product1)->and($product2);
-
 Establish::a('similar')->link()->between($product1)->and($product2);
+```
 
-Establish::a('variant')->link()->basedOn('shoe-size')->between($product1)->and($product2);
+The second method should either be `link()` or `group()`.
+
+Calling `between()` requires an eloquent model argument. This is the base
+product that will be used for looking up for existing groups.
+
+The `and()` call takes one or mode eloquent model arguments and will
+execute the creation of the links.
+
+**Linking multiple models**:
+
+```php
+Establish::a('cross-sell')->link()
+    ->between($iphone)
+    ->and($sleeve, $case);
+```
+
+#### Create Links Based On Properties
+
+When using links for creating [product variants](product-variants.md) it is possible
+to specify which particular property is the linking based on.
+
+```php
+Establish::a('variant')->link()
+    ->basedOn('screen-size')
+    ->between($laptop13Inch)
+    ->and($laptop15Inch);
 ```
 
 ### Retrieving Links
