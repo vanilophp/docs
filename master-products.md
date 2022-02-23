@@ -10,21 +10,21 @@ the simple [Product models](products.md).
 
 ## Overview
 
-The master products module ships with two additional product model,
+The master products module ships with two additional eloquent models,
 besides the regular [Product](products.md) model:
 
 - `MasterProduct`, and
-- `ProductVariant`.
+- `MasterProductVariant`.
 
 Unlike with the [Links Module](links.md), the Master Product module expresses
 product variant relationships in the model layer, in a very explicit way.
 
 Common attributes (name, description, pictures, etc) are defined in the
 `MasterProduct` model, but the variant specifics (size, price, SKU, etc)
-are stored with the `ProductVariant`.
+are stored with the `MasterProductVariant`.
 
-The master product is not Buyable, thus it can't be purchased, thrown into the
-cart, added to an order, paid, etc. The variant is the `Buyable`, and it always
-has a master product linked with it.
+The _master product_ is **not** a `Buyable`, thus it can't be purchased, thrown into the
+cart, added to an order, paid, etc. The _variant_ is the `Buyable`, and it always
+has a master product linked with it, so these two types always co-exist.
 
-As a consequence, a product is stored in two separate tables.
+As a consequence, a product of this kind is stored in two tables: `master_products` and `master_product_variants`.
