@@ -4,9 +4,12 @@
 
 ## Introduction
 
-"Links" is a generic feature to handle various use cases where it is required
+**Links** is a generic feature to handle various use cases where it is required
 to be aware of a collection of other models (eg. products, categories, etc) that are
 somehow associated with a given model (most typically products and taxon items).
+
+> Links can be established between any Eloquent models, regardless of whether
+> they're part of Vanilo or not.
 
 One of the possible - but not the only - use case of links is to
 constitute [Product Variants](product-variants.md) with it.
@@ -44,10 +47,12 @@ then it automatically becomes the color variant of 'Laptop Blue' as well.
 
 ## Link Types
 
-There can be multiple types of links eg "Upsell" or "Similar products", etc
+In order to distinguish between links, the type of the link must always be defined.
+
+There can be multiple types of links eg "Upsell" or "Similar products", etc.
 and these are represented by the `LinkType` model.
 
-Link types are user editable data and each link type has:
+Link types are user editable data (stored in the database) and each link type has:
  
 - `name`: unique eg. "Similar products"
 - `slug`: unique, auto-generated eg. "similar-products" 
@@ -157,15 +162,6 @@ The code might seem a bit uncommon, but it wraps a lot of logic, and simplifies
 the usage very significantly.
 
 ### Creating Links
-
-DRAFT
-
-- CHECK: When attempting to add a product to a link_type that the product is already the part of, an error is thrown (due to the unique constraint)
-- CHECK: A product cannot be added to the same group twice (an error must be thrown)
-- Show it in a code example:
-  - Create a link between product "A" and "B".
-  - Add the same type of link between "B" and "C".
-  - Check if "A" and "C" are now also linked
 
 To create a link between products, use the `Establish` query builder.
 
@@ -288,22 +284,78 @@ These helpers are basically shortcuts:
 
 ### Deleting Links
 
-DRAFT
+To delete the links between models, use the `Eliminate` query builder:
 
 ```php
-Eliminate::the('upsell')->link()->between($product1)->and($product2);
+// To take premium package out of the "upsell" links of the essential package:
+Eliminate::the('upsell')->link()->between($essentialPackage)->and($premiumPackage);
 
-Eliminate::the('upsell')->group()->constitutedBy($product1)->and($product2);
+// To take the blue bear out of the "color" "variant" links of the pink bear:
+Eliminate::the('variant')->link()
+    ->basedOn('color')
+    ->between($teddyBearPink)
+    ->and($teddyBearBlue);
 
-Eliminate::model($product1)->fromThe('upsell')->group()->of($product2);
+// To abolish all the "upsell" link group of $product1:
+Eliminate::the('upsell')->group()->of($product1);
 ```
 
-### Property-based Links
+Start building the query by calling the `Eliminate::the($linkType)` static method.
+The `$linkType` parameter can be a `LinkType` object or the slug of the link type.
 
-TBW
+The second method should either be `link()` or `group()`. This determines
+whether only given models will be un-linked or the entire link group(s) based
+on the criteria.
 
-## Link Groups
+#### Deleting Models Only
 
-DRAFT:
-Model links can be created given a product id and a link group id
-- CHECK: The product link's `group_id` automatically gets generated if unspecified
+It is possible to delete particular models from link groups, preserving the
+rest of the links:
+
+```php
+Establish::an('upsell')->link()->between($basePack)->and($proPack, $ultimatePack);
+
+// To take out the Pro Pack from the upsell links of Base Pack:
+Eliminate::the('upsell')->link()->between($basePack)->and($proPack);
+
+// Ultimate Pack remains linked as upsell:
+Get::the('upsell')->links()->of($basePack);
+// [
+//   '0' => $ultimatePack
+//]
+```
+
+It is possible to pass multiple models that need to be eliminated from the link group:
+
+```php
+Eliminate::the('similar')->link()->between($trump2024Cap)->and($trump2020Cap, $magaCap);
+```
+
+#### Deleting Entire Link Groups
+
+It is possible to abolish an entire group of links.
+
+```php
+Establish::an('x-sell')->link()->between($phone)->and($sleeve, $charger, $case);
+
+// This will completely destroy the link between the entries created above  
+Eliminate::the('x-sell')->group()->of($phone);
+```
+
+#### Deleting Links Based On Properties
+
+Both groups and individual links can be deleted not only by link type,
+but also possible by sub-groups of based on [properties](properties.md).
+
+```php
+Eliminate::the('variant')
+    ->link()
+    ->basedOn('color')
+    ->between($ferrariRed)
+    ->and($ferrariYellow);
+
+Eliminate::the('variant')
+    ->group()
+    ->basedOn('screen-size')
+    ->of($laptop13Inch);
+```
