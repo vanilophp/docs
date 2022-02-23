@@ -14,11 +14,13 @@ This page contains the planned upcoming versions along with their contents.
 - Adjustments (as a base for promotions, shipping fee and tax calculations)
 - Shipment handling
 - Monorepo: modules remain separate as before, but as subtree split
-- Product Variants
+- Product Variants via Links
+- Product Relations (upsell, x-sell, etc) via Links
 
 ## 3.1
 ##### March 2022
 
+- Product Variants via Master Products
 - Promotions
 
 ## 3.2
@@ -39,11 +41,6 @@ This page contains the planned upcoming versions along with their contents.
 
 ## 3.5
 ##### July 2022
-
-- Product Relations (upsell, x-sell)
-
-## 3.6
-##### August 2022
 
 - Favourites
 
