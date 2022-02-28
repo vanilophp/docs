@@ -3,18 +3,21 @@
 > For upcoming releases refer to the [Roadmap](roadmap.md).
 
 ## 3.0 - Unreleased
-##### 2022-02-XX
+##### 2022-02-28
 
 - Removed PHP 7.4 Support
 - Removed Laravel 6-8 Support
 - Removed Admin from "Framework" - it is available as an optional separate package see [vanilo/admin](https://github.com/vanilophp/admin)
-- Added Laravel 9 Support
+- Added Laravel 9 Support (minimum requirement)
 - Added PHP 8.1 Support
 - Added the Links module
 - Added the Shipment module
+- Added `original_price` field to products
+- Added product dimension (`width`, `height`, `depth`) and `weight` fields
 - BC Change: Renamed Framework Module and Namespace to "Foundation"
 - BC Change: Renamed `vanilo.framework.*` config values to `vanilo.foundation.*`
 - BC Change: Interfaces have been improved with types and extended with methods
+- BC: Added the static `findBySlug(string $slug): ?Property;` method to the Property interface
 - Switched to monorepo layout: Core modules are all in the monorepo, separated as readonly subtree split in their own repositories
 
 ## 2.2

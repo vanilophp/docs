@@ -4,23 +4,11 @@ This page contains the planned upcoming versions along with their contents.
 
 > Refer to [Releases](releases.md) for details about published versions.
 
-## 3.0
-##### February 2022
-
-- Drop PHP 7.4 and Laravel 6/7/8
-- Laravel 9 support
-- PHP 8.0, PHP 8.1 & Laravel 9 only
-- Update interfaces with return types where missing and use PHP 8 language features
-- Adjustments (as a base for promotions, shipping fee and tax calculations)
-- Shipment handling
-- Monorepo: modules remain separate as before, but as subtree split
-- Product Variants via Links
-- Product Relations (upsell, x-sell, etc) via Links
-
 ## 3.1
 ##### March 2022
 
 - Product Variants via Master Products
+- Adjustments (as a base for promotions, shipping fee and tax calculations)
 - Promotions
 
 ## 3.2

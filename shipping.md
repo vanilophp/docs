@@ -1,3 +1,3 @@
 # Shipping
 
-> The Shipment Module will be released with [Vanilo v3.0](roadmap.md).
+> The Shipment Module has been released with [Vanilo v3.0](releases.md).

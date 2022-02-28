@@ -11,7 +11,7 @@ major checkout types:
 Other than these, it optionally allows saving incomplete checkouts to db,
 session, cache (redis, memcache), etc.
 
-As of v2.0 only the One-page type / without saving has been implemented yet.
+As of v3.0 only the One-page type / without saving has been implemented yet.
 
 ## Checkout Data
 
