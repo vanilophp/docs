@@ -21,7 +21,7 @@ return [
             ]
         ],
         // The configuration part is optional: 
-        Vanilo\Framework\Providers\ModuleServiceProvider::class
+        Vanilo\Foundation\Providers\ModuleServiceProvider::class
     ]
 ];
 ```
