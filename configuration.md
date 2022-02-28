@@ -34,17 +34,7 @@ The following settings are available for the Vanilo Framework:
 // config/concord.php
 return [
     'modules' => [
-        Vanilo\Framework\Providers\ModuleServiceProvider::class => [
-            'routes' => [
-                    // Admin path (url) prefix (if changing, also change for AppShell)
-                    'prefix'     => 'admin', 
-                    // middlewares for the route group
-                    'middleware' => ['web', 'auth', 'acl'],
-                    // Route files to load 
-                    'files'      => ['admin'],
-                    // Route name prefix
-                    'as'         => 'vanilo.'
-                ],
+        Vanilo\Foundation\Providers\ModuleServiceProvider::class => [
             // Currency settings
             'currency'    => [
                 'code'   => 'USD',
@@ -70,48 +60,4 @@ return [
 > Eg. if you want to use a custom route prefix, you need to add all the values for the route config
 > (middleware, files, route) as well.
 >
-> See: [Laravel Package Development](https://laravel.com/docs/8.x/packages#configuration)
-
-## Configuring The Admin Shell
-
-Vanilo's admin is based on
-[AppShell](https://github.com/artkonekt/appshell) which is also a
-Concord module.
-
-It has the following configuration options:
-
-```php
-// config/concord.php
-return [
-    'modules' => [
-        Konekt\AppShell\Providers\ModuleServiceProvider::class => [
-            // If false the module's listeners won't be bound to events
-            'event_listeners' => true, 
-            'routes' => [
-                // Admin path (url) prefix (if changing, also change for Vanilo Framework)
-                'prefix'     => 'admin', 
-                // middlewares for the route group
-                'middleware' => ['web', 'auth', 'acl'],
-                // Route files to load 
-                'files'      => ['web'],
-                // Route name prefix
-                'as'         => 'appshell.'
-            ],
-            'breadcrumbs' => true, // to disable breadcrumbs
-            'components' => [
-                'breadcrumbs' => [
-                    // the view for rendering breadcrumbs
-                    'view' => 'appshell::widgets.breadcrumbs'
-                ]
-            ],
-            'ui' => [
-                // Your app's name to display on admin
-                'name' => 'Vanilo',
-                // Admin Panel's base (eg. dashboard) URL
-                'url'  => '/admin/product'
-            ]
-        ],
-        //...
-    ]
-];
-```
+> See: [Laravel Package Development](https://laravel.com/docs/9.x/packages#configuration)

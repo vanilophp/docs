@@ -2,9 +2,7 @@
 
 ## Requirements
 
-- The standalone components require PHP 7.3 and Laravel 6.0 or higher
-- The framework requires PHP 7.4 and Laravel 6.18 or higher
-- PHP 8 is supported as of v2.1
+- Vanilo 3 requires PHP 8.0 or 8.1 and Laravel 9.0 or higher
 - json, openssl, PDO, mbstring, tokenizer, xml, ctype PHP extensions
 - Supported database engines<sup>*</sup>:
     - **MySQL 5.7** or higher,
@@ -35,13 +33,7 @@ Edit `config/concord.php` and add this content:
 
 return [
     'modules' => [
-        Konekt\AppShell\Providers\ModuleServiceProvider::class => [
-            'ui' => [
-                'name' => 'Vanilo',
-                'url' => '/admin/product'
-            ]
-        ],
-        Vanilo\Framework\Providers\ModuleServiceProvider::class
+        Vanilo\Foundation\Providers\ModuleServiceProvider::class
     ]
 ];
 ```
@@ -54,20 +46,18 @@ The following [Concord](concord.md) modules should be installed now:
 +-----+--------------------------+--------+---------+-------------------+-------------------+
 | #   | Name                     | Kind   | Version | Id                | Namespace         |
 +-----+--------------------------+--------+---------+-------------------+-------------------+
-| 1.  | Konekt Address Module    | Module | 2.1.0   | konekt.address    | Konekt\Address    |
-| 2.  | Konekt Customer Module   | Module | 2.1.0   | konekt.customer   | Konekt\Customer   |
-| 3.  | Konekt User Module       | Module | 2.3.0   | konekt.user       | Konekt\User       |
-| 4.  | Konekt Acl Module        | Module | 1.5.0   | konekt.acl        | Konekt\Acl        |
-| 5.  | Konekt AppShell Box      | Box    | 2.1.0   | konekt.app_shell  | Konekt\AppShell   |
-| 6.  | Vanilo Category Module   | Module | 2.1.0   | vanilo.category   | Vanilo\Category   |
-| 7.  | Vanilo Product Module    | Module | 2.1.0   | vanilo.product    | Vanilo\Product    |
-| 8.  | Vanilo Properties Module | Module | 2.1.1   | vanilo.properties | Vanilo\Properties |
-| 9.  | Vanilo Channel Module    | Module | 2.1.0   | vanilo.channel    | Vanilo\Channel    |
-| 10. | Vanilo Cart Module       | Module | 2.1.1   | vanilo.cart       | Vanilo\Cart       |
-| 11. | Vanilo Checkout Module   | Module | 2.1.0   | vanilo.checkout   | Vanilo\Checkout   |
-| 12. | Vanilo Order Module      | Module | 2.2.0   | vanilo.order      | Vanilo\Order      |
-| 13. | Vanilo Payment Module    | Module | 2.1.0   | vanilo.payment    | Vanilo\Payment    |
-| 14. | Vanilo Framework         | Box    | 2.1.1   | vanilo.framework  | Vanilo\Framework  |
+| 1.  | Konekt User Module       | Module | 2.3.0   | konekt.user       | Konekt\User       |
+| 2.  | Konekt Address Module    | Module | 2.1.2   | konekt.address    | Konekt\Address    |
+| 3.  | Konekt Customer Module   | Module | 2.1.0   | konekt.customer   | Konekt\Customer   |
+| 4.  | Vanilo Category Module   | Module | 3.0.0   | vanilo.category   | Vanilo\Category   |
+| 5.  | Vanilo Product Module    | Module | 3.0.0   | vanilo.product    | Vanilo\Product    |
+| 6.  | Vanilo Properties Module | Module | 3.0.0   | vanilo.properties | Vanilo\Properties |
+| 7.  | Vanilo Channel Module    | Module | 3.0.0   | vanilo.channel    | Vanilo\Channel    |
+| 8.  | Vanilo Cart Module       | Module | 3.0.0   | vanilo.cart       | Vanilo\Cart       |
+| 9.  | Vanilo Checkout Module   | Module | 3.0.0   | vanilo.checkout   | Vanilo\Checkout   |
+| 10. | Vanilo Order Module      | Module | 3.0.0   | vanilo.order      | Vanilo\Order      |
+| 11. | Vanilo Payment Module    | Module | 3.0.0   | vanilo.payment    | Vanilo\Payment    |
+| 12. | Vanilo Foundation        | Box    | 3.0.0   | vanilo.foundation | Vanilo\Foundation |
 +-----+--------------------------+--------+---------+-------------------+-------------------+
 ```
 
@@ -79,7 +69,7 @@ Afterwards run the migrations:
 php artisan migrate
 ```
 
-Vanilo contains ~20 migrations out of the box
+Vanilo contains about 40+ migrations out of the box.
 
 It's not mandatory but recommended to seed the countries table:
 
@@ -109,7 +99,7 @@ namespace App;
 // No need to use Laravel default traits and properties as
 // they're already present in the base class exactly as
 // they're defined in a default Laravel installation
-class User extends \Konekt\AppShell\Models\User
+class User extends \Konekt\User\Models\User
 {
 }
 ```
@@ -127,12 +117,9 @@ interface:
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Konekt\User\Contracts\Profile;
 use Konekt\User\Contracts\User as UserContract;
-use Konekt\Acl\Traits\HasRoles;
 
 class User extends Authenticatable implements UserContract
 {
-    use HasRoles;
-    
     // ...
     
     // Implement these methods from the required Interface:
@@ -169,52 +156,3 @@ And add this to you `AppServiceProviders`'s boot method:
    $this->app->concord->registerModel(\Konekt\User\Contracts\User::class, \App\User::class);
    // On fresh Laravel 8+ installations the class is typically \App\Models\User
 ```
-
-### Create An Initial Super User
-
-Run command `php artisan make:superuser`.
-
-This will ask several questions and create a proper superuser that you can start working with.
-
-> **NOTE**: Accept `admin` as role for the very first user, because that's the only existing role after installation.
-
-### Add Admin's CSS To Laravel Mix
-
-In `webpack.mix.js` change:
-```js
-mix.js('resources/js/app.js', 'public/js')
-    // Add these 2 lines:
-   .js('vendor/konekt/appshell/src/resources/assets/js/appshell.standalone.js', 'public/js/appshell.js')
-   .sass('vendor/konekt/appshell/src/resources/assets/sass/appshell.sass', 'public/css')
-    // Keep this for the "rest" (usually public frontend)
-   .sass('resources/sass/app.scss', 'public/css');
-```
-
-Depending on which version of Laravel you have and how you've installed Laravel UI, you may need to
-add the following packages:
-
-```bash
-yarn add bootstrap jquery vue popper.js
-```
-
-Now compile the assets with mix:
-
-```bash
-yarn install
-yarn run dev
-```
-
-> **TIP:** If you have no yarn on your system refer to the [Install yarn page](https://yarnpkg.com/en/docs/install).
-
-## Go To Admin
-
-After this you can start serving the site with
-
-`php artisan serve`
-
-Now navigate to http://127.0.0.1:8000/admin/customer. You'll be able to
-log in with the user just created on the console.
-
-> You may expect to have a store frontend here, but there's none out of the box, and this is
-> intentional, so that you can build one exactly your way. To see an example storefront
-> implementation for Vanilo go to [the demo project](https://github.com/vanilophp/demo)

@@ -2,7 +2,7 @@
 
 > For upcoming releases refer to the [Roadmap](roadmap.md).
 
-## 3.0 - Unreleased
+## 3.0
 ##### 2022-02-28
 
 - Removed PHP 7.4 Support

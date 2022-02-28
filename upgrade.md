@@ -46,6 +46,8 @@ A namespace alias has been created for compatibility, but this will be dropped i
 **Your Action Item**: Search your application for classes that use classes from the `Vanilo\Framework`
 namespace and replace `Framework` with `Foundation` in the use clause or in the class name.
 
+Mind renaming the namespace in `config/concord.php`.
+
 
 ### Configuration Path Changes
 

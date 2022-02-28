@@ -24,10 +24,12 @@ for each of the separate components:
 - [Product Properties](https://github.com/vanilophp/properties)
 - [Cart](https://github.com/vanilophp/cart)
 - [Category](https://github.com/vanilophp/category)
+- [Channels](https://github.com/vanilophp/channel)
 - [Checkout](https://github.com/vanilophp/checkout)
+- [Links](https://github.com/vanilophp/links)
 - [Order](https://github.com/vanilophp/checkout)
 - [Payment](https://github.com/vanilophp/payment)
-- [Channels](https://github.com/vanilophp/channel)
+- [Shipment](https://github.com/vanilophp/shipment)
 - [Documentation](https://github.com/vanilophp/docs)
 
 ## Features, Improvements
@@ -44,7 +46,7 @@ Please submit all PRs to the `master` branch only.
 
 ### Coding Style
 
-Vanilo follows the PSR-2 coding standard and the PSR-4 autoloading standard.
+Vanilo follows the PSR-12 coding standard and the PSR-4 autoloading standard.
 
 ### Tests
 
