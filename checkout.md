@@ -33,7 +33,6 @@ Checkout has the following data associated:
 There are 3 usual ways you can use to obtain a checkout instance:
 
 **1. Use the `Checkout` facade**
-I know, facades are 🌩 & 🚨 & ☣
 
 ```php
 use App\Http\Requests\CheckoutRequest;
@@ -137,9 +136,10 @@ echo Checkout::getCustomAttribute('gift');
 
 ```php
 Checkout::getCustomAttributes();
-// array(2) 
-// 'gift'          => 'Unisex T-Shirt L'
-// 'gdpr_accepted' => true
+// [
+//   "gift" => "Unisex T-Shirt L",
+//   "gdpr_accepted" => true,
+// ]
 ```
 
 > See
