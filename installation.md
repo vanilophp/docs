@@ -14,13 +14,15 @@
 
 ### With Composer
 
+> If you're still on PHP 7 and can't upgrade yet, try installing [Vanilo 2](/docs/2.x/installation)
+
 ```bash
 # Create a new project (optional):
-composer create-project --prefer-dist laravel/laravel vaniloapp
+composer create-project --prefer-dist laravel/laravel vaniloapp ^9.0
 cd vaniloapp
 
 # Install the vanilo package:
-composer require vanilo/framework
+composer require vanilo/framework ^3.0
 
 # Publish module loader config:
 php artisan vendor:publish --provider="Konekt\Concord\ConcordServiceProvider" --tag=config
