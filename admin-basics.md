@@ -1,4 +1,7 @@
-# Vanilo's Admin
+# Vanilo Admin
+
+> The Vanilo Admin package used to be the part of the vanilo/framework package in versions 0.x, 1.x and 2.x.  
+> Beginning with v3.x, the Admin has been extracted from the Framework, and now it is optional.
 
 The Admin Panel was built on top of the
 [AppShell](https://github.com/artkonekt/appshell) library.
@@ -33,7 +36,7 @@ return [
                 'prefix' => 'admin', 
             ],
         ],
-        Vanilo\Framework\Providers\ModuleServiceProvider::class => [
+        Vanilo\Admin\Providers\ModuleServiceProvider::class => [
             'routes' => [
                 'prefix' => 'admin', 
             ],  

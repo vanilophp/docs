@@ -32,6 +32,7 @@
     - [Adjustments](/docs/{{version}}/adjustments)
 - Admin
     - [Basics](/docs/{{version}}/admin-basics)
+    - [Installation](/docs/{{version}}/admin-installation)
     - [Users](/docs/{{version}}/users)
     - [Acl](/docs/{{version}}/acl)
     - [Settings](/docs/{{version}}/settings)
