@@ -14,16 +14,15 @@
 
 ### With Composer
 
-> Note that you are browsing the **Vanilo 2.0** Documentation.
-> Vanilo 2 doesn't work with Laravel 9+, thus you either need to stick with Laravel 8 or proceed to a [Vanilo 3 Installation](https://vanilo.io/docs/3.x/installation)
+> If you're still on PHP 7 and can't upgrade yet, try installing [Vanilo 2](/docs/2.x/installation)
 
 ```bash
 # Create a new project (optional):
-composer create-project --prefer-dist laravel/laravel vaniloapp ^8.0
+composer create-project --prefer-dist laravel/laravel vaniloapp ^9.0
 cd vaniloapp
 
 # Install the vanilo package:
-composer require vanilo/framework ^2.0
+composer require vanilo/framework ^3.0
 
 # Publish module loader config:
 php artisan vendor:publish --provider="Konekt\Concord\ConcordServiceProvider" --tag=config
