@@ -38,7 +38,7 @@ The Admin package can be installed using composer:
    ```
 8. Install the following npm packages: 
    ```bash
-   npm add bootstrap@4.6 jquery vue@2.6 popper.js
+   npm add bootstrap@4.6 jquery alpinejs@3.10 popper.js
    ```
 9. Compile the assets with mix: `npm run dev`
 
