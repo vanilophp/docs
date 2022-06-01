@@ -213,6 +213,23 @@ $values = PropertyValue::byProperty($property)->get();
 $values = PropertyValue::byProperty(1)->get();
 ```
 
+### Retrieving A Specific Property Value
+
+In case you want to retrieve a specific value from a specific property, you have several ways:
+
+```php
+$redColor = Property::findBySlug('color')->propertyValues()->whereSlug('red')->first();
+
+$color = Property::findBySlug('color');
+$whiteColor = PropertyValue::byProperty($color)->whereSlug('white')->first();
+```
+
+Since Vanilo v3.1 there's a simplified finder method available:
+
+```php
+$red = PropertyValue::findByPropertyAndValue('color', 'red');
+```
+
 ## Ordering Values
 
 Property values have a `priority` field which is being used to sort
@@ -253,4 +270,91 @@ $property->propertyValues()->sortReverse()->get();
 PropertyValue::byProperty($propertyId = 1)->sort()->get();
 // Same as above, but reverse sorted:
 PropertyValue::byProperty($propertyId = 1)->sortReverse()->get();
+```
+
+## Using With Products
+
+If you're using the [entire framework](modules-vs-framework.md), then it contains an extended
+[Product Model](https://github.com/vanilophp/framework/blob/master/src/Foundation/Models/Product.php),
+that (among others) uses the [HasPropertyValues](https://github.com/vanilophp/framework/blob/master/src/Properties/Traits/HasPropertyValues.php)
+trait.
+
+If you don't use the entire framework but [only modules](modules-vs-framework.md)
+from it, then you need to extend the product model in your application, eg. declare
+a class in `app\Models\Product.php` that uses the `HasPropertyValues` trait.
+
+Mind that you need to tell the system that now this is your product model via
+registering it with concord:
+
+`app/Providers/AppServiceProvider.php`:
+
+```php
+<?php
+
+namespace App\Providers;
+
+use Vanilo\Product\Contracts\Cart as ProductContract;
+use App\Models\Product;
+
+class AppServiceProvider extends ServiceProvider
+{
+    public function boot()
+    {
+        $this->app->get('concord')->registerModel(ProductContract::class, Product::class);
+    }
+}
+```
+
+### Using With Any Model
+
+Properties can be added to any Eloquent model in your application. The easiest
+way to add properties to an existing model is to add the `HasPropertyValues`
+trait to it:
+
+```php
+<?php
+
+namespace App\Models\Vehicle;
+
+use Illuminate\Database\Eloquent\Model
+
+class Vehicle extends Model
+{
+    use HasPropertyValues;
+    
+    //...
+}
+```
+
+### Assign Property Values To Models
+
+Once a model has property values, it is possible to assign values to it:
+
+```php
+$product = Product::findBySlug('iphone-13-pro-128gb-5g-gold');
+
+$goldColor = PropertyValue::findByPropertyAndValue('color', 'gold');
+$product->addPropertyValue($goldColor)
+```
+
+### Removing A Property Value
+
+To remove a property value from a model, use the `removePropertyValue()` method:
+
+```php
+$event = Event::find(1);
+$isOnline = PropertyValue::findByPropertyAndValue('is-online', true);
+$event->removePropertyValue($isOnline);
+```
+
+### Synchronizing Multiple Values At Once
+
+Under the hood, the `$model->propertyValues()` method is a
+[MorphToMany](https://laravel.com/docs/9.x/eloquent-relationships#many-to-many-polymorphic-relations)
+relation, therefore multiple values can be
+[synchronized](https://laravel.com/docs/9.x/eloquent-relationships#syncing-associations):
+
+```php
+$product->propertyValues()->sync([1, 3, 22]);
+// 1, 3 and 22 are the ids of property values
 ```
