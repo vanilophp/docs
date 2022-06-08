@@ -209,7 +209,7 @@ boot time:
 ```php
 use Illuminate\Database\Eloquent\Relations\Relation;
 
-Relation::morphMap([
+Relation::enforceMorphMap([
     'product' => 'Vanilo\Product\Models\Product',
     'course'  => 'App\Models\Course',
 ]);
