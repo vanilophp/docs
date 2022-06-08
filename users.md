@@ -16,10 +16,10 @@ Vanilo adds some extensions, namely:
 ## Laravel Auth Support
 
 In order to keep Laravel auth working but use the extended User model,
-you should modify your `App\User` class:
+you should modify your `App\Models\User` class:
 
 ```php
-namespace App;
+namespace App\Models;
 
 // No need to use Laravel default traits and properties as
 // they're already present in the base class
@@ -31,11 +31,11 @@ class User extends \Konekt\AppShell\Models\User
 And add this to you AppServiceProviders's boot method:
 
 `$this->app->concord->registerModel(\Konekt\User\Contracts\User::class,
-\App\User::class);`
+\App\Models\User::class);`
 
 **Alternatively,**
 
-you can also delete App\User and tell Laravel auth to use Vanilo's class.
+you can also delete App\Models\User and tell Laravel auth to use Vanilo's class.
 
 Modify your app's `config/auth.php` file:
 
@@ -44,7 +44,7 @@ Modify your app's `config/auth.php` file:
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            // 'model' => App\User::class <- change this to:
+            // 'model' => App\Models\User::class <- change this to:
             'model' => Konekt\AppShell\Models\User::class,
         ],
     //...

@@ -109,7 +109,7 @@ want to extend a model you can tell concord to use another class for
 that interface:
 
 ```php
-concord()->registerModel(\Module\Contracts\Model::class, \App\ExtendedModel::class);
+concord()->registerModel(\Module\Contracts\Model::class, \App\Models\ExtendedModel::class);
 ```
 
 This results that if the model is used in a relation, the extended model

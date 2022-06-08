@@ -117,7 +117,7 @@ To add custom types you need to
 
 **Example**
 ```php
-namespace App;
+namespace App\Models;
 
 class Stars implements \Vanilo\Properties\Contracts\PropertyType
 {
@@ -145,7 +145,7 @@ Register the type, preferably in `AppServiceProvider::boot()`:
 ```php
 namespace App\Providers;
 
-use App\Stars;
+use App\Models\Stars;
 use Illuminate\Support\ServiceProvider;
 use Vanilo\Properties\PropertyTypes;
 

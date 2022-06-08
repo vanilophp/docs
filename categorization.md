@@ -559,7 +559,7 @@ This is also preconfigured in the Framework (but not in the standalone modules!)
 To manipulate the products within a taxon:
 
 ```php
-$taxon = \App\Taxon::find(1);
+$taxon = \App\Models\Taxon::find(1);
 $product = Product::find(1);
 
 // Add the product to the taxon
@@ -669,7 +669,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->app->concord->registerModel(
-            TaxonContract::class, \App\Taxon::class
+            TaxonContract::class, \App\Models\Taxon::class
         );
     }
 }
@@ -678,7 +678,7 @@ class AppServiceProvider extends ServiceProvider
 After this you can get and manipulate the subscribers within a taxon:
 
 ```php
-$taxon = \App\Taxon::find(1);
+$taxon = \App\Models\Taxon::find(1);
 $subscriber = Subscriber::find(1);
 
 // Add the subscriber to the taxon
