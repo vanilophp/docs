@@ -92,7 +92,7 @@ php artisan ui:auth
 
 #### Variant 1 - Simple
 
-Modify `App\User` so that it extends Vanilo's user model:
+Modify `App\Models\User` so that it extends Vanilo's user model:
 
 ```php
 // app/User.php
@@ -155,6 +155,5 @@ And add this to you `AppServiceProviders`'s boot method:
 ```php
 // app/Providers/AppServiceProvider.php
 
-   $this->app->concord->registerModel(\Konekt\User\Contracts\User::class, \App\User::class);
-   // On fresh Laravel 8+ installations the class is typically \App\Models\User
+   $this->app->concord->registerModel(\Konekt\User\Contracts\User::class, \App\Models\User::class);
 ```

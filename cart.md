@@ -152,21 +152,21 @@ to the Buyable object named `product`.
 So you have a reference to the item's product:
 
 ```php
-$product = \App\Product::find(203);
+$product = \App\Models\Product::find(203);
 $cartItem = Cart::addItem($product);
 
 echo $cartItem->product->id;
 // 203
 echo get_class($cartItem->product);
-// "App\Product"
+// "App\Models\Product"
 
-$course = \App\Course::findBySku('REACT-001');
+$course = \App\Models\Course::findBySku('REACT-001');
 $cartItem = Cart::addItem($course);
 
 echo $cartItem->product->sku;
 // "REACT-001"
 echo get_class($cartItem->product);
-// "App\Course"
+// "App\Models\Course"
 ```
 
 ### Buyables (products)
@@ -201,7 +201,7 @@ The `morphTypeName()` method, can either return the full class name
 | Full Class Name               | Short Version (Saved In DB) |
 |:------------------------------|:----------------------------|
 | Vanilo\Product\Models\Product | product                     |
-| App\Course                    | course                      |
+| App\Models\Course             | course                      |
 
 If you're not using the FQCN, then you have to add the mapping during
 boot time:
@@ -211,7 +211,7 @@ use Illuminate\Database\Eloquent\Relations\Relation;
 
 Relation::morphMap([
     'product' => 'Vanilo\Product\Models\Product',
-    'course'  => 'App\Course',
+    'course'  => 'App\Models\Course',
 ]);
 ```
 
@@ -262,10 +262,10 @@ The cart can be assigned to user automatically and/or manually.
 
 #### The User Model
 
-The cart's user model is not bound to any specific class (like `App\User`).
+The cart's user model is not bound to any specific class (like `App\Models\User`).
 
 By default, it uses the model defined in `auth.providers.users.model` configuration entry.
-In fresh Laravel installations, and in most of the cases this will give the `App\User` class.
+In fresh Laravel installations, and in most of the cases this will give the `App\Models\User` class.
 
 However, these values are just sensible defaults, and Laravel's
 [authentication system](https://laravel.com/docs/8.x/authentication) does not force you to have this
@@ -292,7 +292,7 @@ use Vanilo\Cart\Facades\Cart;
 Cart::setUser(Auth::user());
 
 // Assign an arbitrary user:
-$user = \App\User::find(1);
+$user = \App\Models\User::find(1);
 Cart::setUser($user);
 
 // User id can be passed as well:
@@ -361,7 +361,7 @@ The cart total can be accessed with the `Cart::total()` method:
 
 ```php
 use Vanilo\Cart\Facades\Cart;
-use App\Product;
+use App\Models\Product;
 
 $productX = Product::create(['name' => 'X', 'price' => 100]);
 $productY = Product::create(['name' => 'Y', 'price' => 70]);

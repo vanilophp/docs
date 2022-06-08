@@ -72,7 +72,7 @@ class AppServiceProvider extends ServiceProvider
 ```
 
 If the product model is used in another model's relation, (eg.
-`CartItem`) then even those related objects will return `App\Product`
+`CartItem`) then even those related objects will return `App\Models\Product`
 from now on.
 
 > Depending on the nature of the changes, it might be necessary to
@@ -85,7 +85,7 @@ use Vanilo\Product\Contracts\Product;
 
 $product = app()->make(Product::class);
 echo get_class($product);
-// App\Product
+// App\Models\Product
 ```
 
 > Note that `App\Models\Product` should extend the original model class ie.
