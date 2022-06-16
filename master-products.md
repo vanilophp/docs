@@ -83,12 +83,12 @@ the fields are basically the same according to the table below:
 | `units_sold`       |    ✔    |       ❌        |           ✔            |
 | `last_sale_at`     |    ✔    |       ❌        |           ✔            |
 
-### Reason Behind Duplicated Fields
+### Reason Behind Dual-present Fields
 
 There are quite several fields that are duplicated across the master product
-and the master product variant models.
+and the variant models.
 
-The only required fields of the master product variant are `sku` and `stock`.
+The only required fields of the variant are `sku` and `stock`.
 It means that if any other fields of a variant are undefined then they are to
 be taken from the master product.
 
@@ -102,6 +102,13 @@ intended to be displayed on separate pages
 
 The rest of the fields can be specified either in the master product or at
 the variants.
+
+#### Wait, What?
+
+The rules of dual-present fields are simple:
+
+1. The variant fields' values always override the master product's fields.
+2. If the variant has a field undefined (null in the database) then it's value falls back to the master product.
 
 #### Price & Original Price
 
@@ -118,3 +125,26 @@ A typical example is when some piece of clothes with some extreme color
 or size are on sale, or some of the most popular ones are more expensive
 than the others. In such cases, it is possible to set a default price for
 the master product and override specific prices on the variant level.
+
+#### Name
+
+This works the same way as any other dual-present field, ie the variant's value
+is always takes precedence over the master product's value.
+
+**Example 1**:
+
+|           | Master `name` (in DB) | Variant `name` (in DB)  | Resulting `name`       |
+|-----------|-----------------------|-------------------------|------------------------|
+| Variant 1 | Makita Drill DDF485   | `null`                  | Makita Drill DDF485    |
+| Variant 2 | Makita Drill DDF485   | Makita Drill DDF485Z    | Makita Drill DDF485Z   |
+| Variant 3 | Makita Drill DDF485   | Makita Drill DDF485RTJ  | Makita Drill DDF485RTJ |
+
+
+**Example 2**:
+
+|           | Master `name` (in DB)   | Variant `name` (in DB)       | Resulting `name`             |
+|-----------|-------------------------|------------------------------|------------------------------|
+| Variant 1 | Edinburgh Raspberry Gin | Edinburgh Raspberry Gin 0.2L | Edinburgh Raspberry Gin 0.2L |
+| Variant 2 | Edinburgh Raspberry Gin | Edinburgh Raspberry Gin 0.5L | Edinburgh Raspberry Gin 0.5L |
+| Variant 3 | Edinburgh Raspberry Gin | Edinburgh Raspberry Gin 0.7L | Edinburgh Raspberry Gin 0.7L |
+
