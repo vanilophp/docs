@@ -128,8 +128,8 @@ the master product and override specific prices on the variant level.
 
 #### Name
 
-This works the same way as any other dual-present field, ie the variant's value
-is always takes precedence over the master product's value.
+This works the same way as any other dual-present field, i.e. the variant's value
+always takes precedence over the master product's value.
 
 **Example 1**:
 
