@@ -337,6 +337,17 @@ $goldColor = PropertyValue::findByPropertyAndValue('color', 'gold');
 $product->addPropertyValue($goldColor)
 ```
 
+### Obtain The Value Of A Property On A Model
+
+> This method was added in Vanilo v3.1:
+
+```php
+$product = Product::findBySlug('iphone-13-pro-128gb-5g-gold');
+
+$color = $product->valueOfProperty('color')?->value
+// 'gold'
+```
+
 ### Removing A Property Value
 
 To remove a property value from a model, use the `removePropertyValue()` method:
