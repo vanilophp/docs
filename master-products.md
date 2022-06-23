@@ -80,6 +80,7 @@ the fields are basically the same according to the table below:
 | `ext_title`        |    ✔    |       ✔        |           ❌            |
 | `meta_keywords`    |    ✔    |       ✔        |           ❌            |
 | `meta_description` |    ✔    |       ✔        |           ❌            |
+| `stock`            |    ✔    |       ❌        |           ✔            |
 | `units_sold`       |    ✔    |       ❌        |           ✔            |
 | `last_sale_at`     |    ✔    |       ❌        |           ✔            |
 
