@@ -39,7 +39,7 @@ To briefly illustrate the usage of such models, see an example of shoes offered 
 $shoe = MasterProduct::create(['name' => 'Pazolini', 'price' => 79.99, 'excerpt' => 'Slip-on shoes with Sparkles']);
 $shoe->assignProperties(['for' => 'women', 'brand' => 'Pazolini', 'shoe-type' => 'Loafers'])
 
-$shoe->createVariant(['properties' => ['shoe-size' => 36], 'sku' => 'PZLBL-037', 'stock' => 0])
+$shoe->createVariant(['properties' => ['shoe-size' => 36], 'sku' => 'PZLBL-036', 'stock' => 0])
 $shoe->createVariant(['properties' => ['shoe-size' => 37], 'sku' => 'PZLBL-037', 'stock' => 1])
 $shoe->createVariant(['properties' => ['shoe-size' => 38], 'sku' => 'PZLBL-038', 'stock' => 0])
 $shoe->createVariant(['properties' => ['shoe-size' => 39], 'sku' => 'PZLBL-039', 'stock' => 0])
