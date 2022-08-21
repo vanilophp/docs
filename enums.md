@@ -68,7 +68,7 @@ $order = Order::create([
 
 // The status attribute will be an enum object:
 echo get_class($order->status);
-// output: App\Status
+// output: App\Models\Status
 
 echo $order->status->value();
 // output: 'pending'
@@ -130,7 +130,7 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Vanilo\Order\Contracts\OrderStatus as OrderStatusContract;
-use App\OrderStatus;
+use App\Models\OrderStatus;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -146,7 +146,7 @@ class AppServiceProvider extends ServiceProvider
 ```
 
 If the original enum is being used anywhere else in the system, the
-updated class ie. `App\OrderStatus` will be returned from now on.
+updated class ie. `App\Models\OrderStatus` will be returned from now on.
 
 Concord also re-wires the interface with Laravel's Container:
 
@@ -155,10 +155,10 @@ use Vanilo\Order\Contracts\OrderStatus;
 
 $status = app()->make(OrderStatus::class);
 echo get_class($status);
-// App\OrderStatus
+// App\Models\OrderStatus
 ```
 
-> Note that `App\OrderStatus` should extend the original enum class ie.
+> Note that `App\Models\OrderStatus` should extend the original enum class ie.
 > `Vanilo\Order\Models\OrderStatus`.
 
 There is a

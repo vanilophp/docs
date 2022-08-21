@@ -83,7 +83,7 @@ want to add further variants, extend the class and define new consts.
 **1. Create The Extended Class:**
 
 ```php
-// App\CustomerType.php
+// App\Models\CustomerType.php
 class CustomerType extends Konekt\Customer\Models\CustomerType
 {
     const ROBOT = 'robot';
@@ -106,7 +106,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->app->concord->registerEnum(
-            CustomerTypeContract::class, \App\CustomerType::class
+            CustomerTypeContract::class, \App\Models\CustomerType::class
         );
     }
 }
@@ -121,7 +121,7 @@ $robot = Customer::create([
 ]);
 
 var_dump($robot->type);
-// object(App\CustomerType)#1050 (1) {
+// object(App\Models\CustomerType)#1050 (1) {
 //     ["value":protected]=>
 //     string(5) "robot"
 //   }
@@ -158,7 +158,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->app->concord->registerModel(
-            CustomerContract::class, \App\Customer::class
+            CustomerContract::class, \App\Models\Customer::class
         );
     }
 }
@@ -175,6 +175,6 @@ effect, use the
 use Konekt\Customer\Models\CustomerProxy;
 
 echo CustomerProxy::modelClass();
-// App\Customer
+// App\Models\Customer
 ```
 

@@ -201,7 +201,7 @@ var_dump(Settings::all());
 > Remember to register preferences before using them.
 
 ```php
-use App\User;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Konekt\Gears\Facades\Preferences;
 

@@ -54,6 +54,7 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Vanilo\Product\Contracts\Product as ProductContract;
+use Vanilo\Product\Contracts\Order as OrderContract;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -61,14 +62,17 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->app->concord->registerModel(
-            ProductContract::class, \App\Product::class
+            ProductContract::class, \App\Models\Product::class
+        );
+        $this->app->concord->registerModel(
+            OrderContract::class, \App\Models\Product::class
         );
     }
 }
 ```
 
 If the product model is used in another model's relation, (eg.
-`CartItem`) then even those related objects will return `App\Product`
+`CartItem`) then even those related objects will return `App\Models\Product`
 from now on.
 
 > Depending on the nature of the changes, it might be necessary to
@@ -81,10 +85,10 @@ use Vanilo\Product\Contracts\Product;
 
 $product = app()->make(Product::class);
 echo get_class($product);
-// App\Product
+// App\Models\Product
 ```
 
-> Note that `App\Product` should extend the original model class ie.
+> Note that `App\Models\Product` should extend the original model class ie.
 > `Vanilo\Products\Models\Product`. It's not a requirement however, the
 > only requirement is that the new class must also implement the Product
 > interface (`Vanilo\Product\Contracts\Product`).
