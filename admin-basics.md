@@ -28,20 +28,39 @@ configuration:
 
 ```php
 // config/concord.php
-// Change both 'prefix' occurences
+// Change 'prefix' occurrences to your desired prefix e.g. "backoffice"
 return [
     'modules' => [
         Konekt\AppShell\Providers\ModuleServiceProvider::class => [
             'routes' => [
-                'prefix' => 'admin', 
+                [
+                    'prefix' => 'backoffice',
+                    'as' => 'appshell.',
+                    'middleware' => ['web', 'auth', 'acl'],
+                    'files' => ['acl']
+                ],
+                [
+                    'prefix' => 'backoffice',
+                    'as' => 'appshell.',
+                    'middleware' => ['web', 'auth'],
+                    'files' => ['nonacl']
+                ],
+                [
+                    'prefix' => 'pub',
+                    'as' => 'appshell.public.',
+                    'middleware' => ['web'],
+                    'files' => ['public']
+                ],
             ],
         ],
         Vanilo\Admin\Providers\ModuleServiceProvider::class => [
             'routes' => [
-                'prefix' => 'admin', 
-            ],  
-        ]
-    ]
+                'prefix' => 'backoffice',
+                'as' => 'vanilo.admin.',
+                'middleware' => ['web', 'auth', 'acl'],
+                'files' => ['admin']
+            ]
+        ],
 ];
 ```
 ## Change Branding
@@ -68,5 +87,3 @@ return [
 To set the admin's top left icon add the following file to your project:
 
 `public/images/appshell/logo.svg`
-
-
