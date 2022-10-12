@@ -65,7 +65,7 @@ class AppServiceProvider extends ServiceProvider
             ProductContract::class, \App\Models\Product::class
         );
         $this->app->concord->registerModel(
-            OrderContract::class, \App\Models\Product::class
+            OrderContract::class, \App\Models\Order::class
         );
     }
 }
