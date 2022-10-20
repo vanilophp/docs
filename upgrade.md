@@ -48,6 +48,7 @@ namespace and replace `Framework` with `Foundation` in the use clause or in the 
 
 Mind renaming the namespace in `config/concord.php`.
 
+The `Vanilo\Foundation\Models\PaymentMethod` class has been removed. Use `Vanilo\Payment\Models\PaymentMethod` instead.
 
 ### Configuration Path Changes
 
