@@ -6,8 +6,6 @@
 
 ## 2.2 -> 3.0
 
-Vanilo 3 has just been released, please wait a few hours for the upgrade guide.
-
 ### Checklist
 
 - [ ] Update PHP & Laravel
