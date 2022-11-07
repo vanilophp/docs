@@ -9,10 +9,10 @@ Frankly speaking, we rarely met those deadlines. As another undesired side effec
 the promise of those releases has also made additional features to be kept back,
 thus slowing the entire release pace down.
 
-As of v3.1 (Nov 7, 2022), the roadmap and the release policy has changed as follows:
+As of v3.1 (Nov 7, 2022), the roadmap and the release policy have changed as follows:
 
 - the roadmap no longer contains version numbers and release dates
-- the roadmap contains the scheduled features in priority
+- the roadmap contains the scheduled features in priority order 
 - the release frequency will be higher (new version every 2-3 weeks; similar to Laravel's cycles)
 - releases will be smaller
 - minor changes and improvements will be released faster
