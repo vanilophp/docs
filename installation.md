@@ -22,7 +22,7 @@ composer create-project --prefer-dist laravel/laravel vaniloapp ^9.0
 cd vaniloapp
 
 # Install the vanilo package:
-composer require vanilo/framework ^3.0
+composer require vanilo/framework ^3.1
 
 # Publish module loader config:
 php artisan vendor:publish --provider="Konekt\Concord\ConcordServiceProvider" --tag=config
@@ -45,22 +45,25 @@ The following [Concord](concord.md) modules should be installed now:
 `php artisan concord:modules -a`
 
 ```
-+-----+--------------------------+--------+---------+-------------------+-------------------+
-| #   | Name                     | Kind   | Version | Id                | Namespace         |
-+-----+--------------------------+--------+---------+-------------------+-------------------+
-| 1.  | Konekt User Module       | Module | 2.3.0   | konekt.user       | Konekt\User       |
-| 2.  | Konekt Address Module    | Module | 2.1.2   | konekt.address    | Konekt\Address    |
-| 3.  | Konekt Customer Module   | Module | 2.1.0   | konekt.customer   | Konekt\Customer   |
-| 4.  | Vanilo Category Module   | Module | 3.0.0   | vanilo.category   | Vanilo\Category   |
-| 5.  | Vanilo Product Module    | Module | 3.0.0   | vanilo.product    | Vanilo\Product    |
-| 6.  | Vanilo Properties Module | Module | 3.0.0   | vanilo.properties | Vanilo\Properties |
-| 7.  | Vanilo Channel Module    | Module | 3.0.0   | vanilo.channel    | Vanilo\Channel    |
-| 8.  | Vanilo Cart Module       | Module | 3.0.0   | vanilo.cart       | Vanilo\Cart       |
-| 9.  | Vanilo Checkout Module   | Module | 3.0.0   | vanilo.checkout   | Vanilo\Checkout   |
-| 10. | Vanilo Order Module      | Module | 3.0.0   | vanilo.order      | Vanilo\Order      |
-| 11. | Vanilo Payment Module    | Module | 3.0.0   | vanilo.payment    | Vanilo\Payment    |
-| 12. | Vanilo Foundation        | Box    | 3.0.0   | vanilo.foundation | Vanilo\Foundation |
-+-----+--------------------------+--------+---------+-------------------+-------------------+
++-----+------------------------------+--------+---------+-----------------------+----------------------+
+| #   | Name                         | Kind   | Version | Id                    | Namespace            |
++-----+------------------------------+--------+---------+-----------------------+----------------------+
+| 1.  | Konekt User Module           | Module | 2.5.0   | konekt.user           | Konekt\User          |
+| 2.  | Konekt Address Module        | Module | 2.2.2   | konekt.address        | Konekt\Address       |
+| 3.  | Konekt Customer Module       | Module | 2.3.1   | konekt.customer       | Konekt\Customer      |
+| 4.  | Vanilo Adjustments Module    | Module | 3.1.0   | vanilo.adjustments    | Vanilo\Adjustments   |
+| 5.  | Vanilo Category Module       | Module | 3.1.0   | vanilo.category       | Vanilo\Category      |
+| 6.  | Vanilo Product Module        | Module | 3.1.0   | vanilo.product        | Vanilo\Product       |
+| 7.  | Vanilo Properties Module     | Module | 3.1.0   | vanilo.properties     | Vanilo\Properties    |
+| 8.  | Vanilo Channel Module        | Module | 3.1.0   | vanilo.channel        | Vanilo\Channel       |
+| 9.  | Vanilo Cart Module           | Module | 3.1.0   | vanilo.cart           | Vanilo\Cart          |
+| 10. | Vanilo Checkout Module       | Module | 3.1.0   | vanilo.checkout       | Vanilo\Checkout      |
+| 11. | Vanilo Order Module          | Module | 3.1.0   | vanilo.order          | Vanilo\Order         |
+| 12. | Vanilo Payment Module        | Module | 3.1.0   | vanilo.payment        | Vanilo\Payment       |
+| 13. | Vanilo Links Module          | Module | 3.1.0   | vanilo.links          | Vanilo\Links         |
+| 14. | Vanilo Master Product Module | Module | 3.1.0   | vanilo.master_product | Vanilo\MasterProduct |
+| 15. | Vanilo Foundation            | Box    | 3.1.0   | vanilo.foundation     | Vanilo\Foundation    |
++-----+------------------------------+--------+---------+-----------------------+----------------------+
 ```
 
 Configure `.env`, along with a database. (Also create the db if necessary)
@@ -71,7 +74,7 @@ Afterwards run the migrations:
 php artisan migrate
 ```
 
-Vanilo contains about 40+ migrations out of the box.
+Vanilo contains about 50 migrations out of the box.
 
 It's not mandatory but recommended to seed the countries table:
 

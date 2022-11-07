@@ -2,6 +2,32 @@
 
 > For upcoming releases refer to the [Roadmap](roadmap.md).
 
+## 3.1
+##### 2022-11-07
+
+- Added the Master Product module
+- Added the Adjustments module
+- Added the extended Adjustable Cart model to `Foundation` (original Cart model still there, intact)
+- Added `channel_id` to the extended `Order` model in Foundation
+- Added Shipping methods
+- Added the `getGatewayName()` method to the PaymentMethod class.
+  It can retrieve the gateway name without instantiating it,
+  thus gateway configuration errors don't affect it
+- Added the `PropertyValue::findByPropertyAndValue('color', 'red')` finder method
+- Added the `valueOfProperty()`, `assignPropertyValue()` and `assignPropertyValues()` methods to the `HasPropertyValues` trait
+- Added the Sluggable behavior to the Channel model
+- Added configuration getter and setter methods to the Channel model
+- Added PHP 8.2 Support
+- Added Enum 4.0 Support
+- Changed minimum Laravel requirement to 9.2
+- Changed minimum Konekt module requirements to:
+  - Address: 2.2
+  - Concord: 1.11
+  - Customer: 2.3.1
+  - Enum: 3.1.1
+  - Laravel Migration Compatibility: 1.5
+  - User: 2.4
+
 ## 3.0
 ##### 2022-02-28
 
