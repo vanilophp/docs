@@ -293,7 +293,7 @@ registering it with concord:
 
 namespace App\Providers;
 
-use Vanilo\Product\Contracts\Cart as ProductContract;
+use Vanilo\Product\Contracts\Product as ProductContract;
 use App\Models\Product;
 
 class AppServiceProvider extends ServiceProvider
@@ -335,6 +335,20 @@ $product = Product::findBySlug('iphone-13-pro-128gb-5g-gold');
 
 $goldColor = PropertyValue::findByPropertyAndValue('color', 'gold');
 $product->addPropertyValue($goldColor)
+```
+
+Beginning with Vanilo v3.1, you can also use simplified methods to assign property values,
+without fetching property records from the database:
+
+```php
+// To assign a single property:
+$product->assignPropertyValue('color', 'red');
+
+// To assign multiple properties at once:
+$product->assignPropertyValues([
+    'color' => 'red',
+    'size' => 'XXL',
+]);
 ```
 
 ### Obtain The Value Of A Property On A Model
