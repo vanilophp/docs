@@ -98,8 +98,8 @@ php artisan ui:auth
 Modify `App\Models\User` so that it extends Vanilo's user model:
 
 ```php
-// app/User.php
-namespace App;
+// app/Models/User.php
+namespace App\Models;
 
 // No need to use Laravel default traits and properties as
 // they're already present in the base class exactly as
