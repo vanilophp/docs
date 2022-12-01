@@ -359,3 +359,17 @@ Eliminate::the('variant')
     ->basedOn('screen-size')
     ->of($laptop13Inch);
 ```
+
+## Known Issues
+
+When an application creates more than one different alias with `Relation::morphMap()` for a model
+class, then the creation/retrieval/elimination of the links doesn't work properly.
+
+Example:
+
+```php
+Relation::morphMap([
+    'product' => Product::class,
+    'fruit' => Product::class,
+])
+```
