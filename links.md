@@ -280,7 +280,7 @@ These helpers are basically shortcuts:
 - `links('recommended')` is equivalent to `Get::the('recommended')->links()`
 - `links('variant', 'screen-size)` is equivalent to `Get::the('variant')->links()->basedOn('screen-size')`
 - `link_groups('variant')` is equivalent to `Get::the('variant')->groups()`
-- `link_groups('variant', 'color')` is equivalent to `Get::the('type')->groups()->basedOn('color')`
+- `link_groups('variant', 'color')` is equivalent to `Get::the('variant')->groups()->basedOn('color')`
 
 ### Deleting Links
 
