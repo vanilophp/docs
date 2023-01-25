@@ -280,7 +280,7 @@ These helpers are basically shortcuts:
 - `links('recommended')` is equivalent to `Get::the('recommended')->links()`
 - `links('variant', 'screen-size)` is equivalent to `Get::the('variant')->links()->basedOn('screen-size')`
 - `link_groups('variant')` is equivalent to `Get::the('variant')->groups()`
-- `link_groups('variant', 'color')` is equivalent to `Get::the('type')->groups()->basedOn('color')`
+- `link_groups('variant', 'color')` is equivalent to `Get::the('variant')->groups()->basedOn('color')`
 
 ### Deleting Links
 
@@ -358,4 +358,18 @@ Eliminate::the('variant')
     ->group()
     ->basedOn('screen-size')
     ->of($laptop13Inch);
+```
+
+## Known Issues
+
+When an application creates more than one different alias with `Relation::morphMap()` for a model
+class, then the creation/retrieval/elimination of the links doesn't work properly.
+
+Example:
+
+```php
+Relation::morphMap([
+    'product' => Product::class,
+    'fruit' => Product::class,
+])
 ```

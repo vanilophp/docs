@@ -2,6 +2,50 @@
 
 > For upcoming releases refer to the [Roadmap](roadmap.md).
 
+## 3.4
+##### 2023-01-25
+
+- Added the `MasterProdcutVariant::findBySku()` method
+- Added the `Product::findBySku()` method
+- Added the `ConfigurableModel` trait
+- Added processing of `configuration` to the order factory, if the checkout item is a configurable
+- Added `Configurable` to the `CartItem` model (incl. implementing the interface)
+- Added `Configurable` to the `OrderItem` model (incl. implementing the interface)
+- Added the `Configurable` and the `Configuration` interfaces
+- Added `Configurable` interface to the `PaymentMethod` model
+- Added the missing `ShippingMethod` interface and proxy
+- Added `Configurable` interface to the `Carrier`, `Shipment` and `ShippingMethod` models
+- Changed the `Carrier`, `Shipment` and `ShippingMethod` models to use the `ConfigurableModel` trait
+- Changed the `PaymentMethod` model to use the `ConfigurableModel` trait
+- Fixed missing required argument from checkout drivers using the `update()` method
+
+## 3.3
+##### 2023-01-05
+
+- Fixed the session checkout store persistence error
+- Fixed float conversion of master product variant fields (price, original price and dimensions)
+- Changed the product stock field to be cast to float
+- Removed the Buyable interface/trait from `Foundation\MasterProduct` - it was conceptually wrong;
+- Added `Buyable` to `Foundation\MasterProductVariant`
+- Added the `Product::findBySku()` method to the base product class
+- Added the `MasterProdcutVariant::findBySku()` method
+
+## 3.2
+##### 2022-12-08
+
+- Added forwarding/proxying of method calls and property getters from the Checkout manager to the underlying store
+- Added `is_active` flag to shipping methods
+- Added `Cart::fresh()` method to the Cart facade
+- Added the `is_master_product()` helper function (Foundation)
+- Added the `MasterProduct::actives()` and `inactives()` query builder scopes
+- Added the `Product::inactives()`query builder scope
+- Added an extended `MasterProduct` model (Foundation)
+- Changed checkout store resolution to happen via the Laravel DI instead of `new SpecificStoreClass()`
+- Changed both built-in checkout stores to save unknown properties as custom attributes on the `update()` method call
+- Changed minimum Concord version requirement to v1.12
+- Fixed missing implementation parts of the checkout session store
+
+
 ## 3.1
 ##### 2022-11-07
 
