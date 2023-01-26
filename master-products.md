@@ -62,27 +62,27 @@ The master product and its variants are basically the division of the
 The `MasterProduct` model also implements the `Product` interface and
 the fields are basically the same according to the table below:
 
-| Field              | Product | Master Product | Master Product Variant |
-|--------------------|:-------:|:--------------:|:----------------------:|
-| `id`               |    ✔    |       ✔        |           ✔            |
-| `name`             |    ✔    |       ✔        |           ✔            |
-| `sku`              |    ✔    |       ❌        |           ✔            |
-| `slug`             |    ✔    |       ✔        |           ❌            |
-| `price`            |    ✔    |       ✔        |           ✔            |
-| `original_price`   |    ✔    |       ✔        |           ✔            |
-| `excerpt`          |    ✔    |       ✔        |           ✔            |
-| `description`      |    ✔    |       ✔        |           ✔*           |
-| `state`            |    ✔    |       ✔        |           ✔*           |
-| `weight`           |    ✔    |       ✔        |           ✔            |
-| `height`           |    ✔    |       ✔        |           ✔            |
-| `width`            |    ✔    |       ✔        |           ✔            |
-| `length`           |    ✔    |       ✔        |           ✔            |
-| `ext_title`        |    ✔    |       ✔        |           ❌            |
-| `meta_keywords`    |    ✔    |       ✔        |           ❌            |
-| `meta_description` |    ✔    |       ✔        |           ❌            |
-| `stock`            |    ✔    |       ❌        |           ✔            |
-| `units_sold`       |    ✔    |       ❌        |           ✔            |
-| `last_sale_at`     |    ✔    |       ❌        |           ✔            |
+| Field                               | Product | Master Product | Master Product Variant |
+|-------------------------------------|:-------:|:--------------:|:----------------------:|
+| `id`                                |    ✔    |       ✔        |           ✔            |
+| `name`                              |    ✔    |       ✔        |           ✔            |
+| `sku`                               |    ✔    |       ❌        |           ✔            |
+| `slug`                              |    ✔    |       ✔        |           ❌            |
+| `price`                             |    ✔    |       ✔        |           ✔            |
+| `original_price`                    |    ✔    |       ✔        |           ✔            |
+| `excerpt` (aka "short description") |    ✔    |       ✔        |           ✔            |
+| `description`                       |    ✔    |       ✔        |           ✔*           |
+| `state`                             |    ✔    |       ✔        |           ✔*           |
+| `weight`                            |    ✔    |       ✔        |           ✔            |
+| `height`                            |    ✔    |       ✔        |           ✔            |
+| `width`                             |    ✔    |       ✔        |           ✔            |
+| `length`                            |    ✔    |       ✔        |           ✔            |
+| `ext_title`                         |    ✔    |       ✔        |           ❌            |
+| `meta_keywords`                     |    ✔    |       ✔        |           ❌            |
+| `meta_description`                  |    ✔    |       ✔        |           ❌            |
+| `stock`                             |    ✔    |       ❌        |           ✔            |
+| `units_sold`                        |    ✔    |       ❌        |           ✔            |
+| `last_sale_at`                      |    ✔    |       ❌        |           ✔            |
 
 > *v3.5+
 
@@ -98,9 +98,8 @@ be taken from the master product.
 Since the `MasterProduct` is not buyable, it doesn't have an `sku`,
 `units_sold` and `last_sale_at` fields.
 
-Variants do not have a `slug`, `description`, `state`, `ext_title`,
-`meta_keywords` and `meta_description` fields, because variants aren't
-intended to be displayed on separate pages
+Variants do not have a `slug`, `ext_title`, `meta_keywords` and `meta_description`
+fields, because variants aren't intended to be displayed on separate pages
 (see [Product Variants - The Two Approaches](product-variants#the-two-approaches)).
 
 The rest of the fields can be specified either in the master product or at

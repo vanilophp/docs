@@ -19,7 +19,7 @@ Product variations are typically achieved using one of the following approaches:
 With this approach, you have a **main product** and one or more **product variant** entries.
 
 This way the variants are expressed in the model layer, and common attributes
-(name, description, pictures, etc) can be shared at the main product, whereas
+(name, pictures, etc) can be shared at the main product, whereas
 the specifics (size, price, SKU, etc) need be set at the variant.
 
 As a consequence, a product is stored in two separate tables, the model layer
