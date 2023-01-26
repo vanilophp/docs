@@ -71,8 +71,8 @@ the fields are basically the same according to the table below:
 | `price`            |    ✔    |       ✔        |           ✔            |
 | `original_price`   |    ✔    |       ✔        |           ✔            |
 | `excerpt`          |    ✔    |       ✔        |           ✔            |
-| `description`      |    ✔    |       ✔        |           ❌            |
-| `state`            |    ✔    |       ✔        |           ❌            |
+| `description`      |    ✔    |       ✔        |           ✔*           |
+| `state`            |    ✔    |       ✔        |           ✔*           |
 | `weight`           |    ✔    |       ✔        |           ✔            |
 | `height`           |    ✔    |       ✔        |           ✔            |
 | `width`            |    ✔    |       ✔        |           ✔            |
@@ -83,6 +83,8 @@ the fields are basically the same according to the table below:
 | `stock`            |    ✔    |       ❌        |           ✔            |
 | `units_sold`       |    ✔    |       ❌        |           ✔            |
 | `last_sale_at`     |    ✔    |       ❌        |           ✔            |
+
+> *v3.5+
 
 ### Reason Behind Dual-present Fields
 
