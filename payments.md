@@ -66,6 +66,9 @@ The rest of the gateways are implemented as separate packages:
 
 - [PayPal](https://github.com/vanilophp/paypal)
 - [Stripe](https://github.com/vanilophp/stripe)
+- [Braintree](https://github.com/vanilophp/braintree)
+- [Adyen](https://github.com/vanilophp/adyen)
+- [Mollie](https://github.com/vanilophp/mollie)
 - [SimplePay](https://github.com/vanilophp/simplepay)
 - [EuPlatesc](https://github.com/vanilophp/euplatesc)
 - [Netopia](https://github.com/vanilophp/netopia)
