@@ -2,6 +2,82 @@
 
 > For upcoming releases refer to the [Roadmap](roadmap.md).
 
+## 3.6
+##### 2023-03-07
+
+- Added Laravel 10 support
+- Added the `CartCreated`, `CartUpdated`, `CartDeleted` and `CartDeleting` events
+- Added master product & variant (Foundation) to the morph map
+- Added the `processing` order status enum value
+- Added the `ready_for_pickup` fulfillment status enum value
+- Added the `DetailedAmount` interface (Contracts) and its Dto (Support)
+- Added Zone support to shipping methods (optional)
+- Added the `Order::getLanguage()` method
+- Added the `ShippingMethodSelected` checkout event
+- Added Shipping fee calculator support
+- Added the flat fee shipping fee calculator (Foundation)
+- Added a listener (Foundation) that calculates the shipping fee on checkout shipping method change
+- Added the following fields as recognized, regular fields of the checkout:
+  - `shipping_method_id`
+  - `payment_method_id`
+  - `ship_to_billing_address`
+  - `notes`
+- Added `ArrayAccess` to the CheckoutManager and to the Checkout Stores
+- Added `Shippable` to the CheckoutManager and to the Checkout Stores
+- Added the `vanilo.checkout.default.weight_unit` config key which defaults to 'kg'
+- Added the following methods to the Checkout implementations (Manager, Stores but not the interfaces):
+  - `getShipToBillingAddress()`
+  - `setShipToBillingAddress()`
+  - `getShippingMethodId()`
+  - `setShippingMethodId()`
+  - `getPaymentMethodId()`
+  - `setPaymentMethodId()`
+  - `getShippingAmount()`
+  - `setShippingAmount()`
+  - `getTaxesAmount()`
+  - `setTaxesAmount()`
+  - `getNotes()`
+  - `setNotes()`
+- Added optional hooks (callbacks) support to the `OrderFactory::createFromDataArray()` method
+- Added `payable_remote_id` field with getter/setter methods to the Foundation Order model
+- Added implementation of the `Adjustable` interface to the Foundation Order model
+- Added the copying of checkout/cart adjustments to the order created by the Foundation OrderFactory
+- Added `int` cast to OrderItem::quantity property
+- Added `dimensions()` and `hasDimensions()` methods to the `MasterProductVariant` model
+  Added the `Dimension` DTO class in the support module (provides a default implementation for the same name interface)
+- Added the vanilo/support ^3.6 dependency to the Product module
+- Added the `subtype` field and the `getSubtype()` method to the `Payment` model
+- Added the `DeleteCartAdjustments` listener on `CartDeleting` event
+- Added the `CalculateShippingFees` listener connected to shipping address/method change and cart updated events
+- Added the `clear()` method to `AdjustmentCollection` implementations
+- Added the `invalidateAdjustments()` method to `Adjustable` implementations
+- Added the `shippingAdjustmentsTotal()`, `taxAdjustmentsTotal()` and `promotionAdjustmentsTotal()` methods to the Adjustable Cart model in foundation
+- Refactored the internals of the Checkout stores (session and request)
+- Changed the return value of `Product::dimension()` to be a `Dimension` object from the support package instead of an anonymous class object
+- Changed minimum Address module requirement to v2.5
+- Fixed the data loss issue when using the session checkout driver with cookie session driver in Laravel
+
+## 3.5
+##### 2023-02-23
+
+- Added the `description` and `state` fields to the master product variants table
+- Added the Address comparison utility
+- Added the `reference_number` field to the shipments model
+- Added the `shippables` many-to-many, polymorphic relationship.  
+  It allows all the following scenarios:  
+  a) shipping one order in one shipment  
+  b) shipping one order in multiple shipments  
+  c) shipping multiple orders in one shipment
+- Added `Shipment::orders` and `Order::shipments` to the Foundation models
+- Added the `FulfillmentStatus` enum to the Orders module
+- Added `fulfillment_status` to the `orders` and `order_items` tables
+- Added `language` field to orders
+- Added `ordered_at` field to orders (defaults to `created_at` unless explicitly specified)
+- Added `shippingMethod` and `customer` fields/relations to the extended (Foundation) Order model
+- Changed the random number algo in `TimeHash` generator from `mt_rand` to `random_int` for a decreased collision probability
+- Fixed the `Carrier::name()` method to overcome accessor infinite loop
+- Fixed the address creation with order factory when passing an explicit address type
+
 ## 3.4
 ##### 2023-01-25
 

@@ -9,7 +9,7 @@ Frankly speaking, we rarely met those deadlines. As another undesired side effec
 the promise of those releases has also made additional features to be kept back,
 thus slowing the entire release pace down.
 
-As of v3.1 (Nov 7, 2022), the roadmap and the release policy have changed as follows:
+With the v3.1 release (Nov 7, 2022), the roadmap and the release policy have changed as follows:
 
 - the roadmap no longer contains version numbers and release dates
 - the roadmap contains the scheduled features in priority order 
@@ -21,9 +21,7 @@ As of v3.1 (Nov 7, 2022), the roadmap and the release policy have changed as fol
 
 > in priority order
 
-- Master Products and properties bindings
 - Tax Calculations (incl. North America Sales Tax and EU VAT)
-- Shipping fees
 - Promotions
 - Configurable Order Workflow
 - Customer Accounts
