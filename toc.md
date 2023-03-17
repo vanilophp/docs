@@ -30,6 +30,7 @@
     - [Payments](/docs/{{version}}/payments)
     - [Shipping](/docs/{{version}}/shipping)
     - [Adjustments](/docs/{{version}}/adjustments)
+    - [Taxes](/docs/{{version}}/taxes)
 - Admin
     - [Basics](/docs/{{version}}/admin-basics)
     - [Installation](/docs/{{version}}/admin-installation)

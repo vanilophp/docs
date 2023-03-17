@@ -4,26 +4,13 @@ This page contains the planned upcoming features and changes in their foreseeabl
 
 > Refer to [Releases](releases.md) for details about published versions.
 
-Up until the v3.1 release, Vanilo used to have versions with features scheduled ahead.
-Frankly speaking, we rarely met those deadlines. As another undesired side effect,
-the promise of those releases has also made additional features to be kept back,
-thus slowing the entire release pace down.
-
-With the v3.1 release (Nov 7, 2022), the roadmap and the release policy have changed as follows:
-
-- the roadmap no longer contains version numbers and release dates
-- the roadmap contains the scheduled features in priority order 
-- the release frequency will be higher (new version every 2-3 weeks; similar to Laravel's cycles)
-- releases will be smaller
-- minor changes and improvements will be released faster
-
 ## Scheduled Features
 
 > in priority order
 
-- Tax Calculations (incl. North America Sales Tax and EU VAT)
-- Promotions
+- Tax Calculations (incl. North US/Canada Sales Tax and EU VAT)
 - Configurable Order Workflow
+- Promotions
 - Customer Accounts
 - Customer Groups
 - Favourites
