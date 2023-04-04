@@ -8,7 +8,6 @@ This page contains the planned upcoming features and changes in their foreseeabl
 
 > in priority order
 
-- Tax Calculations (incl. North US/Canada Sales Tax and EU VAT)
 - Configurable Order Workflow
 - Promotions
 - Customer Accounts
