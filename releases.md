@@ -2,6 +2,20 @@
 
 > For upcoming releases refer to the [Roadmap](roadmap.md).
 
+## 3.8.1
+##### 2023-10-09
+
+- Fixed the hinting of `Taxon` interface in the `ProductSearch` class (#163)
+- Changed the visibility of `ProductSearch` properties  from `private` to `proteced` (#161)
+
+## 3.8
+##### 2023-05-24
+
+- Added the `ofUser()` scope to the base Order model
+- Added missing Payment Status magic comparison annotations to the interface/model
+- Added the `hasRemoteId()`, `getRemoteId()` and `isOffline()` helper methods to the Payment model (v4 interface candidates)
+- Added the `link_type_exists()` helper function (to be used in blade templates)
+
 ## 3.7
 ##### 2023-04-04
 
