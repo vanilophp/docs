@@ -21,13 +21,13 @@ about why it came to life.
 
 ## Alternatives
 
-| Name                                         | Based on        | Version (Oct 2023) |
+| Name                                         | Based on        | Version (Jan 2024) |
 |:---------------------------------------------|:----------------|:-------------------|
-| [Bagisto](https://bagisto.com/en/)           | Laravel 10.16   | 1.5.1              |
-| [Lunar](https://lunarphp.io) (ex GetCandy)   | Laravel 9-10    | 0.6.3              |
-| [Aimeos](https://aimeos.org/)                | Laravel 9-10    | 2023.10.1          |
+| [Bagisto](https://bagisto.com/en/)           | Laravel 10.39   | 2.0.0              |
+| [Lunar](https://lunarphp.io) (ex GetCandy)   | Laravel 9-10    | 0.7.4              |
+| [Aimeos](https://aimeos.org/)                | Laravel 9-10    | 2023.10.7          |
 | [Sylius](http://sylius.org/)                 | Symfony 5.4/6.0 | 1.12               |
-| [ORO Commerce](https://www.orocommerce.com/) | Symfony 5.4+    | 5.1.0              |
-| [Magento](https://magento.com/)              | Laminas MVC 3.3 | 2.4                |
+| [ORO Commerce](https://www.orocommerce.com/) | Symfony 5.4+    | 5.1.4              |
+| [Magento](https://magento.com/)              | Laminas MVC 3.3 | 2.4.6              |
 
 > Slightly outdated, but still good read about further alternatives: [E-commerce Status Quo 2016](https://blog.fortrabbit.com/ecommerce-status-quo-2016).
