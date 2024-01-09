@@ -1,17 +1,13 @@
 # Checkout
 
 Checkout is one of the most opinionated areas of E-commerce sites. Vanilo's
-checkout module was designed to be as flexible as possible, and to support all 3
-major checkout types:
+checkout module was designed to be as flexible as possible, and to support all major checkout types:
 
 - One-page
 - Accordion
 - Multi-page
 
-Other than these, it optionally allows saving incomplete checkouts to db,
-session, cache (redis, memcache), etc.
-
-As of v3.0 only the One-page type / without saving has been implemented yet.
+It is also possible saving incomplete checkouts to the session, DB, cache (redis, memcache), etc.
 
 ## Checkout Data
 
@@ -23,6 +19,28 @@ Checkout has the following data associated:
     - Customer data
     - Billing Address (`Address`)
 - Shipping Address (`Address`)
+- Additional data (custom attributes)
+
+## Configuration
+
+It is possible to configure the checkout driver. By default, it's the "request" store, which holds the checkout data
+during the request/validation cycle.
+
+The "session" checkout driver stores the data in the session, therefore it is available even after the shopper
+navigates away from the checkout page.
+
+To use the session driver in the checkout, set the `vanilo.checkout.store.driver` config to `session`:
+
+```php
+// config/vanilo.php
+return [
+    'checkout' => [
+        'store' => [
+            'driver' => 'session'
+        ]
+    ]
+];
+```
 
 ## Checkout Forms
 
@@ -32,8 +50,7 @@ Checkout has the following data associated:
 
 There are 3 usual ways you can use to obtain a checkout instance:
 
-**1. Use the `Checkout` facade**
-I know, facades are 🌩 & 🚨 & ☣
+#### 1. Use the `Checkout` Facade
 
 ```php
 use App\Http\Requests\CheckoutRequest;
@@ -48,7 +65,7 @@ public function submit(CheckoutRequest $request)
 }
 ```
 
-**2. Use the `vanilo.checkout` service**
+#### 2. Use the `vanilo.checkout` Service
 
 ```php
 $checkout = app('vanilo.checkout');
@@ -57,10 +74,10 @@ $cart     = app('vanilo.cart');
 $checkout->setCart($cart);
 ```
 
-**3. Let Laravel Container to inject**
+#### 3. Let Laravel Container to Inject
 
 > Refer to
-> [Container Automatic Injection](https://laravel.com/docs/8.x/container#automatic-injection)
+> [Container Automatic Injection](https://laravel.com/docs/10.x/container#automatic-injection)
 > an for more details
 
 ```php
