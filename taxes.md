@@ -1,7 +1,5 @@
 # Taxes
 
-> This module will be released in v3.7 (March 2023)
-
 The taxes module makes use of the [adjustments](adjustments.md) module,
 and can be used to for various tax calculations, like the Sales Tax,
 GST and VAT in most countries. 
