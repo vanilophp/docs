@@ -48,22 +48,25 @@ The following [Concord](concord.md) modules should be installed now:
 +-----+------------------------------+--------+---------+-----------------------+----------------------+
 | #   | Name                         | Kind   | Version | Id                    | Namespace            |
 +-----+------------------------------+--------+---------+-----------------------+----------------------+
-| 1.  | Konekt User Module           | Module | 2.5.0   | konekt.user           | Konekt\User          |
-| 2.  | Konekt Address Module        | Module | 2.2.2   | konekt.address        | Konekt\Address       |
-| 3.  | Konekt Customer Module       | Module | 2.3.1   | konekt.customer       | Konekt\Customer      |
-| 4.  | Vanilo Adjustments Module    | Module | 3.1.0   | vanilo.adjustments    | Vanilo\Adjustments   |
-| 5.  | Vanilo Category Module       | Module | 3.1.0   | vanilo.category       | Vanilo\Category      |
-| 6.  | Vanilo Product Module        | Module | 3.1.0   | vanilo.product        | Vanilo\Product       |
-| 7.  | Vanilo Properties Module     | Module | 3.1.0   | vanilo.properties     | Vanilo\Properties    |
-| 8.  | Vanilo Channel Module        | Module | 3.1.0   | vanilo.channel        | Vanilo\Channel       |
-| 9.  | Vanilo Cart Module           | Module | 3.1.0   | vanilo.cart           | Vanilo\Cart          |
-| 10. | Vanilo Checkout Module       | Module | 3.1.0   | vanilo.checkout       | Vanilo\Checkout      |
-| 11. | Vanilo Order Module          | Module | 3.1.0   | vanilo.order          | Vanilo\Order         |
-| 12. | Vanilo Payment Module        | Module | 3.1.0   | vanilo.payment        | Vanilo\Payment       |
-| 13. | Vanilo Links Module          | Module | 3.1.0   | vanilo.links          | Vanilo\Links         |
-| 14. | Vanilo Master Product Module | Module | 3.1.0   | vanilo.master_product | Vanilo\MasterProduct |
-| 15. | Vanilo Foundation            | Box    | 3.1.0   | vanilo.foundation     | Vanilo\Foundation    |
+| 1.  | Konekt User Module           | Module | 2.8.0   | konekt.user           | Konekt\User          |
+| 2.  | Konekt Address Module        | Module | 2.8.0   | konekt.address        | Konekt\Address       |
+| 3.  | Konekt Customer Module       | Module | 2.4.1   | konekt.customer       | Konekt\Customer      |
+| 4.  | Vanilo Adjustments Module    | Module | 3.8.2   | vanilo.adjustments    | Vanilo\Adjustments   |
+| 5.  | Vanilo Category Module       | Module | 3.8.0   | vanilo.category       | Vanilo\Category      |
+| 6.  | Vanilo Product Module        | Module | 3.8.0   | vanilo.product        | Vanilo\Product       |
+| 7.  | Vanilo Properties Module     | Module | 3.8.0   | vanilo.properties     | Vanilo\Properties    |
+| 8.  | Vanilo Channel Module        | Module | 3.8.0   | vanilo.channel        | Vanilo\Channel       |
+| 9.  | Vanilo Cart Module           | Module | 3.8.0   | vanilo.cart           | Vanilo\Cart          |
+| 10. | Vanilo Checkout Module       | Module | 3.8.2   | vanilo.checkout       | Vanilo\Checkout      |
+| 11. | Vanilo Order Module          | Module | 3.8.0   | vanilo.order          | Vanilo\Order         |
+| 12. | Vanilo Payment Module        | Module | 3.8.0   | vanilo.payment        | Vanilo\Payment       |
+| 13. | Vanilo Links Module          | Module | 3.8.0   | vanilo.links          | Vanilo\Links         |
+| 14. | Vanilo Master Product Module | Module | 3.8.0   | vanilo.master_product | Vanilo\MasterProduct |
+| 15. | Vanilo Shipment Module       | Module | 3.8.0   | vanilo.shipment       | Vanilo\Shipment      |
+| 16. | Vanilo Taxes Module          | Module | 3.8.0   | vanilo.taxes          | Vanilo\Taxes         |
+| 17. | Vanilo Foundation            | Box    | 3.8.2   | vanilo.foundation     | Vanilo\Foundation    |
 +-----+------------------------------+--------+---------+-----------------------+----------------------+
+
 ```
 
 Configure `.env`, along with a database. (Also create the db if necessary)
