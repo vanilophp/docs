@@ -2,27 +2,27 @@
 
 ## Requirements
 
-- Vanilo 3 requires PHP 8.0 or 8.1 and Laravel 9.0 or higher
+- Vanilo 4 requires PHP 8.2 or higher and Laravel 10 or 11
 - json, openssl, PDO, mbstring, tokenizer, xml, ctype PHP extensions
 - Supported database engines<sup>*</sup>:
     - **MySQL 5.7** or higher,
     - **MariaDB 10.2.7** or higher,
-    - **PostgreSQL 9.2** or higher.
+    - **PostgreSQL 9.2** or higher,
+    - **SQLite 3.35** or higher.
 
 > <sup>*</sup> JSON field types are used, therefore make sure to use at least the required minimum
 > version of your preferred DB engine.
 
 ### With Composer
 
-> If you're still on PHP 7 and can't upgrade yet, try installing [Vanilo 2](/docs/2.x/installation)
 
 ```bash
 # Create a new project (optional):
-composer create-project --prefer-dist laravel/laravel vaniloapp ^9.0
+composer create-project --prefer-dist laravel/laravel vaniloapp ^11.0
 cd vaniloapp
 
 # Install the vanilo package:
-composer require vanilo/framework ^3.1
+composer require vanilo/framework ^4.0
 
 # Publish module loader config:
 php artisan vendor:publish --provider="Konekt\Concord\ConcordServiceProvider" --tag=config
