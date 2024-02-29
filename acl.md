@@ -82,7 +82,7 @@ Test for all roles:
 
 ## Resource Permissions
 
-Vanilo Framework complements the [Laravel Resource](https://laravel.com/docs/8.x/controllers#resource-controllers)
+Vanilo Framework complements the [Laravel Resource](https://laravel.com/docs/10.x/controllers#resource-controllers)
 convention by defining resource permissions for all their models:
 
 - 'list *resources*',

@@ -1,7 +1,7 @@
 # Form Requests
 
 Vanilo uses Laravel's
-[Form Requests](https://laravel.com/docs/8.x/validation#form-request-validation)
+[Form Requests](https://laravel.com/docs/10.x/validation#form-request-validation)
 feature to separate validation logic from controllers.
 
 Other than being a nice example of separation of concerns, this approach

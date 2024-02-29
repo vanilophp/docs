@@ -45,7 +45,7 @@ echo $status->isPending(); // <- one of the nice enum features
 ## Enums As Model Fields
 
 Similarly to Laravel's
-[attribute casting](https://laravel.com/docs/8.x/eloquent-mutators#attribute-casting)
+[attribute casting](https://laravel.com/docs/10.x/eloquent-mutators#attribute-casting)
 feature, eloquent model fields can automatically be casted to-from
 enums, using the
 [enum-eloquent](https://github.com/artkonekt/enum-eloquent) library.

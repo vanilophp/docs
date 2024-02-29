@@ -30,7 +30,7 @@ application.
 Settings and preferences are being managed separately. Values (by
 default) are being saved to the database (`settings` and `preferences`
 tables) and are cached with the
-[configured cache](https://laravel.com/docs/8.x/cache) for your
+[configured cache](https://laravel.com/docs/10.x/cache) for your
 application.
 
 ## Creating Settings

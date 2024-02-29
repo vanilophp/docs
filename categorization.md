@@ -337,7 +337,7 @@ echo $speakers->level;
 
 Neighbours are the taxons which are under a common parent (within the same taxonomy).
 
-It is defined as a [HasMany Eloquent relationship](https://laravel.com/docs/8.x/eloquent-relationships#one-to-many)
+It is defined as a [HasMany Eloquent relationship](https://laravel.com/docs/10.x/eloquent-relationships#one-to-many)
 thus available as a property (`$taxon->neighbours`) which gives a collection.
 
 > Due to the internals of relationships, the relationship doesn't work for root level taxons (`parent_id === NULL`)
@@ -442,7 +442,7 @@ $memphisEgypt = Taxon::findOneByParentsAndSlug('locations', 'memphis', 'egypt');
 $memphisTennessee = Taxon::findOneByParentsAndSlug('locations', 'memphis', 'tennessee');
 ```
 
-The default Taxon model that ships with this package defines a several [Query Scopes](https://laravel.com/docs/8.x/eloquent#local-scopes).
+The default Taxon model that ships with this package defines a several [Query Scopes](https://laravel.com/docs/10.x/eloquent#local-scopes).
 
 Due to the nature of Eloquent query scopes, these are chainable so it is possible to combine them arbitrarily.
 
@@ -532,7 +532,7 @@ in the Framework (`Foundation` classes), but not in standalone modules.
 > Think of possible use cases like categorizing customers, subscribers, etc.
 
 The assignment is done with
-[Eloquent Many To Many Polymorphic Relations](https://laravel.com/docs/8.x/eloquent-relationships#many-to-many-polymorphic-relations).
+[Eloquent Many To Many Polymorphic Relations](https://laravel.com/docs/10.x/eloquent-relationships#many-to-many-polymorphic-relations).
 
 This category module has prepared the `model_taxons` table for this purpose and is ready to be used without
 any further database change.

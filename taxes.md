@@ -1,12 +1,8 @@
 # Taxes
 
-> This module will be released in v3.7 (March 2023)
-
 The taxes module makes use of the [adjustments](adjustments.md) module,
 and can be used to for various tax calculations, like the Sales Tax,
 GST and VAT in most countries. 
-
-## Tax Categories
 
 Most countries are using various rates for different types of articles/services.
 
@@ -16,13 +12,47 @@ As an example, in Austria, there are 3 separate VAT rates (as of 2023):
 - 13% for plants, live animals and animal food, art, wine
 - 10% for rental for the purpose of habitation, food, garbage collection, most transportation
 
-To support this feature, products and services need to be assigned with tax categories in order
-to be able to distinguish between a headphone (20%) a rooster (13%) and transportation fees (10%).
+## Tax Categories
 
-Tax category entries are very simple records having an id and a name.
+Tax Categories can be freely defined and assigned to products (buyables) via the `tax_category_id` field.
 
-A `tax_category_id` field can be assigned to buyables (products) that can have a value from the tax category list.
+As an example, food in most countries falls in a different, reduced tax category.
+Tax categories don't have rates, since the tax rate of food varies from country to country.
+
+A Tax Category consists of an id, a name.
 
 ## Tax Rates
 
+Tax rates contain the final rules for tax calculation, including the rate that needs to be applied to
+the product/service.
+
+Tax rates can be looked up based on a given billing (or shipping) address that is in a specific [tax zone](zones.md),
+and the tax category.
+
+The tax rate can then be passed to the selected tax calculator which will return the tax as
+[adjustment](adjustments.md) to the cart/order and/or its items.
+
+A tax rate consists of a:
+
+- Tax Category;
+- Taxation [Zone](zones.md);
+- Validity date range (optional);
+- Rate (%);
+- Calculator, and
+- Configuration (array stored as json).
+
+The configuration is required for the calculator, and is specific to the selected tax calculator.
+The configuration will be passed over to the calculator when calculating taxes.
+
 ## Calculators
+
+The actual calculation is being done by the specific tax calculators that serve as bridges
+between the Tax and the [Adjustment](adjustments.md) system.
+
+Calculators receive the tax subject and the configuration from the tax rate and calculate the tax amount(s).
+
+Their configuration is crucial, and can vary from one tax system to the other.
+As an example, the Canadian Sales Tax Calculator needs to receive 3 values, the HST, GST and PST rates to
+be able to calculate. The simple calculator requires a rate.
+
+Therefore, each calculator has to define its own configuration schema.

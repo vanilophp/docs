@@ -23,7 +23,7 @@ The Admin package can be installed using composer:
         Vanilo\Admin\Providers\ModuleServiceProvider::class,  
     ],
    ```
-4. Make sure you have [Laravel Authentication](https://laravel.com/docs/9.x/authentication) set up in the target application, eg. using Laravel Breeze.
+4. Make sure you have [Laravel Authentication](https://laravel.com/docs/10.x/authentication) set up in the target application, eg. using Laravel Breeze.
 5. Set up the user model (see instructions below)
 6. Create an admin user: `php artisan make:superuser`
 7. Add Admin's CSS To Laravel Mix:
