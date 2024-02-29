@@ -31,7 +31,7 @@ model class to have images assigned to it.
 ## Define Image Variants
 
 The Spatie Media library supports defining various image sizes, so-called
-[Conversions](https://spatie.be/docs/laravel-medialibrary/v9/converting-images/defining-conversions).
+[Conversions](https://spatie.be/docs/laravel-medialibrary/v10/converting-images/defining-conversions).
 
 The uploaded images will be then converted to the given sizes with the given parameters.
 
@@ -120,7 +120,7 @@ In the built-in Vanilo Admin this can be achieved by using the "Set as Primary I
 ![Set As Primary Image](img/images_primary.png)
 
 Primary image is achieved by setting the `isPrimary`
-[custom property](https://spatie.be/docs/laravel-medialibrary/v9/advanced-usage/using-custom-properties)
+[custom property](https://spatie.be/docs/laravel-medialibrary/v10/advanced-usage/using-custom-properties)
 on the given image.
 
 To set an image as primary from the code, use the `setCustomProperty()` method:

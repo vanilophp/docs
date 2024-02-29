@@ -60,4 +60,4 @@ return [
 > Eg. if you want to use a custom route prefix, you need to add all the values for the route config
 > (middleware, files, route) as well.
 >
-> See: [Laravel Package Development](https://laravel.com/docs/9.x/packages#configuration)
+> See: [Laravel Package Development](https://laravel.com/docs/10.x/packages#configuration)

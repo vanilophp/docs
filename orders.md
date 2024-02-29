@@ -31,7 +31,7 @@
 
 The product object (`Buyable`) can be retrieved via the `product`
 relationship which is a
-[Laravel morphTo](https://laravel.com/docs/8.x/eloquent-relationships#polymorphic-relationships)
+[Laravel morphTo](https://laravel.com/docs/10.x/eloquent-relationships#polymorphic-relationships)
 type:
 
 `$orderItem->product`

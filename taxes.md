@@ -108,7 +108,7 @@ Tax rates contain the final rules for tax calculation, including the rate that n
 the product/service.
 
 The tax engine (driver) will use its own logic to look up the tax rate for a given scenario (cart, checkout, order),
-based on the shipping/billing address, tax zone, merchant config, buyable items, etc.
+based on the shipping/billing address, [tax zone](zones.md), merchant config, buyable items, etc.
 
 The tax rate will then be passed to the selected tax calculator, and Vanilo will apply the tax as
 [adjustment](adjustments.md) to the cart/order and/or its items.
@@ -116,7 +116,7 @@ The tax rate will then be passed to the selected tax calculator, and Vanilo will
 A tax rate consists of a:
 
 - Tax Category;
-- Taxation [Zone](/docs/{{version}}/zones);
+- Taxation [Zone](zones.md);
 - Validity date range (optional);
 - Rate (%);
 - Calculator, and

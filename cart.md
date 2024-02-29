@@ -146,7 +146,7 @@ echo $item->weight;
 
 ### Retrieving The Item's Associated Product
 
-The `CartItem` defines a [polymorphic relationship](https://laravel.com/docs/8.x/eloquent-relationships#polymorphic-relationships)
+The `CartItem` defines a [polymorphic relationship](https://laravel.com/docs/10.x/eloquent-relationships#polymorphic-relationships)
 to the Buyable object named `product`.
 
 So you have a reference to the item's product:
@@ -215,7 +215,7 @@ Relation::enforceMorphMap([
 ]);
 ```
 
-For more information refer to the [Polymorphic Relation](https://laravel.com/docs/8.x/eloquent-relationships#polymorphic-relationships)
+For more information refer to the [Polymorphic Relation](https://laravel.com/docs/10.x/eloquent-relationships#polymorphic-relationships)
 section in the Laravel Documentation.
 
 ### Removing Items
@@ -268,7 +268,7 @@ By default, it uses the model defined in `auth.providers.users.model` configurat
 In fresh Laravel installations, and in most of the cases this will give the `App\Models\User` class.
 
 However, these values are just sensible defaults, and Laravel's
-[authentication system](https://laravel.com/docs/8.x/authentication) does not force you to have this
+[authentication system](https://laravel.com/docs/10.x/authentication) does not force you to have this
 setup.
 
 You can specify the user model manually by setting the user model class name under the
