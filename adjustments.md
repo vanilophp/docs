@@ -112,10 +112,10 @@ following entities are adjustable out of the box:
 ### Adjustment Collections
 
 Adjustables have an `adjustments()` method which returns an `AdjustmentCollection` instance.
-This interface simplifies the handling of multiple adjustments of a single adjustable.
+This interface simplifies the handling of adjustments of an adjustable.
 
 Vanilo contains two implementations of the `AdjustmentCollection` interface, but most probably
-you'll only work the `RelationAdjustmentCollection` that works with eloquent models.
+you'll only meet the `RelationAdjustmentCollection` variant, which works with eloquent models.
 
 ```php
 $order = Order::find(1);
@@ -129,15 +129,15 @@ $order->adjustments()->total();
 // 4.99
 ```
 
-The `total()` method neglects the included adjustments from the total.
-To have the included adjustments incorporated in the total sum, pass true as parameter to the total method:
+The `total()` method neglects the _included adjustments_ from the total by default.
+To have the _included adjustments_ incorporated in the total sum, pass true as parameter to the `total()` method:
 
 ```php
 $order->adjustments()->create(Adjustment::create(['amount' => 5, 'is_included' => true]));
 $order->adjustments()->create(Adjustment::create(['amount' => 10, 'is_included' => false]));
 $order->adjustments()->total();
 // 10
-$order->adjustments()->total(true);
+$order->adjustments()->total(withIncluded: true);
 // 15
 ```
 
