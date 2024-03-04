@@ -109,6 +109,38 @@ following entities are adjustable out of the box:
 - Orders and Order Items,
 - Shipments.
 
+### Adjustment Collections
+
+Adjustables have an `adjustments()` method which returns an `AdjustmentCollection` instance.
+This interface simplifies the handling of multiple adjustments of a single adjustable.
+
+Vanilo contains two implementations of the `AdjustmentCollection` interface, but most probably
+you'll only work the `RelationAdjustmentCollection` that works with eloquent models.
+
+```php
+$order = Order::find(1);
+$order->adjustments();
+//= Vanilo\Adjustments\Support\RelationAdjustmentCollection
+
+$order->adjustments()->create(new SimpleShippingFee(4.99));
+$order->count();
+//1
+$order->total();
+// 4.99
+```
+
+The `total()` method neglects the included adjustments from the total.
+To have the included adjustments incorporated in the total sum, pass true as parameter to the total method:
+
+```php
+$order->adjustments()->create(Adjustment::create(['amount' => 5, 'is_included' => true]));
+$order->adjustments()->create(Adjustment::create(['amount' => 10, 'is_included' => false]));
+$order->adjustments->total();
+// 10
+$order->adjustments->total(true);
+// 15
+```
+
 ## Adjusters
 
 Adjusters are classes the hold the logic for the adjustment calculation.
