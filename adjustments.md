@@ -125,7 +125,7 @@ $order->adjustments();
 $order->adjustments()->create(new SimpleShippingFee(4.99));
 $order->count();
 //1
-$order->total();
+$order->adjustments()->total();
 // 4.99
 ```
 
@@ -135,9 +135,9 @@ To have the included adjustments incorporated in the total sum, pass true as par
 ```php
 $order->adjustments()->create(Adjustment::create(['amount' => 5, 'is_included' => true]));
 $order->adjustments()->create(Adjustment::create(['amount' => 10, 'is_included' => false]));
-$order->adjustments->total();
+$order->adjustments()->total();
 // 10
-$order->adjustments->total(true);
+$order->adjustments()->total(true);
 // 15
 ```
 
