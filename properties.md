@@ -360,6 +360,9 @@ $product = Product::findBySlug('iphone-13-pro-128gb-5g-gold');
 
 $color = $product->valueOfProperty('color')?->value
 // 'gold'
+
+$product->valueOfProperty('color')?->title
+// Gold
 ```
 
 ### Removing A Property Value
