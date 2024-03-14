@@ -21,6 +21,7 @@
     - [Product Properties](/docs/{{version}}/properties)
     - [Product Variants](/docs/{{version}}/product-variants)
     - [Master Products](/docs/{{version}}/master-products)
+    - [Search and Query Products](/docs/{{version}}/product-search)
     - [Categorization](/docs/{{version}}/categorization)
     - [Links](/docs/{{version}}/links)
     - [Cart](/docs/{{version}}/cart)
