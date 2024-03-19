@@ -92,6 +92,79 @@ echo Cart::itemCount();
 // 3
 ```
 
+#### Configurable Items
+
+If your shop is selling customizable, configurable products you can pass the configuration in the third parameter:
+
+```php
+Cart::addItem($hamburger, 1, [ 'attributes' => [
+        'configuration' => ['extra_bacon', 'no_tomato']
+    ]
+]);
+```
+
+This will set `['extra_bacon', 'no_tomato']` as the cart item's configuration.
+
+Furthermore, if you add another product of the same type to the cart, it will create
+a separate cart item if the configuration of the items differ:
+
+```php
+Cart::addItem($bigTastyBurger, 1, ['attributes' => ['configuration' => 'extra_cheese']]);
+Cart::addItem($bigTastyBurger); // No configuration
+Cart::getItems()->count();
+// => 2
+```
+
+The cart will take the cart items and compare their configurations with the passed configuration.
+It uses internally the `array_diff` and `array_diff_assoc` php methods for comparison.
+
+If you would like to customize what attributes denote a new cart item, then you need to
+override the Cart model's `resolveCartItem()` method.
+
+**Example**:
+
+```php
+// app/Models/Cart.php
+class Cart extends \Vanilo\Foundation\Models\Cart
+{
+    /**
+     * @param Buyable $buyable The product that is currently being added to the cart
+     * @param array $parameters The parameters array
+     */
+    protected function resolveCartItem(Buyable $buyable, array $parameters): ?CartItemContract
+    {
+        $existingCartItemsOfTheBuyable = $this->items()->ofCart($this)->byProduct($buyable)->get();
+
+        // Implement your cart item resolution logic here. If you return:
+        //    - NULL: then the cart will create a new cart item from the buyable;
+        //    - a CartItem, then the quantity of the item will be increased 
+
+        return null or CartItem;
+    }
+}
+```
+
+Make sure to override the Cart Model class in your application:
+
+```php
+// app/Providers/AppServiceProvider.php
+namespace App\Providers;
+
+use Illuminate\Support\ServiceProvider;
+use Vanilo\Cart\Contracts\Cart as CartContract;
+
+class AppServiceProvider extends ServiceProvider
+{
+    public function boot()
+    {
+        $this->app->concord->registerModel(
+            CartContract::class, \App\Models\Cart::class
+        );
+    }
+}
+```
+
+
 #### Setting Custom Item Attributes
 
 First, you need to add your custom fields to `cart_items` (preferably using migrations).
