@@ -30,14 +30,16 @@ Each tax category can be assigned, to a broader, generic type, which are:
 - Transport Services
 - Telecommunications Services
 - Broadcasting Services
-- Standard Services
+- Location-Tied Services
+- Intangible/Remote Services
 - Real Estate Services
 - Event-Related Services
 
 The type field is optional, but certain Tax engines* might need it.
 
 > *: The Cross-border EU VAT engine uses the type to distinguish whether the shipping or
-> the billing address country needs to be taken into account when looking up the tax rates
+> the billing address country needs to be taken into account when looking up the tax rates.
+> Additionally it uses the type to determine whether the reverse-charge schema is appicable.
 
 ## Tax Engines
 
