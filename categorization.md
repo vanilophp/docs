@@ -604,10 +604,10 @@ $taxon1 = Taxon::find(1);
 $taxon2 = Taxon::find(2);
 
 // To assign a single taxon:
-$subscriber->taxons->save($taxon1);
+$subscriber->taxons()->save($taxon1);
 
 //To assign multiple taxons:
-$subscriber->taxons->saveMany([$taxon1, $taxon2]);
+$subscriber->taxons()->saveMany([$taxon1, $taxon2]);
 ```
 #### Removing Taxons From A Subscriber:
 
@@ -616,7 +616,7 @@ $subscriber = Subscriber::find(1);
 $taxon = Taxon::find(1);
 
 // To assign a single taxon:
-$subscriber->taxons->detach($taxon);
+$subscriber->taxons()->detach($taxon);
 ```
 
 ### Defining The Inverse Of The Relationship
