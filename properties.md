@@ -230,6 +230,24 @@ Since Vanilo v3.1 there's a simplified finder method available:
 $red = PropertyValue::findByPropertyAndValue('color', 'red');
 ```
 
+### Retrieving Multiple Values By Their Scalar Values
+
+> This method is available since v4.0
+
+It is possible to query property values using the scalar key/value pairs, where the key is the slug of the property,
+and the value is the value of the property.
+
+The following example will return a collection, containing two `PropertyValue` models, if matching records exist
+in the database:
+
+```php
+PropertyValue::getByScalarPropertiesAndValues([
+    'shape' => 'heart',
+    'material' => 'wood',
+]);
+// => Collection
+```
+
 ## Ordering Values
 
 Property values have a `priority` field which is being used to sort
@@ -382,7 +400,27 @@ Under the hood, the `$model->propertyValues()` method is a
 relation, therefore multiple values can be
 [synchronized](https://laravel.com/docs/10.x/eloquent-relationships#syncing-associations):
 
+It means, the low level sync() method can be called on it:
+
 ```php
 $product->propertyValues()->sync([1, 3, 22]);
 // 1, 3 and 22 are the ids of property values
+```
+
+Since Vanilo v4.0, it is also possible to sync the assigned property values using scalar key/value pairs:
+
+```php
+// Assigns two property values:
+$product->replacePropertyValuesByScalar(['finish' => 'glossy', 'diameter' => 16]);
+$product->valueOfProperty('finish')->value;
+// => (string) "glossy"
+$product->valueOfProperty('diameter')->value;
+// => (int) 16
+
+// Replaces finish from glossy to matte, and removes the diameter property value
+$product->replacePropertyValuesByScalar(['finish' => 'matte']);
+$product->valueOfProperty('finish')->value;
+// => (string) "matte"
+$product->valueOfProperty('diameter');
+// => NULL
 ```
