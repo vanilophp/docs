@@ -424,3 +424,20 @@ $product->valueOfProperty('finish')->value;
 $product->valueOfProperty('diameter');
 // => NULL
 ```
+
+If the passed value doesn't exist, it will be created:
+
+```php
+$color = Property::create(['name' => 'Color']);
+$color->values;
+// => Empty collection
+$product->replacePropertyValuesByScalar(['color' => 'magenta']);
+
+$color->propertyValues
+// => Illuminate\Database\Eloquent\Collection {#24002
+//   all: [
+//     Vanilo\Properties\Models\PropertyValue {#24001
+//       ...
+//       value: "magenta",
+//       ...
+```
