@@ -2,6 +2,164 @@
 
 > For upcoming releases refer to the [Roadmap](roadmap.md).
 
+## 4.0.0
+##### 2024-04-25
+
+- Dropped PHP 8.0 & PHP 8.1 Support
+- Dropped Laravel 9 Support
+- Dropped Enum v3 Support
+- Added PHP 8.3 Support
+- Added Laravel 11 Support
+- Changed minimum Laravel version to v10.43
+- Changed minimal Enum requirement to v4.2
+- Changed minimal Address module requirement to v3.3
+- Upgraded to Konekt Address, Customer and User modules to v3
+- Upgraded to Laravel Media Library v11
+- Removed the Vanilo v2 `Framework` namespace compatibility layer
+- Removed the throwing of `CartUpdated` event when destroying a cart (`CartDeleting` and `CartDeleted` remains)
+- Removed the deprecated `BuyableImageSpatieV7` and `BuyableImageSpatieV8` traits
+- Added the `SimpleTaxDeduction` adjuster
+- Added Cart item configuration support (different configurations constitute separate cart items) to the `Cart::addItem()` method
+- Added the `currency` field to the orders table
+- Added the following fields to the Channel model/table:
+  - `currency`
+  - `language`
+  - `domain`
+  - billing fields (emitter's data)
+  - `billing_zone_id`
+  - `shipping_zone_id`
+  - `theme`
+  - `color`
+- Added `ProductSearch` features:
+  - added the optional $limit parameter to the `getResults()` method
+  - added the `orderBy()` method
+  - added the `slugEquals()` method: it takes into account other query parameters as well, whereas the findBySlug solely queries by the given slug
+- Added the `payment_method_id` to the orders table
+- Added the processing of the `payment_method_id` field to the OrderFactory (Foundation)
+- Added the `BillpayerChanged` checkout event
+- Added the `is_hidden` field to the `Property` model
+- Changed the behavior of assignPropertyValues/assignPropertyValue methods so that it throws an `UnknownPropertyException` when passing an inexistent property slug
+- Added the `withImages` and `withChannels` methods to the product search class (eager loads media)
+- Added the `channelables` table for being many-to-many polymorphic relationships with channels and arbitrary models
+- Added the `mapInto()` method to the `RelationAdjustmentCollection` class, which forwards the call to the underlying Eloquent collection
+- Added the `Zoneable` support to the Foundation PaymentMethod class
+- Added the `Channelable` behavior to Foundation Product, MasterProduct, PaymentMethod, ShippingMethod and Taxonomy classes
+- Added and extended Foundation Channel model that contains the known relationships to the "channelable" models
+- Added the `withinChannel[s]` methods to the ProductSearch class
+- Added the `Features` accessor class, which is a syntactic sugar for areas of the configuration
+- Added `isZoneRestricted()` & `isNotZoneRestricted()` helper methods to the `ShippingMethod` class
+- Added the payment dependent shipping fee calculator
+- Added the `units_sold` and the `last_sale_at` attributes to the master product model (SUM/MAX from variants)
+- Added the `Stockable` interface (Contracts)
+- Added the `Stockable` interface to the `Product` and `MasterProductVariant` models
+- Added the `backorder` field to products and product variants
+- Added the `type` field to the TaxCategory model
+- Added the `Taxable` interface
+- Added the `Taxable` implementation to Foundation's CartItem, Product and MasterProductVariant classes
+- Added the extendable `TaxEngine` (facade) that can resolve tax rates from taxables, billing/shipping addresses (a place for various country-specific taxation drivers)
+- Added the `Merchant` interface
+- Added the `DefaultTaxCalculator` class - calculates simply by rate
+- Added the `DeductiveTaxCalculator` class similar to the default one, but it deducts the amount
+- Added the `CalculateTaxes` listener to cart update and shipping address change events
+- Added the `Merchant` DTO class, that complies with the common, v4 `Merchant` interface
+- Added the `Address` DTO class (implements the `Address` interface)
+- Added the `AdjusterAliases` class that for decoupling FQCNs from the database
+- Added automatic mapping of adjuster FQCN <-> aliases when saving an adjustment into the DB and when calling the `getAdjuster()` method
+- Added the `itemsPreAdjustmentTotal()` method to the Foundation's adjustable Cart model
+- Added the `replacePropertyValues()` and `replacePropertyValuesByScalar()` methods to the `HasPropertyValues` trait
+- BC: Added the following methods to the `PropertyValue` interface:
+  - `findByPropertyAndValue()`
+  - `getByScalarPropertiesAndValues()`
+- BC: Added the mixed return type to the `getCastedValue` method of the `PropertyValue` interface
+- BC: Added the `findBySku()` method to the `Product` and `MasterProductVariant` interfaces
+- BC: The `MasterProduct` interface no longer extends the `Product` interface
+- BC: The `Checkout` interface now extends the `ArrayAccess` and the `Shippable` interfaces (until here, only the concrete classes have implementation it)
+- BC: Added cart and order item models to the Relation morph map: the `adjustable_type` field in the `adjustments` table needs to be converted!
+- BC: Added the `?CheckoutSubject` return type to the `getCart()` method of the `Checkout` interface
+- BC: Changed `Checkout::getShippingAddress()` return type to be nullable
+- BC: Added the void return type to `Checkout::setShippingAddress()`
+- BC: Added the following methods to the Checkout interface:
+  - `removeShippingAddress()`
+  - `getShipToBillingAddress()`
+  - `setShipToBillingAddress()`
+  - `getShippingMethodId()`
+  - `setShippingMethodId()`
+  - `getPaymentMethodId()`
+  - `setPaymentMethodId()`
+  - `getNotes()`
+  - `setNotes()`
+  - `clear()`
+  - `getShippingAmount()`
+  - `setShippingAmount()`
+  - `getTaxesAmount()`
+  - `setTaxesAmount()`
+  - `itemsTotal()`
+- BC: The unused `$config` parameter has been removed from the `RequestStore` checkout driver constructor
+- BC: Removed the following traits from the Checkout module:
+  - `HasCart`
+  - `ComputesShipToName`
+  - `FillsCommonCheckoutAttributes`
+- BC: Added the `deleteByType()` and `clear()` methods to the `AdjustmentCollection` interface
+- BC: Added the `getAddress2()` method to the `Address` interface
+- BC: The `Adjustable::itemsTotal()` has been renamed to `preAdjustmentTotal()`
+- BC: The `invalidateAdjustments()` method has been added to the `Adjustable` interface
+- BC: The `exceptTypes()` method has been added to the `AdjustmentCollection` interface
+- BC: The `AdjustmentType` interface extends the `EnumInterface`
+- BC: Added the `isNotIncluded()` method to the `Adjustment` interface
+- BC: Changed the behavior of `AdjustmentCollection::total()`:
+  1. it ignores "included" adjustments by default,
+  2. to incorporate the "included" adjustments pass true to the method: `$adjustments->total(withIncluded: true)`
+- BC: Changed the `TaxRate` interface so that it extends the `Configurable` interface
+- BC: Added the `itemsTotal()` method to the `CheckoutSubject` interface
+- BC: Added argument and return types to all `Cart` and `CartManager` interface methods
+- BC: Added the `findOneByZoneAndCategory` static method to the `TaxRate` interface
+- BC: Changed the ShippingFeeCalculator, Carrier and Shipment interfaces to Configurable & Schematized
+- BC: Changed the `CheckoutSubjectItem` interface into Configurable & Schematized
+- BC: Added the `$hooks` and `$itemHooks` parameters to the `OrderFactory` interface
+- BC: Changed the `OrderItem` interface into Configurable
+- BC: Added 7 methods to the `OrderItem` interface
+- BC: Added the `getLanguage()`, `getFulfillmentStatus()` and `itemsTotal()` methods to the `Order` interface
+- BC: Added to float return type to the `total()` method of the `Order` interface
+- BC: The `OrderStatus` and `FulfillmentStatus` interfaces extend the `EnumInterface`
+- BC: Added the `getConfigurationSchema()` method to the `Configurable` interface
+- BC: Changed the `PaymentMethod` interface into Configurable
+- BC: Added the `getRemoteId()` method to the `PaymentRequest` interface
+- BC: Added the following methods to the `Payment` interface:
+  - `getSubtype()`
+  - `hasRemoteId()`
+  - `getRemoteId()`
+  - `isOffline()`
+- BC: Added the `getTransactionAmount()` method to the `PaymentResponse` interface
+- BC: Added the `transactionHandler()` method to the `PaymentGateway` interface (**experimental** feature)
+- BC: Added the `svgIcon()` static method to the `PaymentGateway` interface
+- BC: Added the following methods to the `Payable` interface:
+  - `getNumber()`
+  - `getPayableRemoteId()`
+  - `setPayableRemoteId()`
+  - `findByPayableRemoteId()`
+  - `hasItems()`
+  - `getItems()`
+- BC: The return type of the `getNumber()` method of the Order interface is no longer nullable
+- BC: Added the `getCalculator()` & `estimate()` methods to the `ShippingMethod` interface
+- BC: The `Channel` interface extends the `Configurable` interface
+- BC: Added the following methods to the `Channel` interface:
+  - `getLanguage()`
+  - `getCurrency()`
+  - `getDomain()`
+  - `getMerchant()`
+  - `getBillingCountries()`
+  - `getShippingCountries()`
+- Deprecated the `PaymentMethod::getConfiguration()` in favor of `configuration()`
+- Deprecated the `PaymentResponse::getAmountPaid()` method in favor of `getTransactionAmount()`
+- Added a series of **experimental** transaction-style interfaces. They shouldn't be used yet, but
+  have been added so that they can be implemented during the v4.x lifecycle without breaking existing implementations
+- Added the `Schematized` interface
+- Added the nette/schema package requirement (v1.2.5+)
+- Fixed possible null return type on Billpayer::getName() when is_organization is true but the company name is null
+- Fixed the remnant orphan cart adjustments in the database during cart to order transformation
+
+---
+
 ## 3.8.1
 ##### 2023-10-09
 
@@ -202,6 +360,8 @@
 - BC: Added the static `findBySlug(string $slug): ?Property;` method to the Property interface
 - Switched to monorepo layout: Core modules are all in the monorepo, separated as readonly subtree split in their own repositories
 
+---
+
 ## 2.2
 ##### 2021-09-11
 
@@ -267,6 +427,8 @@
 - Added the Shippable interface
 - Added nanoid style order number generator
 
+---
+
 ## 1.2
 ##### 2020-03-29
 
@@ -291,6 +453,8 @@
 - Added Channel Module
 - Added custom checkout attributes
 - Migration compatibility fixes with bigint user id
+
+---
 
 ## 0.5
 ##### 2019-02-11
