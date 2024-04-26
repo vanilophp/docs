@@ -1,7 +1,5 @@
 # Upgrade Between Versions
 
-> You are browsing an older version of the Upgrade Guide. For the latest version see: [Upgrade Guide](upgrade.md)
-
 > For older upgrade guides see:
 > - [Upgrade Guide v2.x -> v3.x](upgrade-v3.md)
 > - [Upgrade Guide v1.x -> v2.x](upgrade-v2.md)
