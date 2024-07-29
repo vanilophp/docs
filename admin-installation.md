@@ -30,8 +30,8 @@ The Admin package can be installed using composer:
    ```bash
    npm add bootstrap@5.3 alpinejs@3.10 popper.js
    ```
-8. Configure the build tools: [Vite or Laravel Mix](#vite-or-laravel-mix)
-9. Compile the assets with mix: `npm run dev`
+8. Configure the frontend [build tools](#frontend-build)
+9. Compile the assets: `npm run dev`
 
 ### Setting Up The User Model
 
@@ -111,6 +111,7 @@ $this->app->concord->registerModel(\Konekt\User\Contracts\User::class, \App\Mode
 ### Frontend Build
 
 #### Vite Config
+Update the vite.config.js:      
 
 ```javascript
 import { defineConfig } from 'vite';
@@ -176,7 +177,7 @@ export default defineConfig({
 #### Laravel Mix
 
 1. Install [Laravel Mix](https://laravel-mix.com/docs/6.0/installation)
-2. Add Admin's CSS To Laravel Mix:  
+2. Add Admin's CSS To Laravel Mix:    
    ```javascript
    let mix = require('laravel-mix');
    // webpack.mix.js
@@ -187,7 +188,7 @@ export default defineConfig({
     // Keep this for the "rest" (usually public frontend)
    .sass('resources/sass/app.scss', 'public/css');
    ```
-3. Update the postcss.config.file to ensure compatibility with webpack and laravel-mix:  
+3. Update the postcss.config.file to ensure compatibility with webpack and laravel-mix:      
     ```javascript
     // From
     export default {
@@ -204,8 +205,8 @@ export default defineConfig({
         ]
     }
     ```
-4. Update the package.json file:
-   The type can be removed or renamed to "commonjs"  
+4. Update the package.json file:  
+   If the type field is present either remove it, or rename to "commonjs"    
     ```json
    {                
         "type": "module", 
