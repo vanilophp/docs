@@ -111,6 +111,7 @@ $this->app->concord->registerModel(\Konekt\User\Contracts\User::class, \App\Mode
 ### Frontend Build
 
 #### Vite Config
+
 Update the vite.config.js:      
 
 ```javascript
