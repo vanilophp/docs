@@ -209,10 +209,10 @@ export default defineConfig({
 4. Update the package.json file:  
    If the type field is present either remove it, or rename to "commonjs"    
     ```json
-   {                
-        "type": "module", 
-        "scripts": {
-           "dev": "mix"
-        }
-   }
+    {
+      "type": "module", 
+      "scripts": {
+        "dev": "mix"
+      }
+    }
     ```
