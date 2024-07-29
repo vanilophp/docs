@@ -2,7 +2,7 @@
 
 > Vanilo is an E-commerce Framework for Laravel.
 
-This Documentation can be read at [vanilo.io/docs](https://vanilo.io/docs).
+This Documentation can be read at [vanilo.io/docs](https://vanilo.io/docs/4.x/what-is-vanilo).
 
 ## Contribution
 

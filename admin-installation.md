@@ -24,22 +24,13 @@ The Admin package can be installed using composer:
     ],
    ```
 4. Make sure you have [Laravel Authentication](https://laravel.com/docs/10.x/authentication) set up in the target application, eg. using Laravel Breeze.
-5. Set up the user model (see instructions below)
+5. Set up the [user model](#setting-up-the-user-model) (see instructions below)
 6. Create an admin user: `php artisan make:superuser`
-7. Add Admin's CSS To Laravel Mix:
-   ```javascript
-   // webpack.mix.js
-   mix.js('resources/js/app.js', 'public/js')
-    // Add these 2 lines:
-   .js('vendor/konekt/appshell/src/resources/assets/js/appshell.standalone.js', 'public/js/appshell.js')
-   .sass('vendor/konekt/appshell/src/resources/assets/sass/appshell.sass', 'public/css')
-    // Keep this for the "rest" (usually public frontend)
-   .sass('resources/sass/app.scss', 'public/css');
-   ```
-8. Install the following npm packages: 
+7. Install the following npm packages: 
    ```bash
    npm add bootstrap@5.3 alpinejs@3.10 popper.js
    ```
+8. Configure the build tools: [Vite or Laravel Mix](#vite-or-laravel-mix)
 9. Compile the assets with mix: `npm run dev`
 
 ### Setting Up The User Model
@@ -116,3 +107,110 @@ And add this to you `AppServiceProviders`'s boot method:
 // app/Providers/AppServiceProvider.php
 $this->app->concord->registerModel(\Konekt\User\Contracts\User::class, \App\Models\User::class);
 ```
+
+### Frontend Build
+
+#### Vite Config
+
+```javascript
+import { defineConfig } from 'vite';
+import laravel from 'laravel-vite-plugin';
+import path from 'path';
+
+export default defineConfig({
+    plugins: [
+        laravel({
+            input: [
+                'resources/js/app.js',
+                'vendor/konekt/appshell/src/resources/assets/js/appshell.standalone.js',
+                'resources/css/app.css',
+                'vendor/konekt/appshell/src/resources/assets/sass/appshell.sass',
+            ],
+            refresh: true,
+        }),
+    ],
+    resolve: {
+        alias: {
+            '~bootstrap': path.resolve(__dirname, 'node_modules/bootstrap'),
+        },
+    },
+    build: {
+        outDir: 'public',
+        rollupOptions: {
+            input: {
+                appJs: 'resources/js/app.js',
+                appshellJs: 'vendor/konekt/appshell/src/resources/assets/js/appshell.standalone.js',
+                appStyles: 'resources/css/app.css',
+                appshellStyles: 'vendor/konekt/appshell/src/resources/assets/sass/appshell.sass',
+            },
+            output: {
+                entryFileNames: ({ name }) => {
+                    if (name === 'appshellJs') {
+                        return 'js/appshell.js';
+                    }
+                    if (name === 'appJs') {
+                        return 'js/app.js'
+                    }
+                    return 'js/[name].js';
+                },
+                chunkFileNames: 'js/[name].js',
+                assetFileNames: ({ name }) => {
+                    if (/^appStyles\.css$/.test(name ?? '')) {
+                        return 'css/app.css';
+                    }
+                    if (/^appshellStyles\.css$/.test(name ?? '')) {
+                        return 'css/appshell.css';
+                    }
+                    if (/\.css$/.test(name ?? '')) {
+                        return 'css/[name].[ext]';
+                    }
+                    return 'assets/[name].[ext]';
+                },
+            },
+        },
+        emptyOutDir: false,
+    },
+});
+```
+
+#### Laravel Mix
+
+1. Install [Laravel Mix](https://laravel-mix.com/docs/6.0/installation)
+2. Add Admin's CSS To Laravel Mix:  
+   ```javascript
+   let mix = require('laravel-mix');
+   // webpack.mix.js
+   mix.js('resources/js/app.js', 'public/js')
+    // Add these 2 lines:
+   .js('vendor/konekt/appshell/src/resources/assets/js/appshell.standalone.js', 'public/js/appshell.js')
+   .sass('vendor/konekt/appshell/src/resources/assets/sass/appshell.sass', 'public/css')
+    // Keep this for the "rest" (usually public frontend)
+   .sass('resources/sass/app.scss', 'public/css');
+   ```
+3. Update the postcss.config.file to ensure compatibility with webpack and laravel-mix:  
+    ```javascript
+    // From
+    export default {
+        plugins: {
+            tailwindcss: {},
+            autoprefixer: {},
+        },
+    };
+    
+    // To
+    module.exports = {
+        plugins: [
+            require('autoprefixer')()
+        ]
+    }
+    ```
+4. Update the package.json file:
+   The type can be removed or renamed to "commonjs"  
+    ```json
+   {                
+        "type": "module", 
+        "scripts": {
+           "dev": "mix"
+        }
+   }
+    ```
