@@ -9,7 +9,7 @@ Beginning with v3.x, the Admin has been extracted from the Framework, and now it
 The Admin package can be installed using composer:
 
 1. First, [install the Vanilo Framework](/docs/{{version}}/installation)
-2. `composer req vanilo/admin ^4.0`
+2. `composer req vanilo/admin '^4.0'`
 3. Edit `config/concord.php` and add this content under the **modules** key:
    ```php
     'modules' => [
