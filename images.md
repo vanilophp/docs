@@ -44,7 +44,7 @@ Therefore, beginning with v2.1, Vanilo supports defining conversions on a per mo
 // config/vanilo.php
 return [
     // ...
-    'framework' => [
+    'foundation' => [
         'image'       => [
             'product' => [
                 'variants' => [
@@ -79,6 +79,8 @@ return [
     //...
 ];
 ```
+
+> Execute the `php artisan media-library:regenerate` command after each modification in the vanilo.php file
 
 The loading of these conversions is happening with the help of the `LoadsMediaConversionsFromConfig`
 trait that you can also add to your models. The "key" within the config is derived from the snake
