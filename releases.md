@@ -2,6 +2,57 @@
 
 > For upcoming releases refer to the [Roadmap](roadmap.md).
 
+## 4.2.0
+##### 2024-12-14
+
+- Added PHP 8.4 support
+- Added the Promotion module with promotions, actions, rules and coupons support
+- Added a listener to recalculate shipping fees after a `PaymentMethodSelected` event (Foundation)
+- Added the `PercentDiscount` adjuster class
+- Added `domain` field to the orders table
+- Added then automatic completion of `$order->domain` from the current request to the OrderFactory
+- Added the `promotions_total` attribute getter to the Foundation `Order` model
+- Added the search engine and inventory feature configuration wrappers
+- Added the `OrderBillpayerUpdated` event
+- Added the `OrderShippingAddressUpdated` event
+- Various fixes
+
+## 4.1.0
+##### 2024-07-11
+
+- Added the `includeVariants()` method to the ProductSearch class ⚠️ DOES NOT WORK ON POSTGRES (YET) ⚠️
+- Added the `priceGreaterThan`, `priceLessThan` and `priceBetween` methods to the ProductSearch class by [Matima](https://github.com/mahdirezaei-dev) in [#176](https://github.com/vanilophp/framework/pull/176)
+- Added the `Macroable` trait to the `ProductSearch` class
+- Added the unidirectional links feature
+- Added the `isUnidirectional()`, `isOmnidirectional()` and `isEmpty()` methods to the `LinkGroup` class
+- Added the `pointsTo()` method to the `LinkGroupItem` class
+- Added the possibility to retrieve the link items directly using `linkItems()` method as `Get::the($type)->linkItems()->of($model)`
+- Added the `link_items` helper, shortcut to Get::the()->linkItems()
+- Added the possibility to force new link group creation using the `new()` method of the `Establish` class
+- Added support for configurable decimal separator used by the `format_price()` helper function
+- Added the discountable shipping fee calculator
+- Added the `taxes_total`, `shipping_total` and `total` attribute getters to the Foundation `Order` model
+- Added the following getters to the default Billpayer model (proxies down to the underlying address):
+  - `country_id`
+  - `province_id`
+  - `postalcode`
+  - `city`
+  - `street_address` (fetches $billpayer->address->address) - can't use `address` since that collides with the address() relation
+  - `address2`
+  - `access_code`
+- Added the following content fields to the Taxon model/table:
+  - `subtitle`
+  - `excerpt`
+  - `description`
+  - `top_content`
+  - `bottom_content`
+- Fixes
+ 
+## 4.0.1
+##### 2024-04-25
+
+- Removed the Doctrine DBAL dependency
+
 ## 4.0.0
 ##### 2024-04-25
 
