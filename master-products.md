@@ -83,6 +83,7 @@ the fields are basically the same according to the table below:
 | `stock`                             |    ✔    |       ❌        |           ✔            |
 | `units_sold`                        |    ✔    |       ❌        |           ✔            |
 | `last_sale_at`                      |    ✔    |       ❌        |           ✔            |
+| `gtin`                              |    ✔    |       ❌        |           ✔            |
 
 > *v3.5+
 
