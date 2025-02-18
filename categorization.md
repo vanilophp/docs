@@ -684,7 +684,7 @@ The assignment is done with
 This category module has prepared the `model_taxons` table for this purpose and is ready to be used without
 any further database change.
 
-#### Assigning Taxons To A Product
+### Assigning Taxons To A Product
 
 ```php
 $product = Product::find(1);
@@ -743,7 +743,7 @@ class Subscriber extends Model
 }
 ```
 
-#### Assigning Taxons To A Subscriber
+### Assigning Taxons To A Subscriber
 
 ```php
 $subscriber = Subscriber::find(1);
@@ -756,7 +756,7 @@ $subscriber->taxons()->save($taxon1);
 //To assign multiple taxons:
 $subscriber->taxons()->saveMany([$taxon1, $taxon2]);
 ```
-#### Removing Taxons From A Subscriber
+### Removing Taxons From A Subscriber
 
 ```php
 $subscriber = Subscriber::find(1);
