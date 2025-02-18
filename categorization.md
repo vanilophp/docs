@@ -65,7 +65,7 @@ The `ProductSearch` class provides a way to search for products and master produ
 
 ### Finding Products by Name
 
-#### Exact Match:
+#### Exact Match
 
 This will return products and master products that contain "Shiny Glue" in their name.
 
@@ -74,7 +74,7 @@ $finder = new ProductSearch();
 $result = $finder->nameContains('Shiny Glue')->getResults();
 ```
 
-#### Starts With:
+#### Starts With
 
 Finds products and master products whose names start with "Mature", such as "Matured Cheese" or "Mature People".
 
@@ -83,7 +83,7 @@ $finder = new ProductSearch();
 $result = $finder->nameStartsWith('Mature')->getResults();
 ```
 
-#### Ends With:
+#### Ends With
 
 Finds products and master products where the name ends with "Transformator", such as "Bobinated Transformator".
 
@@ -92,7 +92,7 @@ $finder = new ProductSearch();
 $result = $finder->nameEndsWith('Transformator')->getResults();
 ```
 
-#### Multiple Matches:
+#### Multiple Matches
 
 Returns multiple products and master products containing "Mandarin" in their names.
 
@@ -103,7 +103,7 @@ $products = $finder->nameContains('Mandarin')->getResults();
 
 ### Finding Products by Slug
 
-#### Exact Slug Match:
+#### Exact Slug Match
 
 Returns the product with the exact matching slug.
 
@@ -111,7 +111,7 @@ Returns the product with the exact matching slug.
 $product = ProductSearch::findBySlug('nintendo-todd-20cm-plush');
 ```
 
-#### Slug with Exception Handling:
+#### Slug with Exception Handling
 
 Throws a `ModelNotFoundException` if the product is not found.
 
@@ -127,7 +127,7 @@ try {
 
 ### Filtering Products
 
-#### By Taxon:
+#### By Taxon
 
 ```php
 use Vanilo\Category\Models\Taxon;
@@ -136,7 +136,7 @@ $taxon = Taxon::find(1);
 $products = (new ProductSearch())->withinTaxon($taxon)->getResults();
 ```
 
-#### By Channel:
+#### By Channel
 
 ```php
 use Vanilo\Channel\Models\Channel;
@@ -145,7 +145,7 @@ $channel = Channel::find(1);
 $products = (new ProductSearch())->withinChannel($channel)->getResults();
 ```
 
-#### By Price Range:
+#### By Price Range
 
 ```php
 $products = (new ProductSearch())->priceBetween(100, 500)->getResults();
@@ -153,7 +153,7 @@ $products = (new ProductSearch())->priceBetween(100, 500)->getResults();
 
 ### Filtering by Property Values
 
-#### By Single Property Value:
+#### By Single Property Value
 
 Filters products that have a specific property value.
 
@@ -164,7 +164,7 @@ $propertyValue = PropertyValue::find(1);
 $products = (new ProductSearch())->havingPropertyValue($propertyValue)->getResults();
 ```
 
-#### By Multiple Property Values:
+#### By Multiple Property Values
 
 Filters products that match multiple property values.
 
@@ -173,7 +173,7 @@ $propertyValues = PropertyValue::whereIn('id', [1, 2, 3])->get();
 $products = (new ProductSearch())->havingPropertyValues($propertyValues->toArray())->getResults();
 ```
 
-#### By Property Name and Values:
+#### By Property Name and Values
 
 Filters products by a property name and its corresponding values.
 
@@ -181,7 +181,7 @@ Filters products by a property name and its corresponding values.
 $products = (new ProductSearch())->havingPropertyValuesByName('color', ['red', 'blue'])->getResults();
 ```
 
-#### Using OR Conditions for Property Values:
+#### Using OR Conditions for Property Values
 
 Applies an OR condition when filtering by multiple property values.
 
@@ -191,13 +191,16 @@ $products = (new ProductSearch())->orHavingPropertyValues($propertyValues->toArr
 
 ### Filtering by Custom Attributes
 
-#### Filtering by Color:
+These custom attributes are standard product fields that must be added through separate migrations.
+They are distinct from the 'properties' feature and do not interact with it.
+
+#### Filtering by Color
 
 ```php
 $products = (new ProductSearch())->where('color', 'red')->getResults();
 ```
 
-#### Filtering by Material:
+#### Filtering by Material
 
 ```php
 $products = (new ProductSearch())->where('material', 'cotton')->getResults();
@@ -681,7 +684,7 @@ The assignment is done with
 This category module has prepared the `model_taxons` table for this purpose and is ready to be used without
 any further database change.
 
-#### Assigning Taxons To A Product:
+#### Assigning Taxons To A Product
 
 ```php
 $product = Product::find(1);
@@ -740,7 +743,7 @@ class Subscriber extends Model
 }
 ```
 
-#### Assigning Taxons To A Subscriber:
+#### Assigning Taxons To A Subscriber
 
 ```php
 $subscriber = Subscriber::find(1);
@@ -753,7 +756,7 @@ $subscriber->taxons()->save($taxon1);
 //To assign multiple taxons:
 $subscriber->taxons()->saveMany([$taxon1, $taxon2]);
 ```
-#### Removing Taxons From A Subscriber:
+#### Removing Taxons From A Subscriber
 
 ```php
 $subscriber = Subscriber::find(1);
