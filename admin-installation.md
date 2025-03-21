@@ -112,7 +112,9 @@ $this->app->concord->registerModel(\Konekt\User\Contracts\User::class, \App\Mode
 
 #### Vite Config
 
-Update the vite.config.js:      
+> If you want to use vite, make sure to upgrade the konekt/appshell package to v4.12+ via composer
+
+Update the vite.config.js:
 
 ```javascript
 import { defineConfig } from 'vite';
@@ -124,7 +126,7 @@ export default defineConfig({
         laravel({
             input: [
                 'resources/js/app.js',
-                'vendor/konekt/appshell/src/resources/assets/js/appshell.standalone.js',
+                'vendor/konekt/appshell/src/resources/assets/js/appshell.standalone.esm.js',
                 'resources/css/app.css',
                 'vendor/konekt/appshell/src/resources/assets/sass/appshell.sass',
             ],
@@ -135,44 +137,18 @@ export default defineConfig({
         alias: {
             '~bootstrap': path.resolve(__dirname, 'node_modules/bootstrap'),
         },
-    },
-    build: {
-        outDir: 'public',
-        rollupOptions: {
-            input: {
-                appJs: 'resources/js/app.js',
-                appshellJs: 'vendor/konekt/appshell/src/resources/assets/js/appshell.standalone.js',
-                appStyles: 'resources/css/app.css',
-                appshellStyles: 'vendor/konekt/appshell/src/resources/assets/sass/appshell.sass',
-            },
-            output: {
-                entryFileNames: ({ name }) => {
-                    if (name === 'appshellJs') {
-                        return 'js/appshell.js';
-                    }
-                    if (name === 'appJs') {
-                        return 'js/app.js'
-                    }
-                    return 'js/[name].js';
-                },
-                chunkFileNames: 'js/[name].js',
-                assetFileNames: ({ name }) => {
-                    if (/^appStyles\.css$/.test(name ?? '')) {
-                        return 'css/app.css';
-                    }
-                    if (/^appshellStyles\.css$/.test(name ?? '')) {
-                        return 'css/appshell.css';
-                    }
-                    if (/\.css$/.test(name ?? '')) {
-                        return 'css/[name].[ext]';
-                    }
-                    return 'assets/[name].[ext]';
-                },
-            },
-        },
-        emptyOutDir: false,
-    },
+    }
 });
+```
+
+Afterward, create the `resources/views/vendor/appshell/layouts/default/_js.blade.php` file in your application with the following content:
+
+```blade
+@vite(['vendor/konekt/appshell/src/resources/assets/js/appshell.standalone.js'])
+
+<style>
+    [x-cloak] { display: none !important; }
+</style>
 ```
 
 #### Laravel Mix
