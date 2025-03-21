@@ -144,7 +144,7 @@ export default defineConfig({
 Afterward, create the `resources/views/vendor/appshell/layouts/default/_js.blade.php` file in your application with the following content:
 
 ```blade
-@vite(['vendor/konekt/appshell/src/resources/assets/js/appshell.standalone.js'])
+@vite(['vendor/konekt/appshell/src/resources/assets/js/appshell.standalone.esm.js'])
 
 <style>
     [x-cloak] { display: none !important; }
