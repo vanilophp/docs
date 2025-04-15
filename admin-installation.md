@@ -187,13 +187,13 @@ Afterward, create the `resources/views/vendor/appshell/layouts/default/_js.blade
 2. Add Admin's CSS To Laravel Mix:    
    ```javascript
    let mix = require('laravel-mix');
-   // webpack.mix.js
+   
    mix.js('resources/js/app.js', 'public/js')
-    // Add these 2 lines:
    .js('vendor/konekt/appshell/src/resources/assets/js/appshell.standalone.js', 'public/js/appshell.js')
    .sass('vendor/konekt/appshell/src/resources/assets/sass/appshell.sass', 'public/css')
-    // Keep this for the "rest" (usually public frontend)
-   .sass('resources/sass/app.scss', 'public/css');
+   .postCss('resources/css/app.css', 'public/css', [
+        require('tailwindcss'),
+    ]);
    ```
 3. Update the postcss.config.file to ensure compatibility with webpack and laravel-mix:      
     ```javascript
