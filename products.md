@@ -2,10 +2,7 @@
 
 ## Creating Products
 
-One of the very few abilities of the admin panel is to create products.
-It should be straightforward enough, so not detailing that part here.
-
-However if you need to create products from code, here are some examples:
+One of the abilities of the admin panel is to create products, but if you need to create products from code, here are some examples:
 
 ### Minimal Product
 
@@ -293,7 +290,7 @@ echo $product->isActive();
 For extending the product model and the product state enum, refer to the
 [models](models.md) and [enums](enums.md) sections, respectively.
 
-##### Meanings of Product States
+#### Meanings of Product States
 
 You may wonder, what do these product states represent, why not just go with an `is_active` flag?
 
@@ -330,7 +327,7 @@ which extends the `HasImages` interface that has 6 image related methods:
 6. `getImageUrls(string $variant = ''): Collection` (since v2.1)
 
 The [support](https://github.com/vanilophp/support) package offers 2 traits for implementing the
-image related functionality of the `Buyable` interface:
+image-related functionality of the `Buyable` interface:
 
 - `BuyableNoImage`: "Null image" trait for products that don't actually have images
 - `HasImagesFromMediaLibrary`: adapter for using images with [Spatie's Laravel Media Library](https://github.com/spatie/laravel-medialibrary)
@@ -367,10 +364,10 @@ If you're using the [Vanilo Framework](modules-vs-framework.md) (and not just th
 it already ships with an extended product model (`Vanilo\Framework\Models\Product`) with image
 support via Spatie Media Library.
 
-> Refer to the [Spatie Media Library Documentation](https://docs.spatie.be/laravel-medialibrary/v9/introduction),
+> Refer to the [Spatie Media Library Documentation](https://docs.spatie.be/laravel-medialibrary/v11/introduction),
 > to discover all the possibilities.
 
-#### Add Multiple Product Images
+### Add Multiple Product Images
 
 ```php
 // Example: in a controller action
@@ -386,7 +383,7 @@ public function store(Request $request)
 }
 ```
 
-#### Define Image Variants
+### Define Image Variants
 
 For more details about Vanilo Image handling, refer to the [Handling Images](images.md) section of
 this Documentation.
