@@ -181,6 +181,131 @@ the interpretation of the built-in states, and how they can possibly be handled:
 | `unavailable` | The product is **temporarily** unavailable; due to supplier issues, legal reasons, quality problems, production blockages or any other reason that prevents the product from being ordered and shipped | Display it on the StoreFront, but disallow new orders                                                                 |
 | `retired`     | The product is **permanently** unavailable and will never come back to the product range                                                                                                               | Do not list it on the StoreFront, but allow opening it when directly accessing its product link. Disallow new orders. |
 
+## Searching Products
+
+The `ProductSearch` class provides a way to retrieve products and master products together, based on various criteria like
+name, slug, taxons, channels, price ranges, and other attributes.
+
+### Finding Products by Name
+
+#### Partial Match
+
+This will return products and master products that contain "Shiny Glue" in their name.
+
+```php
+$finder = new ProductSearch();
+$result = $finder->nameContains('Shiny Glue')->getResults();
+```
+
+#### Starts With
+
+Finds products and master products whose names start with "Mature", such as "Matured Cheese" or "Mature People".
+
+```php
+$finder = new ProductSearch();
+$result = $finder->nameStartsWith('Mature')->getResults();
+```
+
+#### Ends With
+
+Finds products and master products where the name ends with "Transformator", such as "Bobinated Transformator".
+
+```php
+$finder = new ProductSearch();
+$result = $finder->nameEndsWith('Transformator')->getResults();
+```
+
+### Finding Products by Slug
+
+Returns a single product/master product with the exact matching slug, or null if not found:
+
+```php
+$product = ProductSearch::findBySlug('nintendo-todd-20cm-plush');
+```
+
+The find by slug method has a variant that throws a `ModelNotFoundException` if the product is not found.
+
+```php
+use Illuminate\Database\Eloquent\ModelNotFoundException;
+
+try {
+    $product = ProductSearch::findBySlugOrFail('non-existent-slug');
+} catch (ModelNotFoundException $e) {
+    // Handle case where the product is not found
+}
+```
+
+### Filtering Products
+
+#### By Taxon
+
+```php
+use Vanilo\Category\Models\Taxon;
+
+$taxon = Taxon::find(1);
+$products = (new ProductSearch())->withinTaxon($taxon)->getResults();
+```
+
+#### By Channel
+
+```php
+use Vanilo\Channel\Models\Channel;
+
+$channel = Channel::find(1);
+$products = (new ProductSearch())->withinChannel($channel)->getResults();
+```
+
+#### By Price Range
+
+```php
+$products = (new ProductSearch())->priceBetween(100, 500)->getResults();
+```
+
+### Filtering by Property Values
+
+#### By Single Property Value
+
+Filters products that have a specific property value.
+
+```php
+use App\Models\PropertyValue;
+
+$propertyValue = PropertyValue::find(1);
+$products = (new ProductSearch())->havingPropertyValue($propertyValue)->getResults();
+```
+
+#### By Multiple Property Values
+
+Filters products that match multiple property values.
+
+```php
+$propertyValues = PropertyValue::whereIn('id', [1, 2, 3])->get();
+$products = (new ProductSearch())->havingPropertyValues($propertyValues->toArray())->getResults();
+```
+
+#### By Property Name and Values
+
+Filters products by a property name and its corresponding values.
+
+```php
+$products = (new ProductSearch())->havingPropertyValuesByName('color', ['red', 'blue'])->getResults();
+```
+
+#### Using OR Conditions for Property Values
+
+Applies an OR condition when filtering by multiple property values.
+
+```php
+$red = PropertyValue::findByPropertyAndValue('color', 'red');
+$pink = PropertyValue::findByPropertyAndValue('covercolor', 'ping');
+
+$searcher = new ProductSearch();
+$redOrPinkProducts = $searcher
+                        ->havingPropertyValues($propertyValues->toArray())
+                        ->orHavingPropertyValues($propertyValues->toArray())
+                        ->getResults();
+```
+
 ## Product Images
 
 > Refer to the [Modules vs. Framework](modules-vs-framework.md) page for understanding the
