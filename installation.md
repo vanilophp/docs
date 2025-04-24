@@ -21,7 +21,7 @@ composer create-project --prefer-dist laravel/laravel vaniloapp ^11.0
 cd vaniloapp
 
 # Install the vanilo package:
-composer require vanilo/framework ^4.0
+composer require vanilo/framework
 
 # Publish module loader config:
 php artisan vendor:publish --provider="Konekt\Concord\ConcordServiceProvider" --tag=config
@@ -48,28 +48,29 @@ The following [Concord](concord.md) modules should be installed now:
 | #   | Name                         | Kind   | Version | Id                    | Namespace            |
 +-----+------------------------------+--------+---------+-----------------------+----------------------+
 | 1.  | Konekt User Module           | Module | 3.0.0   | konekt.user           | Konekt\User          |
-| 2.  | Konekt Address Module        | Module | 3.3.1   | konekt.address        | Konekt\Address       |
-| 3.  | Konekt Customer Module       | Module | 3.0.0   | konekt.customer       | Konekt\Customer      |
-| 4.  | Vanilo Adjustments Module    | Module | 4.0.0   | vanilo.adjustments    | Vanilo\Adjustments   |
-| 5.  | Vanilo Category Module       | Module | 4.0.0   | vanilo.category       | Vanilo\Category      |
-| 6.  | Vanilo Product Module        | Module | 4.0.0   | vanilo.product        | Vanilo\Product       |
-| 7.  | Vanilo Properties Module     | Module | 4.0.0   | vanilo.properties     | Vanilo\Properties    |
-| 8.  | Vanilo Channel Module        | Module | 4.0.0   | vanilo.channel        | Vanilo\Channel       |
-| 9.  | Vanilo Cart Module           | Module | 4.0.0   | vanilo.cart           | Vanilo\Cart          |
-| 10. | Vanilo Checkout Module       | Module | 4.0.0   | vanilo.checkout       | Vanilo\Checkout      |
-| 11. | Vanilo Order Module          | Module | 4.0.0   | vanilo.order          | Vanilo\Order         |
-| 12. | Vanilo Payment Module        | Module | 4.0.0   | vanilo.payment        | Vanilo\Payment       |
-| 13. | Vanilo Links Module          | Module | 4.0.0   | vanilo.links          | Vanilo\Links         |
-| 14. | Vanilo Master Product Module | Module | 4.0.0   | vanilo.master_product | Vanilo\MasterProduct |
-| 15. | Vanilo Shipment Module       | Module | 4.0.0   | vanilo.shipment       | Vanilo\Shipment      |
-| 16. | Vanilo Taxes Module          | Module | 4.0.0   | vanilo.taxes          | Vanilo\Taxes         |
-| 17. | Vanilo Foundation            | Box    | 4.0.1   | vanilo.foundation     | Vanilo\Foundation    |
+| 2.  | Konekt Address Module        | Module | 3.4.1   | konekt.address        | Konekt\Address       |
+| 3.  | Konekt Customer Module       | Module | 3.2.0   | konekt.customer       | Konekt\Customer      |
+| 4.  | Vanilo Adjustments Module    | Module | 4.2.0   | vanilo.adjustments    | Vanilo\Adjustments   |
+| 5.  | Vanilo Category Module       | Module | 4.2.0   | vanilo.category       | Vanilo\Category      |
+| 6.  | Vanilo Product Module        | Module | 4.2.0   | vanilo.product        | Vanilo\Product       |
+| 7.  | Vanilo Properties Module     | Module | 4.2.0   | vanilo.properties     | Vanilo\Properties    |
+| 8.  | Vanilo Channel Module        | Module | 4.2.0   | vanilo.channel        | Vanilo\Channel       |
+| 9.  | Vanilo Cart Module           | Module | 4.2.0   | vanilo.cart           | Vanilo\Cart          |
+| 10. | Vanilo Checkout Module       | Module | 4.2.0   | vanilo.checkout       | Vanilo\Checkout      |
+| 11. | Vanilo Order Module          | Module | 4.2.0   | vanilo.order          | Vanilo\Order         |
+| 12. | Vanilo Payment Module        | Module | 4.2.0   | vanilo.payment        | Vanilo\Payment       |
+| 13. | Vanilo Links Module          | Module | 4.2.0   | vanilo.links          | Vanilo\Links         |
+| 14. | Vanilo Master Product Module | Module | 4.2.0   | vanilo.master_product | Vanilo\MasterProduct |
+| 15. | Vanilo Shipment Module       | Module | 4.2.0   | vanilo.shipment       | Vanilo\Shipment      |
+| 16. | Vanilo Taxes Module          | Module | 4.2.0   | vanilo.taxes          | Vanilo\Taxes         |
+| 17. | Vanilo Promotion Module      | Module | 4.2.0   | vanilo.promotion      | Vanilo\Promotion     |
+| 18. | Vanilo Foundation            | Box    | 4.2.0   | vanilo.foundation     | Vanilo\Foundation    |
 +-----+------------------------------+--------+---------+-----------------------+----------------------+
 ```
 
 Configure `.env`, along with a database. (Also create the db if necessary)
 
-Afterwards run the migrations:
+Afterward, run the migrations:
 
 ```bash
 php artisan migrate
@@ -165,3 +166,12 @@ And add this to you `AppServiceProviders`'s boot method:
 
    $this->app->concord->registerModel(\Konekt\User\Contracts\User::class, \App\Models\User::class);
 ```
+
+## Next Steps
+
+Now you have installed the Vanilo Framework, you can start building the application.
+Please note that Vanilo comes with no frontend or routes out of the box. As a reference here are a few tips where to
+continue:
+
+1. Install the optional [Admin Panel](/docs/{{version}}/admin-installation)
+2. Check the sample vanilo application on Github to see how to build the StoreFront: https://github.com/vanilophp/demo

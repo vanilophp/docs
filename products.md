@@ -1,7 +1,5 @@
 # Products
 
-> To  
-
 ## Creating Products
 
 One of the very few abilities of the admin panel is to create products.
@@ -316,6 +314,22 @@ echo $product->isActive();
 
 For extending the product model and the product state enum, refer to the
 [models](models.md) and [enums](enums.md) sections, respectively.
+
+##### Meanings of Product States
+
+You may wonder, what do these product states represent, why not just go with an `is_active` flag?
+
+The answer is that in many ecommerce businesses products may go through different lifecycle stages,
+which need slightly different handling. Vanilo doesn't enforce any workflow for this, but here's
+the interpretation of the built-in states, and how they can possibly be handled:
+
+| State         | Meaning                                                                                                                                                                                                | Common way of handling the state                                                                                      |
+|---------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------|
+| `draft`       | The product data is incomplete                                                                                                                                                                         | Never display it on the StoreFront, do not allow it in any transaction, but allow editing in Admin                    |
+| `inactive`    | The product data is complete but has not been published yet                                                                                                                                            | Hide from the StoreFront, eventually allow in transactions; eg. backorders, early closed-group sales, etc             |
+| `active`      | The product is active                                                                                                                                                                                  | Make it available everywhere                                                                                          |
+| `unavailable` | The product is **temporarily** unavailable; due to supplier issues, legal reasons, quality problems, production blockages or any other reason that prevents the product from being ordered and shipped | Display it on the StoreFront, but disallow new orders                                                                 |
+| `retired`     | The product is **permanently** unavailable and will never come back to the product range                                                                                                               | Do not list it on the StoreFront, but allow opening it when directly accessing its product link. Disallow new orders. |
 
 ## Product Images
 

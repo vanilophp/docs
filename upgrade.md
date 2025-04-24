@@ -1,61 +1,77 @@
 # Upgrade Between Versions
 
 > For older upgrade guides see:
+> - [Upgrade Guide v2.x -> v3.x](upgrade-v3.md)
 > - [Upgrade Guide v1.x -> v2.x](upgrade-v2.md)
 > - [Upgrade Guide v0.2 -> v1.2](upgrade-v1.md)
 
-## 2.2 -> 3.0
+## 3.x -> 4.0
 
-### Checklist
+This guide describes how to upgrade an existing Laravel application that uses version 3.x of the Vanilo framework
+or Vanilo components to v4.
 
-- [ ] Update PHP & Laravel
-- [ ] Update Interfaces
-- [ ] Namespace changes
-- [ ] Configuration changes
-- [ ] Add Admin Panel if still needed
+For the complete list of changes see the [Changelog of Vanilo v4.0](https://vanilo.io/docs/4.x/releases#400)
 
-###  PHP & Laravel Requirement Changes
+###  PHP & Laravel Requirements
 
-| Vanilo Version | Components              | Framework               |
-|:---------------|:------------------------|:------------------------|
-| 3.0            | PHP 8.0+ & Laravel 9.0+ | PHP 8.0+ & Laravel 9.0+ |
+Vanilo requires the following PHP & Laravel versions:
 
-**Your Action Item**: Upgrade Laravel & PHP if necessary, bump minimum requirements in your
-project's `composer.json` file.
+| Vanilo        | PHP        | Laravel               |
+|:--------------|:-----------|:----------------------|
+| 4.0           | 8.2 or 8.3 | 10.43 - 10.48 or 11.x |
 
-### PHP Interface Changes
+If your Laravel version is lower than 10.43, then you'll have to upgrade Laravel in your application.
 
-Several interfaces have been updated to define return types on the language level.
+See the:
 
-**Affected Classes**:
+- [Laravel 10 Upgrade Guide](https://laravel.com/docs/11.x/upgrade), or the
+- [Laravel 11 Upgrade Guide](https://laravel.com/docs/11.x/upgrade) for more details.
 
-- `Vanilo\Contracts\Buyable`: [difference](https://github.com/vanilophp/contracts/compare/2.2.0..3.0.0#diff-15363a836d8e421476c2b96ea27ab54febb6514ea4bb55a30ae6d9b1bf67dc1b)
-- `Vanilo\Contracts\Shippable`: [difference](https://github.com/vanilophp/contracts/compare/2.2.0..3.0.0#diff-d8c30c79796da48bd30347ee36801809b50640bc4c0f2cf3574bdc016ae2da1c)
-- `Vanilo\Properties\Contracts\Property`: [difference](https://github.com/vanilophp/properties/compare/2.2.0..3.0.0#diff-b98cc22a0a24216c1a1e9310ea3714cdaf9f1a0a163f5cc732fa52e28df5aa7a)
+### Upgrade Vanilo
 
-**Your Action Item**: Search your application for classes that directly implement these interfaces, and
-updated them to match the new signatures.
+Change the requirements of the Vanilo packages your project uses in your `composer.json` file:
 
-### Namespace Changes
+- vanilo/framework: `^4.0` (same applies to all standalone modules like `cart`, `order`, `products`, etc)
+- vanilo/admin: `^4.0`
 
-The `Vanilo\Framework` namespace has been renamed to `Vanilo\Foundation`.
-A namespace alias has been created for compatibility, but this will be dropped in the future.
+Afterwards, run:
 
-**Your Action Item**: Search your application for classes that use classes from the `Vanilo\Framework`
-namespace and replace `Framework` with `Foundation` in the use clause or in the class name.
+```php
+composer update -W 'vanilo/*'
+```
 
-Mind renaming the namespace in `config/concord.php`.
+### Payment Gateway Drivers
 
-The `Vanilo\Foundation\Models\PaymentMethod` class has been removed. Use `Vanilo\Payment\Models\PaymentMethod` instead.
+If your application is using any of the Paypal, Adyen, Braintree, Mollie, Euplatesc or Netopia modules,
+you will need to upgrade their versions to your application.
 
-### Configuration Path Changes
+Vanilo 4 requires the following versions of the payment gateway drivers:
 
-The `vanilo.framework.*` config values have been renamed to `vanilo.foundation.*`.
+- vanilo/paypal: `^2.0`
+- vanilo/adyen: `^3.0`
+- vanilo/braintree: `^2.0`
+- vanilo/mollie: `^2.0`
+- vanilo/netopia: `^3.0`
+- vanilo/euplatesc: `^4.0`
 
-**Your Action Item**: Search your application for occurrences where it refers to
-`vanilo.framework.*` keys and replace them with `vanilo.foundation.*`
+### Interface Changes
 
-### Add Admin Panel If Needed
+If you're implementing custom classes of the Vanilo interfaces in your application, then you may need to
+adjust your code to comply with the changes introduced in Vanilo 4.
 
-The admin panel has been removed from the Vanilo core framework. If you still need it,
-add it back to your application's dependencies using: `composer require vanilo/admin`
+For the complete list of breaking changes see the [Vanilo 4 Changelog](https://vanilo.io/docs/4.x/releases#400)
+and look for the lines that start with "BC:". (BC = Breaking Changes).
+
+### Admin Upgrade
+
+In an existing project run `composer req vanilo/admin:^4.0 konekt/appshell:^4.0`
+
+#### Admin Frontend
+
+The v4 Admin's frontend has been upgraded to Bootstrap 5.3.
+If you have an existing Laravel mix-based installation, run the following commands to upgrade the packages:
+
+```bash
+npm install bootstrap@5.3
+npm install @popperjs/core --save
+```

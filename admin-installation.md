@@ -9,7 +9,7 @@ Beginning with v3.x, the Admin has been extracted from the Framework, and now it
 The Admin package can be installed using composer:
 
 1. First, [install the Vanilo Framework](/docs/{{version}}/installation)
-2. `composer req vanilo/admin ^3.0`
+2. `composer req vanilo/admin '^4.0'`
 3. Edit `config/concord.php` and add this content under the **modules** key:
    ```php
     'modules' => [
@@ -24,23 +24,14 @@ The Admin package can be installed using composer:
     ],
    ```
 4. Make sure you have [Laravel Authentication](https://laravel.com/docs/10.x/authentication) set up in the target application, eg. using Laravel Breeze.
-5. Set up the user model (see instructions below)
+5. Set up the [user model](#setting-up-the-user-model) (see instructions below)
 6. Create an admin user: `php artisan make:superuser`
-7. Add Admin's CSS To Laravel Mix:
-   ```javascript
-   // webpack.mix.js
-   mix.js('resources/js/app.js', 'public/js')
-    // Add these 2 lines:
-   .js('vendor/konekt/appshell/src/resources/assets/js/appshell.standalone.js', 'public/js/appshell.js')
-   .sass('vendor/konekt/appshell/src/resources/assets/sass/appshell.sass', 'public/css')
-    // Keep this for the "rest" (usually public frontend)
-   .sass('resources/sass/app.scss', 'public/css');
-   ```
-8. Install the following npm packages: 
+7. Install the following npm packages: 
    ```bash
-   npm add bootstrap@4.6 jquery alpinejs@3.10 popper.js
+   npm add bootstrap@5.3 alpinejs@3.10 popper.js
    ```
-9. Compile the assets with mix: `npm run dev`
+8. Configure the frontend [build tools](#frontend-build)
+9. Compile the assets: `npm run dev`
 
 ### Setting Up The User Model
 
@@ -116,3 +107,118 @@ And add this to you `AppServiceProviders`'s boot method:
 // app/Providers/AppServiceProvider.php
 $this->app->concord->registerModel(\Konekt\User\Contracts\User::class, \App\Models\User::class);
 ```
+
+### Frontend Build
+
+#### Vite Config
+
+> If you want to use vite, make sure to upgrade the konekt/appshell package to v4.12+ via composer
+
+Update the vite.config.js:
+
+```javascript
+import { defineConfig } from 'vite';
+import laravel from 'laravel-vite-plugin';
+import path from 'path';
+import fs from 'fs';
+import { join } from 'path';
+
+function createCssDirPlugin() {
+    return {
+        name: 'create-css-dir',
+        buildEnd() {
+            const cssDir = join('public', 'css');
+            if (!fs.existsSync(cssDir)) {
+                fs.mkdirSync(cssDir, { recursive: true });
+            }
+        }
+    };
+}
+
+export default defineConfig({
+    plugins: [
+        laravel({
+            input: [
+                'resources/js/app.js',
+                'vendor/konekt/appshell/src/resources/assets/js/appshell.standalone.esm.js',
+                'resources/css/app.css',
+                'vendor/konekt/appshell/src/resources/assets/sass/appshell.sass',
+            ],
+            refresh: true,
+        }),
+        createCssDirPlugin()
+    ],
+    resolve: {
+        alias: {
+            '~bootstrap': path.resolve(__dirname, 'node_modules/bootstrap'),
+        },
+    },
+    build: {
+        outDir: 'public',
+        rollupOptions: {
+            output: {
+                assetFileNames: (assetInfo) => {
+                    if (assetInfo.name === 'appshell.css') {
+                        return 'css/appshell.css';
+                    }
+
+                    return 'assets/[name]-[hash][extname]';
+                },
+            },
+        },
+        emptyOutDir: false,
+    },
+});
+```
+
+Afterward, create the `resources/views/vendor/appshell/layouts/default/_js.blade.php` file in your application with the following content:
+
+```blade
+@vite(['vendor/konekt/appshell/src/resources/assets/js/appshell.standalone.esm.js'])
+
+<style>
+    [x-cloak] { display: none !important; }
+</style>
+```
+
+#### Laravel Mix
+
+1. Install [Laravel Mix](https://laravel-mix.com/docs/6.0/installation)
+2. Add Admin's CSS To Laravel Mix:    
+   ```javascript
+   let mix = require('laravel-mix');
+   
+   mix.js('resources/js/app.js', 'public/js')
+   .js('vendor/konekt/appshell/src/resources/assets/js/appshell.standalone.js', 'public/js/appshell.js')
+   .sass('vendor/konekt/appshell/src/resources/assets/sass/appshell.sass', 'public/css')
+   .postCss('resources/css/app.css', 'public/css', [
+        require('tailwindcss'),
+    ]);
+   ```
+3. Update the postcss.config.file to ensure compatibility with webpack and laravel-mix:      
+    ```javascript
+    // From
+    export default {
+        plugins: {
+            tailwindcss: {},
+            autoprefixer: {},
+        },
+    };
+    
+    // To
+    module.exports = {
+        plugins: [
+            require('autoprefixer')()
+        ]
+    }
+    ```
+4. Update the package.json file:  
+   If the type field is present either remove it, or rename to "commonjs"    
+    ```json
+    {
+      "type": "module", 
+      "scripts": {
+        "dev": "mix"
+      }
+    }
+    ```
