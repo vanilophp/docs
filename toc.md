@@ -33,6 +33,7 @@
     - [Adjustments](/docs/{{version}}/adjustments)
     - [Taxes](/docs/{{version}}/taxes)
     - [Promotions](/docs/{{version}}/promotions)
+    - [Translations](/docs/{{version}}/translations)
 - Admin
     - [Basics](/docs/{{version}}/admin-basics)
     - [Installation](/docs/{{version}}/admin-installation)
