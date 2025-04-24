@@ -53,11 +53,12 @@ Product::create([
 
 ## Searching Products
 
-The `ProductSearch` class provides a way to search for products and master products based on various criteria. The `ProductSearch` class enables filtering by name, slug, taxons, channels, price ranges, and other attributes.
+The `ProductSearch` class provides a way to retrieve products and master products together, based on various criteria like
+name, slug, taxons, channels, price ranges, and other attributes.
 
 ### Finding Products by Name
 
-#### Exact Match
+#### Partial Match
 
 This will return products and master products that contain "Shiny Glue" in their name.
 
@@ -84,28 +85,15 @@ $finder = new ProductSearch();
 $result = $finder->nameEndsWith('Transformator')->getResults();
 ```
 
-#### Multiple Matches
-
-Returns multiple products and master products containing "Mandarin" in their names.
-
-```php
-$finder = new ProductSearch();
-$products = $finder->nameContains('Mandarin')->getResults();
-```
-
 ### Finding Products by Slug
 
-#### Exact Slug Match
-
-Returns the product with the exact matching slug.
+Returns a single product/master product with the exact matching slug, or null if not found:
 
 ```php
 $product = ProductSearch::findBySlug('nintendo-todd-20cm-plush');
 ```
 
-#### Slug with Exception Handling
-
-Throws a `ModelNotFoundException` if the product is not found.
+The find by slug method has a variant that throws a `ModelNotFoundException` if the product is not found.
 
 ```php
 use Illuminate\Database\Eloquent\ModelNotFoundException;
@@ -113,7 +101,7 @@ use Illuminate\Database\Eloquent\ModelNotFoundException;
 try {
     $product = ProductSearch::findBySlugOrFail('non-existent-slug');
 } catch (ModelNotFoundException $e) {
-    // Handle case where product is not found
+    // Handle case where the product is not found
 }
 ```
 
@@ -178,24 +166,14 @@ $products = (new ProductSearch())->havingPropertyValuesByName('color', ['red', '
 Applies an OR condition when filtering by multiple property values.
 
 ```php
-$products = (new ProductSearch())->orHavingPropertyValues($propertyValues->toArray())->getResults();
-```
+$red = PropertyValue::findByPropertyAndValue('color', 'red');
+$pink = PropertyValue::findByPropertyAndValue('covercolor', 'ping');
 
-### Filtering by Custom Attributes
-
-These custom attributes are standard product fields that must be added through separate migrations.
-They are distinct from the 'properties' feature and do not interact with it.
-
-#### Filtering by Color
-
-```php
-$products = (new ProductSearch())->where('color', 'red')->getResults();
-```
-
-#### Filtering by Material
-
-```php
-$products = (new ProductSearch())->where('material', 'cotton')->getResults();
+$searcher = new ProductSearch();
+$redOrPinkProducts = $searcher
+                        ->havingPropertyValues($propertyValues->toArray())
+                        ->orHavingPropertyValues($propertyValues->toArray())
+                        ->getResults();
 ```
 
 ## Fields
