@@ -195,28 +195,21 @@ Customers can enter coupon codes during checkout. The system will:
 
 ## Best Practices
 
-1. **Priority Management**
+1. Priority Management
    - Use higher priority numbers for more important promotions
    - Set exclusive promotions carefully to avoid conflicts
-
-2. **Usage Limits**
+2. Usage Limits
    - Set appropriate usage limits to control promotion costs
    - Consider per-customer limits for personalized offers
-
-3. **Validity Periods**
+3. Validity Periods
    - Set clear start and end dates for time-sensitive promotions
    - Monitor usage to adjust limits if needed
-
-4. **Rule Combinations**
+4. Rule Combinations
    - Combine rules to create targeted promotions
    - Test rule combinations to ensure they work as intended
-
-5. **Action Stacking**
+5. Action Stacking
    - Be mindful of how multiple actions interact
    - Consider the order of operations when combining different types of discounts
-
-
----
 
 ## Extending the System
 
