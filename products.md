@@ -297,13 +297,13 @@ Applies an OR condition when filtering by multiple property values.
 
 ```php
 $red = PropertyValue::findByPropertyAndValue('color', 'red');
-$pink = PropertyValue::findByPropertyAndValue('covercolor', 'ping');
+$pink = PropertyValue::findByPropertyAndValue('covercolor', 'pink');
 
 $searcher = new ProductSearch();
 $redOrPinkProducts = $searcher
-                        ->havingPropertyValues($propertyValues->toArray())
-                        ->orHavingPropertyValues($propertyValues->toArray())
-                        ->getResults();
+    ->havingPropertyValues($propertyValues->toArray())
+    ->orHavingPropertyValues($propertyValues->toArray())
+    ->getResults();
 ```
 
 ## Product Images
