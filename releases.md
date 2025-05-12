@@ -2,6 +2,11 @@
 
 > For upcoming releases refer to the [Roadmap](roadmap.md).
 
+## 4.2.1
+##### 2025-05-12
+
+- Improved PHP 8.4 compatibility by [Oli Mortimer](https://github.com/olimortimer) in [#202](https://github.com/vanilophp/framework/pull/202)
+
 ## 4.2.0
 ##### 2024-12-14
 
