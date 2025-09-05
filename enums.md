@@ -6,8 +6,6 @@ Vanilo uses enums for quite several occasions using the
 are first class citizens in Concord in order to enable
 applications to customize them.
 
-> As of Vanilo v3.1, **Enum v3.1.1** is supported. _Enum v4 support is planned for Vanilo v4.x._
-
 ## What's An Enum?
 
 Enums are handy when a variable (especially a method parameter) can only
@@ -45,7 +43,7 @@ echo $status->isPending(); // <- one of the nice enum features
 ## Enums As Model Fields
 
 Similarly to Laravel's
-[attribute casting](https://laravel.com/docs/10.x/eloquent-mutators#attribute-casting)
+[attribute casting](https://laravel.com/docs/12.x/eloquent-mutators#attribute-casting)
 feature, eloquent model fields can automatically be casted to-from
 enums, using the
 [enum-eloquent](https://github.com/artkonekt/enum-eloquent) library.

@@ -2,6 +2,74 @@
 
 > For upcoming releases refer to the [Roadmap](roadmap.md).
 
+## 5.0.0
+##### 2025-09-03
+
+- Dropped PHP 8.2 Support
+- Changed the minimum Laravel 10 version to v10.48
+- Added Laravel 12 Support
+- BC: Added the `getBuyable()` method to the `OrderItem` interface
+- BC: Added the `addSubItem()`, `getRootItems()` and `getState()` methods to the Cart interface
+- BC: Added the `$forceNewItem` (default false) parameter to the `Cart::addItem()` method
+- BC: Added the following methods to the CartItem interface:
+    - `hasParent()`
+    - `getParent()`
+    - `hasChildItems()`
+    - `getChildItems()`
+- BC: Added the `getOriginalPrice()` and `hasAHigherOriginalPrice()` methods to the Buyable interface
+- BC: Added the `isShippable()` method to the `CheckoutSubjectItem` interface
+- BC: Added the `getShippableItems()` method to the `CheckoutSubject` interface
+- BC: Added the `getName()` method to the `Carrier` interface
+- BC: Added the following methods to the `ShippingMethod` interface:
+    - `hasShippingCategory()`
+    - `getShippingCategory()`
+    - `getShippingCategoryMatchingCondition()`
+- BC: Added the following methods to the `ProductState` interface:
+    - `isListable()`
+    - `isViewable()`
+    - `isBuyable()`
+    - `isInScope()`
+    - `getListableStates()`
+    - `getViewableStates()`
+    - `getBuyableStates()`
+    - `getStatesOfScope()`
+- Added the `unlisted` product state
+- Added the `ProductAvailabilityScope` enum class with `listing`, `viewing` and `buying` values
+- Added the `gtin` field to the products and master product variants tables
+- Fixed the missing float cast of the order item's price field
+- Fixed PHP 8.4 deprecation notices
+- Added support for calculating item-level promotions on checkout
+- Added ETA fields to Shipping Methods
+- Added Shipping Categories
+- Added shipping category and matching condition fields to the shipping methods table
+- Added a customizable Shipping Method eligibility checker class
+- Added the Order::inChannel() scope (Foundation)
+- Added the Video module
+- Added the Translation module
+- Added the `HasVideos` trait to the `Product`, `MasterProduct`, `MasterProductVariant`, `Taxon` and `Taxonomy` models in the Foundation module
+- Added the possibility to extend the `Features` helper
+- Added the MultiLanguage feature configuration wrapper
+- Added the `StaggeredDiscount` promotion action type
+- Added the `Sale` and `SaleItem` interfaces to the contracts module
+- Changed the `Order` and `OrderItem` interfaces to extend the new `Sale` and `SaleItem` interfaces from the contracts module
+- Changed the TimeHash order number generator to use uppercase by default
+- Added the `extra_digit` flag to the Time Hash generator that created 4+4+4 char number (eg. "77IG-13T3-5FH9") instead of 3+4+4 ones (eg. "77I-13TX-C002")
+- Fixed issue where the `linkable` pointed to a missing product thus returning null
+- Added the following methods to the `ProductSearch` class:
+    - `excludingSkus()`
+    - `forListing()` - static factory method that initializes with a `listable` global scope
+    - `forViewing()` - static factory method that initializes with a `viewable` global scope
+    - `forBuying()` - static factory method that initializes with a `buyable` global scope
+- Added SubItem support to the cart items
+- Added SubItem support to the order items
+- Added the `items.shippable_by_default` configuration option (default: null) which is used to determine whether a cart item is shippable or not by default
+- Added the dual-field logic + Enum conversion to the MasterProductVariant model's `state` field
+- Fixed linked products retrieval: linked products with the same ID but a different type are now returned correctly
+- Removed the enum constraint from the `product.state` database field
+- Marked the `Carrier::name()` method as deprecated in favor of the `getName()` method
+
+---
+
 ## 4.2.1
 ##### 2025-05-12
 

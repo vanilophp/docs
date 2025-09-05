@@ -1,8 +1,8 @@
 # Vanilo Admin Installation
 
-The Vanilo Admin package used to be the part of the vanilo/framework package in versions 0.x, 1.x and 2.x.
-
-Beginning with v3.x, the Admin has been extracted from the Framework, and now it is optional.
+> 🛈 The Vanilo Admin package used to be the part of the vanilo/framework package in versions 0.x, 1.x and 2.x.
+> 
+> Beginning with v3.x, the Admin has been extracted from the Framework, and now it is optional.
 
 ## Installation
 
@@ -23,7 +23,8 @@ The Admin package can be installed using composer:
         Vanilo\Admin\Providers\ModuleServiceProvider::class,  
     ],
    ```
-4. Make sure you have [Laravel Authentication](https://laravel.com/docs/10.x/authentication) set up in the target application, eg. using Laravel Breeze.
+4. Run `php artisan migrate`
+5. If you haven't yet done so, set up [Laravel Authentication](https://laravel.com/docs/12.x/authentication) in the application, eg. using Laravel Breeze.
 5. Set up the [user model](#setting-up-the-user-model) (see instructions below)
 6. Create an admin user: `php artisan make:superuser`
 7. Install the following npm packages: 
@@ -181,6 +182,11 @@ Afterward, create the `resources/views/vendor/appshell/layouts/default/_js.blade
 </style>
 ```
 
+Run the following commands:
+
+- `npm install -D sass-embedded`
+- `npm run build`
+
 #### Laravel Mix
 
 1. Install [Laravel Mix](https://laravel-mix.com/docs/6.0/installation)
@@ -213,7 +219,7 @@ Afterward, create the `resources/views/vendor/appshell/layouts/default/_js.blade
     }
     ```
 4. Update the package.json file:  
-   If the type field is present either remove it, or rename to "commonjs"    
+   If the type field is present, either remove it or rename it to "commonjs"    
     ```json
     {
       "type": "module", 

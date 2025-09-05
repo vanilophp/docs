@@ -261,7 +261,7 @@ PropertyValue::create(['title' => '32GB', 'priority' => 30]);
 
 There are two options to work with the sorted values:
 
-1. Use the [scopes](https://laravel.com/docs/10.x/eloquent#local-scopes) directly,
+1. Use the [scopes](https://laravel.com/docs/12.x/eloquent#local-scopes) directly,
 2. Use the `$property->values()` method, which gives a sorted collection of property values
 
 ### Sorting Scopes
@@ -396,9 +396,9 @@ $event->removePropertyValue($isOnline);
 ### Synchronizing Multiple Values At Once
 
 Under the hood, the `$model->propertyValues()` method is a
-[MorphToMany](https://laravel.com/docs/10.x/eloquent-relationships#many-to-many-polymorphic-relations)
+[MorphToMany](https://laravel.com/docs/12.x/eloquent-relationships#many-to-many-polymorphic-relations)
 relation, therefore multiple values can be
-[synchronized](https://laravel.com/docs/10.x/eloquent-relationships#syncing-associations):
+[synchronized](https://laravel.com/docs/12.x/eloquent-relationships#syncing-associations):
 
 It means, the low level sync() method can be called on it:
 
