@@ -55,12 +55,12 @@ you will need to upgrade their versions to your application.
 
 Vanilo 5 requires the following versions of the payment gateway drivers:
 
-- vanilo/paypal: `^2.0`
-- vanilo/adyen: `^3.0`
-- vanilo/braintree: `^2.0`
-- vanilo/mollie: `^2.0`
-- vanilo/netopia: `^3.0`
-- vanilo/euplatesc: `^4.0`
+- vanilo/paypal: `^3.0`
+- vanilo/adyen: `^4.0`
+- vanilo/braintree: `^3.0`
+- vanilo/mollie: `^3.0`
+- vanilo/netopia: `^4.0`
+- vanilo/euplatesc: `^5.0`
 
 ### Interface Changes
 
