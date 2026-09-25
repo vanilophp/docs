@@ -3,7 +3,7 @@
 > For upcoming releases refer to the [Roadmap](roadmap.md).
 
 ## 6.0.0
-##### 2025-09-03
+##### 2026-09-25
 
 - Dropped PHP 8.3 support
 - Dropped Laravel 10 & 11 support
