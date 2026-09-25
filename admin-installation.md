@@ -24,7 +24,7 @@ The Admin package can be installed using composer:
     ],
    ```
 4. Run `php artisan migrate`
-5. If you haven't yet done so, set up [Laravel Authentication](https://laravel.com/docs/12.x/authentication) in the application, eg. using Laravel Breeze.
+5. If you haven't yet done so, set up [Laravel Authentication](https://laravel.com/docs/13.x/authentication) in the application, eg. using Laravel Breeze.
 5. Set up the [user model](#setting-up-the-user-model) (see instructions below)
 6. Create an admin user: `php artisan make:superuser`
 7. Install the following npm packages: 

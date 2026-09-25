@@ -9,10 +9,9 @@ This page contains the planned upcoming features and changes in their foreseeabl
 > in priority order
 
 - Standalone, ready-to-use Application
-- Configurable Order Workflow
 - Customer Groups
 - Multi-language support (partially implemented)
-- Multi-currency support
+- Configurable Order Workflow
 
 ## Unscheduled
 
