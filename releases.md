@@ -2,6 +2,54 @@
 
 > For upcoming releases refer to the [Roadmap](roadmap.md).
 
+## 6.0.0
+##### 2025-09-03
+
+- Dropped PHP 8.3 support
+- Dropped Laravel 10 & 11 support
+- Changed the minimum Laravel 12 version to v12.61.1
+- Changed the minimum Laravel 13 version to v13.12
+- Changed the minimum konekt/address module requirement to v3.9 (adds the `notes` field to addresses)
+- Dropped MySQL 5.7 support (it still works, but it is no longer included in the CI tests)
+- Dropped MySQL 8.0 support (it still works, but it is no longer included in the CI tests)
+- Added explicit MySQL 8.4 support (being actively tested against in the CI)
+- Added the konekt/xtend package dependency (v2.0) to the contracts and support modules
+- Added vanilo/support dependency to the adjustments module
+- Added the `Rounding` class that acts as a system-wide, configurable rounding handler
+- Added rounding to all tax and the percentage discount adjusters (via Support\Rounding)
+- Added the `is_active` field to the `Taxon` model/table
+- Added the `activeRootLevelTaxons()` method to the `Taxonomy` model
+- Added the `activeChildren` relationship to the `Taxon` model
+- Added the `excerpt` and `description` fields to the `Property` model/table
+- BC: Added the `getCart()` method to the `CartItem` interface
+- Added the `LineItem` interface (Contracts)
+- Added the `LineItemType` interface (Contracts)
+- Added the `LineItemTypes` registry class (Support)
+- Added `Taxable` and `Buyable` to the ShippingMethod model (Foundation)
+- Added support for shipping line items, where the Buyable is a ShippingMethod (opt-in via the `foundation.use_shipping_lines` config flag)
+- Added `usage_count` and `last_usage_at` fields to shipping methods
+- Added the update of shipping method's usage count both for line-based and adjustment-based shipping fee modes
+- Added the `feature()`, `feature_is_enabled()`, and `feature_is_disabled()` helpers
+- Added the `WITHDRAWN` order status
+- Added the `OrderStateChangedToPending` and `OrderWasWithdrawn` events
+- Added the `taxonsIn()` and `firstTaxonIn()` methods to the `HasTaxons` trait.
+- Changed the order of tax and promotion calculations so that promotions are applied before taxes
+- Changed the Postgres testing policy to use v15 and v18
+- Changed the Tax adjusters to take the adjusted amount as base for the tax calculation (taking discounts and other adjustments into account)
+- BC: Added the `total()` method to the `Adjustable` interface
+- BC: Changed the implementation of the `TaxCalculators` to comply with the Extend's Registry interface
+- BC: Changed the `TaxCalculator` interface method signatures:
+  - The `calculate()` method now requires the `$subject` argument to be an instance of `Adjustable` (instead of `?object`)
+  - The `getAdjuster()` method has `?Adjuster` return type instead of `?object`
+  - The interface extends the `Registerable` interface
+- BC: Changed the `TaxEngineDriver` interface to extend the `Registerable` interface
+- BC: Changed the OrderFactory to use `ref`/`parent_ref` fields internally, instead of `id`/`parent_id` for setting `order_item.parent_id` relationships on the fly
+- Changed the OrderFactory to remove the `ref`, `parent_ref`, and `parent_id` fields from raw order items before saving them to the database. These fields are not persisted and should only be used internally.
+- Fixed errors in a possible race condition scenario (cart, adjustments)
+- Fixed the stale data issue when removing adjustments by type from a relation-based adjustment collection
+
+---
+
 ## 5.0.0
 ##### 2025-09-03
 

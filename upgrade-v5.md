@@ -61,7 +61,7 @@ Vanilo 5 requires the following versions of the payment gateway drivers:
 - vanilo/adyen: `^4.0`
 - vanilo/braintree: `^3.0`
 - vanilo/mollie: `^3.0`
-- vanilo/netopia: `^4.0`
+- vanilo/netopia: `^3.0`
 - vanilo/euplatesc: `^5.0`
 
 ### Interface Changes
