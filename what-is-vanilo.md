@@ -28,21 +28,14 @@ face unexpected breaking changes.
 
 ![1082 tests, 601011 assertions](img/_test_ci_v60.webp)
 
-## Why Another E-commerce Package?
-
-Shortly, because back in 2017 there was no decent one **particularly for Laravel**. There's a slightly
-longer
-[article on medium](https://medium.com/@attilafulop/e-commerce-platform-for-laravel-c09a2bcfe8c6)
-about why it came to life.
-
 ## Alternatives
 
-| Name                                         | Based on            | Version (Sep 2026) |
+| Name                                         | Based on            | Version (Nov 2026) |
 |:---------------------------------------------|:--------------------|:-------------------|
-| Vanilo                                       | Laravel 12-13       | 6.0                |
-| [Lunar](https://lunarphp.io) (ex GetCandy)   | Laravel 12-13       | 1.5                |
-| [Bagisto](https://bagisto.com/en/)           | Laravel 12          | 2.4                |
-| [Aimeos](https://aimeos.org/)                | Laravel 10-13       | 2026.04.1          |
-| [Sylius](http://sylius.org/)                 | Symfony 6.4+/7.4+/8 | 2.2.9              |
+| Vanilo                                       | Laravel 12-13       | 6.1                |
+| [Lunar](https://lunarphp.io) (ex GetCandy)   | Laravel 12-13       | 1.5 / 2.0-alpha                |
+| [Bagisto](https://bagisto.com/en/)           | Laravel 13          | 2.5                |
+| [Aimeos](https://aimeos.org/)                | Laravel 10-13       | 2026.10.5          |
+| [Sylius](http://sylius.org/)                 | Symfony 6.4+/7.4+/8.0 | 2.3.2              |
 | [ORO Commerce](https://www.orocommerce.com/) | Symfony 7.4         | 7.0                |
 | [Magento](https://magento.com/)              | Laminas Components  | 2.4.9              |

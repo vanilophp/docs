@@ -2,6 +2,20 @@
 
 > For upcoming releases refer to the [Roadmap](roadmap.md).
 
+## 6.1.0
+##### 2026-11-06
+
+- Added MySQL 9.7 support
+- Added the `cart_id` field to the `orders` table along with a unique constraint. The scope is to prevent two orders from a single cart when a race condition occurs.
+- Added the `findByCartId` method to the `Order` model
+- Added the **Snapshot** module
+- Added the `issuedRequests` relation to the `Payment` model
+- Added the opt-in `RestoresPaymentRequestFromSnapshot` interface
+- Added file attachment support (via the `attachments` media collection) to the Foundation `Product`, `MasterProduct` and `MasterProductVariant` models
+- Added support for configurable thousand separator (`vanilo.foundation.currency.thousand_separator`) used by the `format_price()` helper function
+- Changed the minimum Laravel versions to v12.69.0 and v13.30, respectively
+- Fixed a rare cart bug where, with `preserve_for_user` and `merge_duplicates` enabled, merging on login picked the current session cart instead of the previous one
+
 ## 6.0.0
 ##### 2026-09-25
 

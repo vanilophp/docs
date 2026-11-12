@@ -2,7 +2,7 @@
 
 ## Requirements
 
-- Vanilo 6 requires PHP 8.4 or higher and Laravel 12.62+ or 13.12+
+- Vanilo 6 requires PHP 8.4 or higher and Laravel 12.69+ or 13.30+
 - json, openssl, PDO, mbstring, tokenizer, xml, ctype PHP extensions
 - Supported database engines<sup>*</sup>:
     - **MySQL 8.4<sup>1</sup>** or higher,
@@ -12,7 +12,7 @@
 
 > <sup>*</sup> JSON field types are used, therefore, make sure to use at least the required minimum
 > version of your preferred DB engine.  
-> <sup>1</sup> MySQL 5.7 and 8.0 are still working with Vanilo as of September 2026, but since they are [EOL](https://endoflife.date/mysql), we no longer actively test them.  
+> <sup>1</sup> MySQL 5.7 and 8.0 are still working with Vanilo as of November 2026, but since they are [EOL](https://endoflife.date/mysql), we no longer actively test them.  
 > <sup>2</sup> Postgres 15 or higher is recommended due to earlier versions' [end of life](https://endoflife.date/postgresql)
 
 ### With Composer
@@ -52,23 +52,24 @@ The following [Concord](concord.md) modules should be installed now:
 | 1.  | Konekt User Module           | Module | 3.2.0   | konekt.user           | Konekt\User          |
 | 2.  | Konekt Address Module        | Module | 3.9.0   | konekt.address        | Konekt\Address       |
 | 3.  | Konekt Customer Module       | Module | 3.7.0   | konekt.customer       | Konekt\Customer      |
-| 4.  | Vanilo Adjustments Module    | Module | 6.0.0   | vanilo.adjustments    | Vanilo\Adjustments   |
-| 5.  | Vanilo Category Module       | Module | 6.0.0   | vanilo.category       | Vanilo\Category      |
-| 6.  | Vanilo Product Module        | Module | 6.0.0   | vanilo.product        | Vanilo\Product       |
-| 7.  | Vanilo Properties Module     | Module | 6.0.0   | vanilo.properties     | Vanilo\Properties    |
-| 8.  | Vanilo Channel Module        | Module | 6.0.0   | vanilo.channel        | Vanilo\Channel       |
-| 9.  | Vanilo Cart Module           | Module | 6.0.0   | vanilo.cart           | Vanilo\Cart          |
-| 10. | Vanilo Checkout Module       | Module | 6.0.0   | vanilo.checkout       | Vanilo\Checkout      |
-| 11. | Vanilo Order Module          | Module | 6.0.0   | vanilo.order          | Vanilo\Order         |
-| 12. | Vanilo Payment Module        | Module | 6.0.0   | vanilo.payment        | Vanilo\Payment       |
-| 13. | Vanilo Links Module          | Module | 6.0.0   | vanilo.links          | Vanilo\Links         |
-| 14. | Vanilo Master Product Module | Module | 6.0.0   | vanilo.master_product | Vanilo\MasterProduct |
-| 15. | Vanilo Shipment Module       | Module | 6.0.0   | vanilo.shipment       | Vanilo\Shipment      |
-| 16. | Vanilo Taxes Module          | Module | 6.0.0   | vanilo.taxes          | Vanilo\Taxes         |
-| 17. | Vanilo Promotion Module      | Module | 6.0.0   | vanilo.promotion      | Vanilo\Promotion     |
-| 18. | Vanilo Video Module          | Module | 6.0.0   | vanilo.video          | Vanilo\Video         |
-| 19. | Vanilo Translation Module    | Module | 6.0.0   | vanilo.translation    | Vanilo\Translation   |
-| 20. | Vanilo Foundation            | Box    | 6.0.0   | vanilo.foundation     | Vanilo\Foundation    |
+| 4.  | Vanilo Adjustments Module    | Module | 6.1.0   | vanilo.adjustments    | Vanilo\Adjustments   |
+| 5.  | Vanilo Category Module       | Module | 6.1.0   | vanilo.category       | Vanilo\Category      |
+| 6.  | Vanilo Product Module        | Module | 6.1.0   | vanilo.product        | Vanilo\Product       |
+| 7.  | Vanilo Properties Module     | Module | 6.1.0   | vanilo.properties     | Vanilo\Properties    |
+| 8.  | Vanilo Channel Module        | Module | 6.1.0   | vanilo.channel        | Vanilo\Channel       |
+| 9.  | Vanilo Cart Module           | Module | 6.1.0   | vanilo.cart           | Vanilo\Cart          |
+| 10. | Vanilo Checkout Module       | Module | 6.1.0   | vanilo.checkout       | Vanilo\Checkout      |
+| 11. | Vanilo Order Module          | Module | 6.1.0   | vanilo.order          | Vanilo\Order         |
+| 12. | Vanilo Payment Module        | Module | 6.1.0   | vanilo.payment        | Vanilo\Payment       |
+| 13. | Vanilo Links Module          | Module | 6.1.0   | vanilo.links          | Vanilo\Links         |
+| 14. | Vanilo Master Product Module | Module | 6.1.0   | vanilo.master_product | Vanilo\MasterProduct |
+| 15. | Vanilo Shipment Module       | Module | 6.1.0   | vanilo.shipment       | Vanilo\Shipment      |
+| 16. | Vanilo Snapshot Module       | Module | 6.1.0   | vanilo.snapshot       | Vanilo\Snapshot      |
+| 17. | Vanilo Taxes Module          | Module | 6.1.0   | vanilo.taxes          | Vanilo\Taxes         |
+| 18. | Vanilo Promotion Module      | Module | 6.1.0   | vanilo.promotion      | Vanilo\Promotion     |
+| 19. | Vanilo Video Module          | Module | 6.1.0   | vanilo.video          | Vanilo\Video         |
+| 20. | Vanilo Translation Module    | Module | 6.1.0   | vanilo.translation    | Vanilo\Translation   |
+| 21. | Vanilo Foundation            | Box    | 6.1.0   | vanilo.foundation     | Vanilo\Foundation    |
 +-----+------------------------------+--------+---------+-----------------------+----------------------+
 ```
 
