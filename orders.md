@@ -50,7 +50,7 @@ OrderStatus::values();
 //   ]
 ```
 
-Beginning with v2.1, it is possible to obtain whether an order status is open:
+It is also possible to obtain whether an order status is open:
 
 ```php
 $order->status->isOpen();

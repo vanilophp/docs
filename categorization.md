@@ -121,8 +121,6 @@ $brands = Taxonomy::findOneByName('Brands');
 
 ### By Slug
 
-> Added in v2.1
-
 There's a dedicated static method to retrieve a single taxonomy by slug:
 
 ```php
@@ -409,8 +407,6 @@ echo $tablets->lastNeighbour(true)->name;
 ### Retrieving Taxons (Scopes)
 
 #### Easy Retrieval By Slug(s)
-
-> Added in v2.1
 
 There is a static convenience method called `Taxon::findOneByParentsAndSlug()` to locate a taxon
 based on its and its parents' slug. These methods can be handy in Controller contexts where

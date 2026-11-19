@@ -1,7 +1,5 @@
 # Links Module
 
-> The Links Module has been first released with [Vanilo v3.0](releases.md).
-
 ## Introduction
 
 **Links** is a generic feature to handle various use cases where it is required

@@ -1,7 +1,5 @@
 # Master Products
 
-> The master products feature is scheduled to be released with [Vanilo 3.1](roadmap.md)
-
 Master products is a module to constitute [Product Variants](product-variants.md) using
 the [model based, hierarchical approach](product-variants.md#the_two_approaches).
 

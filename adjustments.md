@@ -1,7 +1,5 @@
 # Adjustments
 
-> The Adjustments Module has been first released with [Vanilo v3.1](releases.md).
-
 ## Overview
 
 "Adjustments" is an abstract concept at first sight, but it solves a few

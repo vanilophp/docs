@@ -1,7 +1,5 @@
 # Shipping
 
-> The Shipment Module has been released with [Vanilo v3.0](releases.md).
-
 ## Overview
 
 The shipment module was designed to support the

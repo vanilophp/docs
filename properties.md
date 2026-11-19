@@ -224,15 +224,13 @@ $color = Property::findBySlug('color');
 $whiteColor = PropertyValue::byProperty($color)->whereSlug('white')->first();
 ```
 
-Since Vanilo v3.1 there's a simplified finder method available:
+There's also a simplified finder method available:
 
 ```php
 $red = PropertyValue::findByPropertyAndValue('color', 'red');
 ```
 
 ### Retrieving Multiple Values By Their Scalar Values
-
-> This method is available since v4.0
 
 It is possible to query property values using the scalar key/value pairs, where the key is the slug of the property,
 and the value is the value of the property.
@@ -355,8 +353,7 @@ $goldColor = PropertyValue::findByPropertyAndValue('color', 'gold');
 $product->addPropertyValue($goldColor)
 ```
 
-Beginning with Vanilo v3.1, you can also use simplified methods to assign property values,
-without fetching property records from the database:
+You can also use simplified methods to assign property values,  without fetching property records from the database:
 
 ```php
 // To assign a single property:
@@ -370,8 +367,6 @@ $product->assignPropertyValues([
 ```
 
 ### Obtain The Value Of A Property On A Model
-
-> This method was added in Vanilo v3.1:
 
 ```php
 $product = Product::findBySlug('iphone-13-pro-128gb-5g-gold');
@@ -407,7 +402,7 @@ $product->propertyValues()->sync([1, 3, 22]);
 // 1, 3 and 22 are the ids of property values
 ```
 
-Since Vanilo v4.0, it is also possible to sync the assigned property values using scalar key/value pairs:
+It is also possible to sync the assigned property values using scalar key/value pairs:
 
 ```php
 // Assigns two property values:

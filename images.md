@@ -17,11 +17,11 @@ The [contracts](https://github.com/vanilophp/contracts) package defines the `Has
 that has 6 image related methods:
 
 1. `hasImage(): bool`
-2. `imageCount(): int` (since v2.1)
+2. `imageCount(): int`
 3. `getThumbnailUrl(): ?string`
-4. `getThumbnailUrls(): Collection` (since v2.1)
+4. `getThumbnailUrls(): Collection`
 5. `getImageUrl(string $variant = ''): ?string`
-6. `getImageUrls(string $variant = ''): Collection` (since v2.1)
+6. `getImageUrls(string $variant = ''): Collection`
 
 The [support](https://github.com/vanilophp/support) package offers the `HasImagesFromMediaLibrary`
 trait that can be added to any Eloquent Model. The trait implements the 6 methods listed above from
