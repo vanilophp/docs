@@ -63,8 +63,6 @@ items that is being delivered at once or handled as a single unit
 If the delivery of an order is split into multiple shipments, then each
 shipment will have a new entry in the database.
 
-> TO BE FINALIZED BY 9th March, 2022
-
 ## Shipping Categories
 
 Shipping categories are used to group products with similar shipping rules, such as weight restrictions,
